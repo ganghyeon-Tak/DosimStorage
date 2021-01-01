@@ -95,4 +95,7 @@ hs_err_pid
 # JDT-specific (Eclipse Java Development Tools)     
 .classpath
 
+# Eclipse Core      
+.project
+
 # End of httpswww.toptal.comdevelopersgitignoreapieclipse,java
