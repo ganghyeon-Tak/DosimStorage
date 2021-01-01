@@ -92,7 +92,6 @@ local.properties
 # virtual machine crash logs, see httpwww.java.comendownloadhelperror_hotspot.xml
 hs_err_pid
 
-# JDT-specific (Eclipse Java Development Tools)     
-.classpath
+
 
 # End of httpswww.toptal.comdevelopersgitignoreapieclipse,java
