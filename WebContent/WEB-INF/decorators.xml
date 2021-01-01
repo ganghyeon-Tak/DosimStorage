@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
 <decorators defaultdir="/WEB-INF/decorator">
 	<decorator name="main" page="main_decorator.jsp">		
 		<pattern>/*.do</pattern>
