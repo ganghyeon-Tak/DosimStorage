@@ -1,8 +1,8 @@
 package model;
 
 public class Master {
-	public String master_id;
-	public String master_pw;
+	private String master_id;
+	private String master_pw;
 
 	public String getMaster_id() {
 		return master_id;
