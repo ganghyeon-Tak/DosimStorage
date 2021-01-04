@@ -14,6 +14,5 @@ public class Service {
 	}
 	public void setS_price(int s_price) {
 		this.s_price = s_price;
-	}
-	
+	}	
 }
