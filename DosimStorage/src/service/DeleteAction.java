@@ -12,9 +12,9 @@ public class DeleteAction implements CommandProcess {
 		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("m_id");
 		MemberDao md = MemberDao.getInstance();
-		int result = md.delete(m_id); // memberDao에 delete메소드없어서 빨간줄
+		int result = md.delete(m_id);
 		if (result > 0) 
-			session.invalidate(); // 세션날리기
+			session.invalidate();
 		request.setAttribute("result", result);
 		return "delete";
 	}
