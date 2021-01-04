@@ -1,6 +1,8 @@
-package board;
+package model;
+
 import java.sql.Date;
-public class Board {
+
+public class Board1 {
 	private int num;
 	private String writer;
 	private String subject;
