@@ -4,7 +4,7 @@
 <configuration>
 <properties resource="db.properties"/>
 <typeAliases>
-	<typeAlias alias="customer" type="model.Customer" />	
+	<typeAlias alias="member" type="model.Member" />	
 </typeAliases>
 <environments default="development">
 	<environment id="development">
@@ -18,6 +18,6 @@
 </environment>
 </environments>
 <mappers>
-	<mapper resource="customer.xml" />	
+	<mapper resource="member.xml" />	
 </mappers>
 </configuration>
