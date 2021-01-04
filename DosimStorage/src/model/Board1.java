@@ -1,5 +1,6 @@
 package model;
 import java.sql.Date;
+
 public class Board1 {
 	private int num;
 	private String writer;
