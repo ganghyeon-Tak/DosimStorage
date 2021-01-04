@@ -11,6 +11,9 @@
 <div>
 	<form action="orderAction.do" method="post">
 		<h2>지점 선택</h2>
+		<button type="button" style="background-color: #fff; padding: 0; border: none;"><img src="images/b1.png" height="236" width="300" ></button>
+		<button type="button" style="background-color: #fff; padding: 0; border: none;"><img src="images/b2.png" height="236" width="300"></button>
+		<button type="button" style="background-color: #fff; padding: 0; border: none;"><img src="images/b3.png" height="236" width="300"></button>
 	</form>
 </div>
 </body>

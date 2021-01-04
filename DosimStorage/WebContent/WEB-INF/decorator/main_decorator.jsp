@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<deco:head/>
 </head>
 <body>
 <nav>
