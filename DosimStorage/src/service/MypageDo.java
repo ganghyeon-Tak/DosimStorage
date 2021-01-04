@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import dao.MemberDao;
 import model.Member;
 
-public class MypageAction implements CommandProcess {
+public class MypageDo implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();

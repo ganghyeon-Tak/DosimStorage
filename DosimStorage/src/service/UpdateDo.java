@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.MemberDao;
 import model.Member;
 
-public class UpdateAction implements CommandProcess {
+public class UpdateDo implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		String m_id = request.getParameter("m_id");
@@ -24,7 +24,7 @@ public class UpdateAction implements CommandProcess {
 		member.setM_tel(m_tel);
 		int result = md.update(member); // memberDao에 update메소드없어서 빨간줄
 		request.setAttribute("result", result);
-		return "updateAction";
+		return "update";
 	}
 
 }
