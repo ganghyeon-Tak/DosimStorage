@@ -33,7 +33,7 @@ public class MemberDao {
 		return session.insert("memberns.insert",ds_member);
 	}
 	public Member select(String m_id) {
-		return (Member)session.selectOne("ds_memberns.select", m_id);
+		return (Member)session.selectOne("memberns.select", m_id);
 	}
 	
 	
