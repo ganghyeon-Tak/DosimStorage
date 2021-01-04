@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="deco" uri="http://www.opensymphony.com/sitemesh/decorator" %>
+<%@ include file="sessionChk.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,17 +18,13 @@
 		<th><a href="dosimStorage.do">도심창고</a></th>
 		<th><a href="selStorage.do">신청하기</a></th>
 		<th><a href="branchInfo.do">지점안내</a></th>
-		<th><a href="loginForm.do">로그인</a></th>
-		<th><a href="joinForm.do">회원가입</a></th>
+		<th><a href="board.do">고객센터</a></th>
+		<th><a href="myPage.do">마이페이지</a></th>
 	</tr>
 </table>
 </nav>
 <section>
-<deco:body></deco:body>
-<hr>
-<a href="event1.jsp">*</a>
-<a href="event2.jsp">*</a>
-<a href="event3.jsp">*</a>
+
 </section>
 <footer>
 <div>
