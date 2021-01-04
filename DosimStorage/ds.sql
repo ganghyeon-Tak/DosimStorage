@@ -211,7 +211,7 @@ CREATE TABLE ds_board2 (
 	ref       NUMBER        NOT NULL, -- 참조번호
 	ref_level NUMBER        NOT NULL, -- 참조레벨
 	reg_date  DATE          NOT NULL, -- 작성일
-	private   CHAR(1)       NOT NULL, -- 비밀글
+	priv   CHAR(1)       NOT NULL, -- 비밀글
 	reply     CHAR(1)       NULL, -- 답변여부
 	del       CHAR(1)       NOT NULL -- 삭제여부
 );
