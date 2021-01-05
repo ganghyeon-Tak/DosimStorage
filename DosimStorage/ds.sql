@@ -348,7 +348,7 @@ insert into DS_BRANCH values('3', '판교점', '031-678-9123', '경기도 성남
 
 	-- 창고서비스
 insert into DS_SERVICE values('small', 30000);
-insert into DS_SERVICE values('middle', 50000);
+insert into DS_SERVICE values('medium', 50000);
 insert into DS_SERVICE values('large', 100000);
 
 	-- 창고목록. 아직 창고목록 insert가 만들어지지 않아서 수동으로 다 등록해야한다	
@@ -364,17 +364,17 @@ insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s108', 1, 'small');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s109', 1, 'small');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s110', 1, 'small');
 
-		-- 광화문점 middle 창고들
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m101', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m102', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m103', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m104', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m105', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m106', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m107', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m108', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m109', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m110', 1, 'middle');
+		-- 광화문점 medium 창고들
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m101', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m102', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m103', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m104', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m105', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m106', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m107', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m108', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m109', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m110', 1, 'medium');
 
 		-- 광화문점 large 창고들
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l101', 1, 'large');
@@ -401,17 +401,17 @@ insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s208', 2, 'small');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s209', 2, 'small');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s210', 2, 'small');
 
-		-- 신사점 middle 창고들
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m201', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m202', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m203', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m204', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m205', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m206', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m207', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m208', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m209', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m210', 2, 'middle');
+		-- 신사점 medium 창고들
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m201', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m202', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m203', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m204', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m205', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m206', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m207', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m208', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m209', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m210', 2, 'medium');
 
 		-- 신사점 large 창고들
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l201', 2, 'large');
@@ -437,17 +437,17 @@ insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s308', 3, 'small');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s309', 3, 'small');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s310', 3, 'small');
 
-		-- 판교점 middle 창고들
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m301', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m302', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m303', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m304', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m305', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m306', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m307', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m308', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m309', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m310', 3, 'middle');
+		-- 판교점 medium 창고들
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m301', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m302', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m303', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m304', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m305', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m306', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m307', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m308', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m309', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m310', 3, 'medium');
 
 		-- 판교점 large 창고들
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l301', 3, 'large');
