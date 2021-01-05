@@ -22,6 +22,6 @@
 <mappers>
 	<mapper resource="member.xml" />
 	<mapper resource="account.xml" />
-	<mapper resource="orderList.mxl">
+	<mapper resource="orderList.xml" />
 </mappers>
 </configuration>
