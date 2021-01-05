@@ -73,13 +73,13 @@
 <div>
 	<form action="order.do" method="post" name="order_form">
 		<h2>지점 선택</h2>
-		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(1)">
+		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(1)" ondrag="select_branch(1)">
 			<img src="images/b1.png" height="236" width="300" >
 		</button>
-		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(2)">
+		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(2)" ondrag="select_branch(2)">
 			<img src="images/b2.png" height="236" width="300">
 		</button>
-		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(3)">
+		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(3)" ondrag="select_branch(3)">
 			<img src="images/b3.png" height="236" width="300">
 		</button>
 		<!-- 라디오버튼은 나중에 히든 처리 -->
@@ -88,13 +88,13 @@
 		<input type="radio" name="branch" value="3" id="select_3">
 		
 		<h2>창고 종류 선택</h2>
-		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('small')">
+		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('small')" ondrag="select_storage('small')">
 			<img src="https://via.placeholder.com/300.png" height="236" width="300" >
 		</button>
-		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('middle')">
+		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('middle')" ondrag="select_storage('middle')">
 			<img src="https://via.placeholder.com/300.png" height="236" width="300">
 		</button>
-		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('large')">
+		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('large')" ondrag="select_storage('large')">
 			<img src="https://via.placeholder.com/300.png" height="236" width="300">
 		</button>
 		<!-- 라디오버튼은 나중에 히든 처리 -->
