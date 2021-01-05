@@ -5,15 +5,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.OrderDao;
 
-public class BankDo implements CommandProcess {
+public class Bank1Do implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		String bank = request.getParameter("bank");			
 		OrderDao ad = OrderDao.getInstance();
-		String account = ad.select_ac(bank);		
-		request.setAttribute("account", account);
-		return "bank";
+		String account_name = ad.select_an(bank);		
+		request.setAttribute("account_name", account_name);
+		return "bank1";
 	}
 
 }

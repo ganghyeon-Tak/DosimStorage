@@ -9,7 +9,10 @@
 	</resultMap>	
 	<select id="select_ac" parameterType="string" resultType="string">
 		select account_no from ds_account where bank=#{bank}		
-	</select>	
+	</select>
+	<select id="select_an" parameterType="string" resultType="string">
+		select account_name from ds_account where bank=#{bank}		
+	</select>		
 </mapper>
 
 

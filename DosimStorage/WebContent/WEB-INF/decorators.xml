@@ -5,6 +5,8 @@
 		<pattern>/*.do</pattern>
 	</decorator>	
 	<excludes>
-		<pattern></pattern>		
+		<pattern>/bank.do</pattern>
+		<pattern>/bank1.do</pattern>	
 	</excludes>
+	
 </decorators>
