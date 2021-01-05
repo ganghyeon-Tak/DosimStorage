@@ -4,6 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	@import url("common.css");
+</style>
 
 <title>신청하기</title>
 <script type="text/javascript">

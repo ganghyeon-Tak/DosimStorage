@@ -16,8 +16,8 @@ public class MainAfter implements CommandProcess {
 		String m_id = (String)session.getAttribute("m_id");
 		MemberDao md = MemberDao.getInstance();
 		if (m_id != null) {
-			Member ds_member = md.select(m_id);
-			request.setAttribute("ds_member", ds_member);
+			Member member = md.select(m_id);
+			request.setAttribute("member", member);
 		}
 		return "mainAfter";
 	}

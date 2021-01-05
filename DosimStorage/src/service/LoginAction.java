@@ -14,11 +14,11 @@ public class LoginAction implements CommandProcess {
 		String m_id = request.getParameter("m_id");
 		String m_pw = request.getParameter("m_pw");
 		MemberDao md = MemberDao.getInstance();
-		Member ds_member = md.select(m_id);
+		Member member = md.select(m_id);
 		
-		if (ds_member == null || ds_member.getM_del().equals("y")) result = -1;
+		if (member == null || member.getM_del().equals("y")) result = -1;
 		else {
-			String dbPass = ds_member.getM_pw();
+			String dbPass = member.getM_pw();
 			if (dbPass.equals(m_pw)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("m_id", m_id);
