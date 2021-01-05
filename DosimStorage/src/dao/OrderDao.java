@@ -19,7 +19,7 @@ public class OrderDao {
 	static {  // 클래스변수 초기화 블럭
 		try {  // myBatis를 이용해서 DB를 연동
 			Reader reader =
-				Resources.getResourceAsReader("configulation.xml");
+				Resources.getResourceAsReader("configuration.xml");
 			SqlSessionFactory ssf = 
 				new SqlSessionFactoryBuilder().build(reader);
 			session = ssf.openSession(true);
