@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="deco" uri="http://www.opensymphony.com/sitemesh/decorator" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,15 +10,16 @@
 <deco:head/>
 </head>
 <body>
+<!-- if else 처리 12장 참고 --> 
 <nav>
 <table>
 	<tr>
 		<th><a href="main.do">HOME</a></th>
 		<th><a href="dosimStorage.do">도심창고</a></th>
 		<th><a href="orderForm.do">신청하기</a></th>
-		<th><a href="branchInfo.do">지점안내</a></th>
-		<th><a href="board.do">고객센터</a></th>
-		<th><a href="myPage.do">마이페이지</a></th>
+		<th><a href="branchInfo.do">지점안내</a></th>	
+		<th><a href="loginForm.do">로그인</a></th>
+		<th><a href="joinForm.do">회원가입</a></th>
 	</tr>
 </table>
 </nav>

@@ -22,7 +22,7 @@
 	function idChk() {
 		if (!frm.m_id.value) {
 			alert("아이디 입력한 후에 체크하시오");
-			frm.m_id.focus(); 
+			frm.m_id.focus();
 			return false;
 			}
 		$.post('idChk.do', "m_id="+frm.m_id.value, function(data) {

@@ -5,6 +5,6 @@
 		<pattern>/*.do</pattern>
 	</decorator>	
 	<excludes>
-		<pattern></pattern>		
+		<pattern>/idChk.do</pattern>		
 	</excludes>
 </decorators>
