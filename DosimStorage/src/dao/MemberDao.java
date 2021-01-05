@@ -29,12 +29,17 @@ public class MemberDao {
 			System.out.println("초기화에러 : "+e.getMessage());
 		}
 	}
-	public int insert(Member ds_member) {
-		return session.insert("memberns.insert",ds_member);
+	public int insert(Member member) {
+		return session.insert("memberns.insert",member);
 	}
 	public Member select(String m_id) {
 		return (Member)session.selectOne("memberns.select", m_id);
 	}
-	
+	public int update(Member member) {
+		return session.update("memberns.update", member);
+	}
+	public int delete(String m_id) {
+		return session.update("memberns.delete", m_id);
+	}
 	
 }
