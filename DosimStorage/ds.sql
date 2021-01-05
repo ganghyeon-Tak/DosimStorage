@@ -347,6 +347,6 @@ insert into DS_BRANCH values('2', '신사점', '02-891-2345', '서울특별시 �
 insert into DS_BRANCH values('3', '판교점', '031-678-9123', '경기도 성남시 분당구 판교로 37');
 
 	--창고서비스
-insert into DS_SERVICE values('small', '30000');
-insert into DS_SERVICE values('middle', '50000');
-insert into DS_SERVICE values('large', '100000');
+insert into DS_SERVICE values('small', 30000);
+insert into DS_SERVICE values('middle', 50000);
+insert into DS_SERVICE values('large', 100000);
