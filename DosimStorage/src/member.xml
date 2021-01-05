@@ -20,7 +20,7 @@
 		update ds_member set m_pw=#{m_pw},m_name=#{m_name},m_email=#{m_email},m_tel=#{m_tel} where m_id=#{m_id}
 	</update>
 	<update id="delete" parameterType="string">
-		update ds_member set m_del='y' where id=#{id}
+		update ds_member set m_del='y' where m_id=#{m_id}
 	</update>
 </mapper>
 </mapper>
