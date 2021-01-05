@@ -33,4 +33,7 @@ public class OrderDao {
 	public String select_ac(String bank) {
 		return (String)session.selectOne("accountns.select_ac", bank);
 	}
+	public String select_an(String bank) {
+		return (String)session.selectOne("accountns.select_an", bank);
+	}
 }
