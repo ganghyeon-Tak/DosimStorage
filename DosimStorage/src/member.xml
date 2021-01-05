@@ -23,6 +23,5 @@
 		update ds_member set m_del='y' where m_id=#{m_id}
 	</update>
 </mapper>
-</mapper>
 
 
