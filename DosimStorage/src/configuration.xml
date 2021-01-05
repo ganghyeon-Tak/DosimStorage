@@ -5,7 +5,8 @@
 <properties resource="db.properties"/>
 <typeAliases>
 	<typeAlias alias="member" type="model.Member" />
-	<typeAlias alias="account" type="model.Account" />	
+	<typeAlias alias="account" type="model.Account" />
+	<typeAlias alias="orderList" type="model.OrderList"/>
 </typeAliases>
 <environments default="development">
 	<environment id="development">
@@ -20,6 +21,7 @@
 </environments>
 <mappers>
 	<mapper resource="member.xml" />
-	<mapper resource="account.xml" />	
+	<mapper resource="account.xml" />
+	<mapper resource="orderList.mxl">
 </mappers>
 </configuration>
