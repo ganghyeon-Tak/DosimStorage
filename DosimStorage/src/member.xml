@@ -12,7 +12,7 @@
 		<result property="total_use"  	column="total_use"/>
 		<result property="m_del" column="joindate"/>
 	</resultMap>
-	
+
 	<select id="select" parameterType="string" resultType="member">
 		select * from ds_member where m_id=#{m_id}
 	</select>

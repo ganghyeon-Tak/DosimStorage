@@ -13,6 +13,7 @@ public class IdChk implements CommandProcess {
 		String msg = "";
 		if (member == null) msg="사용가능한 아이디입니다";
 		else msg="사용중이니 다른 아이디를 쓰시오";
+		
 		request.setAttribute("msg", msg);
 		return "idChk";
 	}
