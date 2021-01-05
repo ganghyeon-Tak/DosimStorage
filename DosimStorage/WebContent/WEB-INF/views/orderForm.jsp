@@ -38,20 +38,20 @@
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
 				if (xhr.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
-					order_frame.account_no.innerHTML = xhr.responseText;
+					order_form.account_no.innerText = xhr.responseText;
 				} else {
 					alert('요청오류: '+xhr.status);
 				}				
 			}
 		}
 		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		xhr.send("bank="+frm.id.value);
+		xhr.send("bank="+order_form.bank.value);
 	}
 </script>
 </head>
 <body>
 <div>
-	<form action="order.do" method="post" name="order_frame">
+	<form action="order.do" method="post" name="order_form">
 		<h2>지점 선택</h2>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(1)"><img src="images/b1.png" height="236" width="300" ></button>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(2)"><img src="images/b2.png" height="236" width="300"></button>
@@ -85,7 +85,8 @@
 			<option value="12">12 개월</option>
 		</select>
 		<h2>결제방법</h2>
-		<p>무통장 입금	<select onchange="get_account(this.value)">
+		<p>무통장 입금	<select onchange="get_account(this.value)" name="bank">
+							<option key="default-empty" hidden></option>
 							<option>국민은행</option>
 							<option>신한은행</option>
 							<option>카카오뱅크</option>

@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+
+
 public class OrderDao {
 	// singleton
 	private static OrderDao instance = new OrderDao();
@@ -28,4 +30,7 @@ public class OrderDao {
 		}
 	}	
 	
+	public String select_ac(String bank) {
+		return (String)session.selectOne("accountns.select_ac", bank);
+	}
 }
