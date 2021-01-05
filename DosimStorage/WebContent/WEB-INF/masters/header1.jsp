@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h2> 도시창고 관리자 전용 페이지</h2>
 </body>
 </html>
