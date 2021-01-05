@@ -38,7 +38,7 @@
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
 				if (xhr.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
-					document.getElementById('err').innerHTML = xhr.responseText;
+					order_frame.account_no.innerHTML = xhr.responseText;
 				} else {
 					alert('요청오류: '+xhr.status);
 				}				
@@ -91,7 +91,8 @@
 							<option>카카오뱅크</option>
 						</select>
 		</p>
-		<p></p>
+		<p>계좌번호: <input type="text" readonly="readonly" name="account_no"></p>
+		<p>예금주: <input type="text"></p>
 		<p>실시간 계좌이체 및 카드결제는 준비중입니다</p>
 		<button>신청하기</button>
 	</form>
