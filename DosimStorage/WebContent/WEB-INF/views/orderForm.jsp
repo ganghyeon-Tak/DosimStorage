@@ -7,6 +7,7 @@
 
 <title>신청하기</title>
 <script type="text/javascript">
+	var xhr;
 	function select_branch(b_code) {
 		switch(b_code) {
 		case 1:
@@ -30,6 +31,21 @@
 		case 'large':
 			document.getElementById('select_large').checked = true;
 		}		
+	}
+	function get_account(bank) {
+		xhr = new XMLHttpRequest();
+		xhr.open("post","bank.do",true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
+				if (xhr.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
+					document.getElementById('err').innerHTML = xhr.responseText;
+				} else {
+					alert('요청오류: '+xhr.status);
+				}				
+			}
+		}
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send("bank="+frm.id.value);
 	}
 </script>
 </head>
