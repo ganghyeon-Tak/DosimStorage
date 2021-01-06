@@ -42,5 +42,3 @@
 	<button onclick="location.href='mypage.do'">마이페이지</button>
 </body>
 </html>
-</body>
-</html>
