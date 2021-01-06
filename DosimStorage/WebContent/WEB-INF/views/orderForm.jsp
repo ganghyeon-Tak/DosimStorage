@@ -12,8 +12,10 @@
 
 <title>신청하기</title>
 <script type="text/javascript">
+	
 	var xhr;	// XMLHttpRequest 만들 변수
 	var xhr1;	// XMLHttpRequest 만들 변수
+	
 	function select_branch(b_code) {
 		switch(b_code) {
 		case 1:
@@ -32,12 +34,13 @@
 			document.getElementById('select_small').checked = true;
 			break;
 		case 'middle':
-			document.getElementById('select_middle').checked = true;
+			document.getElementById('select_medium').checked = true;
 			break;
 		case 'large':
 			document.getElementById('select_large').checked = true;
 		}		
 	}
+	// 은행 선택하면 db에서 계좌와 예금주 이름 조회해 표시하는 함수
 	function get_account(bank) {	// jQuery 사용하지않고 비동기 통신하는 js 코드 
 		xhr = new XMLHttpRequest();
 		xhr.open("post","bank.do",true);
@@ -99,7 +102,7 @@
 		</button>
 		<!-- 라디오버튼은 나중에 히든 처리 -->
 		<input type="radio" name="storage" value="small" id="select_small">
-		<input type="radio" name="storage" value="middle" id="select_middle">
+		<input type="radio" name="storage" value="medium" id="select_medium">
 		<input type="radio" name="storage" value="large" id="select_large">
 		<h2>이용기간 선택</h2>
 		<select name="period">

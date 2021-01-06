@@ -4,12 +4,13 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.List;
 
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import model.Stock_view;
+
 
 public class Stock_viewDao {
 	// singleton
