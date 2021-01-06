@@ -462,6 +462,10 @@ insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l309', 3, 'large');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l310', 3, 'large');
 
 
+		-- *** 매진 테스트용 쿼리 ***
+update ds_storage_list set usable = 'n' where b_code = 1 and s_kind = 'medium'; -- 광화문 미디움 매진
+update ds_storage_list set usable = 'n' where b_code = 2 and s_kind = 'small'; -- 신사 스몰 매진
+update ds_storage_list set usable = 'n' where b_code = 3 and s_kind = 'large'; -- 판교 라지 매진
 
 -- 뷰 생성
 

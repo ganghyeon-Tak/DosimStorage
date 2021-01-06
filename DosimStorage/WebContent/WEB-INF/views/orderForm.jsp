@@ -12,21 +12,100 @@
 </style>
 
 <title>신청하기</title>
+
+
 <script type="text/javascript">
-	
-	var xhr;	// XMLHttpRequest 만들 변수
-	var xhr1;	// XMLHttpRequest 만들 변수
+	var xhr2;
+	window.onload = function() {
+		xhr2 = new XMLHttpRequest();
+		xhr2.open("get","stockCheck.do",true);
+		xhr2.onreadystatechange = function() {
+			if (xhr2.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
+				if (xhr2.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
+					document.getElementById('soldout').value = xhr2.responseText;
+				} else {
+					alert('요청오류: '+xhr2.status);
+				}				
+			}
+		}		
+		xhr2.send(null);
+	}
+	var xhr;
+	var xhr1;
 	
 	function select_branch(b_code) {
 		switch(b_code) {
-		case 1:
-			document.getElementById('select_1').checked = true;
+		case 1:	// 광화문점을 선택했을 때
+			document.getElementById('select_1').checked = true;							// 광화문점 라디오버튼 체크
+			if (document.getElementById('soldout').value.includes("small"+b_code)) {// 광화문 s창고 매진이면
+				document.getElementById('select_small').disabled = true;				// s창고 라디오버튼 사용불가
+				document.getElementById('st_button1').src = "images/ss1.png";			// s창고 버튼 매진표시
+			} else {																// 광화문 s창고 매진아니면
+				document.getElementById('select_small').disabled = false;				// s창고 라디오버튼 사용가능
+				document.getElementById('st_button1').src = "images/s1.png";			// s창고 정상버튼 표시
+			}
+			if (document.getElementById('soldout').value.includes("medium"+b_code)) {// 광화문 m창고 매진이면
+				document.getElementById('select_medium').disabled = true;				// m창고 라디오버튼 사용불가
+				document.getElementById('st_button2').src = "images/ss2.png";			// m창고 버튼 매진표시
+			} else {																// 광화문 m창고 매진아니면
+				document.getElementById('select_medium').disabled = false;				// m창고 라디오버튼 사용가능		
+				document.getElementById('st_button2').src = "images/s2.png";			// m창고 정상버튼 표시
+			}
+			if (document.getElementById('soldout').value.includes("large"+b_code)) {// 광화문 l창고 매진이면
+				document.getElementById('select_large').disabled = true;				// l창고 라디오버튼 사용불가
+				document.getElementById('st_button3').src = "images/ss3.png";			// l창고 버튼 매진표시
+			} else {																// 광화문 l창고 매진아니면
+				document.getElementById('select_large').disabled = false;				// l창고 라디오버튼 사용가능
+				document.getElementById('st_button3').src = "images/s3.png";			// l창고 정상버튼 표시
+			}
 			break;
-		case 2:
-			document.getElementById('select_2').checked = true;
+		case 2:	// 신사점을 선택했을 때
+			document.getElementById('select_2').checked = true;							// 신사점 라디오버튼 체크
+			if (document.getElementById('soldout').value.includes("small"+b_code)) {// 신사 s창고 매진이면
+				document.getElementById('select_small').disabled = true;				// s창고 라디오버튼 사용불가
+				document.getElementById('st_button1').src = "images/ss1.png";			// s창고 버튼 매진표시
+			} else {																// 신사 s창고 매진아니면
+				document.getElementById('select_small').disabled = false;				// s창고 라디오버튼 사용가능
+				document.getElementById('st_button1').src = "images/s1.png";			// s창고 정상버튼 표시
+			}
+			if (document.getElementById('soldout').value.includes("medium"+b_code)) {// 신사 m창고 매진이면
+				document.getElementById('select_medium').disabled = true;				// m창고 라디오버튼 사용불가
+				document.getElementById('st_button2').src = "images/ss2.png";			// m창고 버튼 매진표시
+			} else {																// 신사 m창고 매진아니면
+				document.getElementById('select_medium').disabled = false;				// m창고 라디오버튼 사용가능		
+				document.getElementById('st_button2').src = "images/s2.png";			// m창고 정상버튼 표시
+			}
+			if (document.getElementById('soldout').value.includes("large"+b_code)) {// 신사 l창고 매진이면
+				document.getElementById('select_large').disabled = true;				// l창고 라디오버튼 사용불가
+				document.getElementById('st_button3').src = "images/ss3.png";			// l창고 버튼 매진표시
+			} else {																// 신사 l창고 매진아니면
+				document.getElementById('select_large').disabled = false;				// l창고 라디오버튼 사용가능
+				document.getElementById('st_button3').src = "images/s3.png";			// l창고 정상버튼 표시
+			}
 			break;
-		case 3:
-			document.getElementById('select_3').checked = true;
+		case 3:	// 판교점을 선택했을 때
+			document.getElementById('select_3').checked = true;							// 판교점 라디오버튼 체크
+			if (document.getElementById('soldout').value.includes("small"+b_code)) {// 판교 s창고 매진이면
+				document.getElementById('select_small').disabled = true;				// s창고 라디오버튼 사용불가
+				document.getElementById('st_button1').src = "images/ss1.png";			// s창고 버튼 매진표시
+			} else {																// 판교 s창고 매진아니면
+				document.getElementById('select_small').disabled = false;				// s창고 라디오버튼 사용가능
+				document.getElementById('st_button1').src = "images/s1.png";			// s창고 정상버튼 표시
+			}
+			if (document.getElementById('soldout').value.includes("medium"+b_code)) {// 판교 m창고 매진이면
+				document.getElementById('select_medium').disabled = true;				// m창고 라디오버튼 사용불가
+				document.getElementById('st_button2').src = "images/ss2.png";			// m창고 버튼 매진표시
+			} else {																// 판교 m창고 매진아니면
+				document.getElementById('select_medium').disabled = false;				// m창고 라디오버튼 사용가능		
+				document.getElementById('st_button2').src = "images/s2.png";			// m창고 정상버튼 표시
+			}
+			if (document.getElementById('soldout').value.includes("large"+b_code)) {// 판교 l창고 매진이면
+				document.getElementById('select_large').disabled = true;				// l창고 라디오버튼 사용불가
+				document.getElementById('st_button3').src = "images/ss3.png";			// l창고 버튼 매진표시
+			} else {																// 판교 l창고 매진아니면
+				document.getElementById('select_large').disabled = false;				// l창고 라디오버튼 사용가능
+				document.getElementById('st_button3').src = "images/s3.png";			// l창고 정상버튼 표시
+			}
 		}		
 	}
 	function select_storage(s_kind) {
@@ -74,7 +153,9 @@
 </script>
 </head>
 <body>
-<div>
+<!-- 매진된 창고-지점 표시. 나중에 히든처리 -->
+<input type="text" readonly="readonly" id="soldout">
+<div>	
 	<form action="order.do" method="post" name="order_form">
 		<h2>지점 선택</h2>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(1)" ondrag="select_branch(1)">
@@ -93,13 +174,13 @@
 		
 		<h2>창고 종류 선택</h2>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('small')" ondrag="select_storage('small')">
-			<img src="images/s1.png" width="270" >
+			<img id="st_button1" src="images/s1.png" width="270" >
 		</button>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('middle')" ondrag="select_storage('middle')">
-			<img src="images/s2.png" width="300">
+			<img id="st_button2" src="images/s2.png" width="300">
 		</button>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('large')" ondrag="select_storage('large')">
-			<img src="images/s3.png" width="330">
+			<img id="st_button3" src="images/s3.png" width="330">
 		</button>
 		<!-- 라디오버튼은 나중에 히든 처리 -->
 		<input type="radio" name="storage" value="small" id="select_small">
