@@ -479,3 +479,9 @@ create or replace view stock_view as
 		where b.b_code=s.b_code and v.s_kind = s.s_kind and usable = 'n'
 		group by s.s_kind, b.b_code) b
 	where a.br_type = b.br_type and tot = ntot;
+
+	-- 마이페이지에 있는 주문조회에서 확인할 정보가 표시된 뷰
+create or replace view v_orderList as 
+	select o.order_no, o.m_id, o.order_date, o.expire_date, o.order_state, s.s_kind, b.b_title
+ 	from ds_order o, ds_storage_list s, ds_branch b
+    	where o.st_code=s.st_code and s.b_code=b.b_code;
