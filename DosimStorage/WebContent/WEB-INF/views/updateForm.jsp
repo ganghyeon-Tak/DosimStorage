@@ -7,10 +7,10 @@
 <title>도심 창고</title>
 <script type="text/javascript">
 	function chk() {
-		if (frm.password.value != frm.confirmPass.value) {
+		if (frm1.password.value != frm1.confirmPass.value) {
 			alert("암호와 암호 확인이 다릅니다");
-			frm.password.focus();
-			frm.password.value = "";
+			frm1.password.focus();
+			frm1.password.value = "";
 			return false;
 		}
 	}
@@ -18,7 +18,7 @@
 </head>
 <body>
 	<h2>회원 정보 수정</h2>
-	<form action="update.do" method="post" name="frm"
+	<form action="update.do" method="post" name="frm1"
 		onsubmit="return chk()">
 		<input type="hidden" name="id" value="${member.m_id }">
 		<table>
