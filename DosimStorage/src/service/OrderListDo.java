@@ -1,6 +1,7 @@
 package service;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,8 @@ public class OrderListDo implements CommandProcess {
 		HttpSession session = request.getSession();
 		String m_id = (String) session.getAttribute("m_id");
 		OrderListDao old = OrderListDao.getInstance();
-		List<OrderList> list = old.list(m_id);
+		List<OrderList> list = new ArrayList<OrderList>();
+		list = old.select(m_id);
 		request.setAttribute("list", list);
 		return "orderList";
 	}
