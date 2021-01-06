@@ -460,3 +460,22 @@ insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l307', 3, 'large');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l308', 3, 'large');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l309', 3, 'large');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l310', 3, 'large');
+
+
+
+-- 뷰 생성
+
+	-- 지점*창고타입별 매진된 창고 표시하는 뷰
+	-- 뷰 생성 권한이 없는 경우 system 계정 접속해서 grant create view to 계정명(ex: scott)
+	-- 으로 권한 부여 후 생성할 것!
+create or replace view stock_view as
+	select a.br_type, tot, ntot from
+		(select s.s_kind||b.b_code br_type, count(s.st_code) tot
+		from ds_branch b, ds_service v, ds_storage_list s
+		where b.b_code=s.b_code and v.s_kind = s.s_kind
+		group by s.s_kind, b.b_code) a,
+		(select s.s_kind||b.b_code br_type, count(s.st_code) ntot
+		from ds_branch b, ds_service v, ds_storage_list s
+		where b.b_code=s.b_code and v.s_kind = s.s_kind and usable = 'n'
+		group by s.s_kind, b.b_code) b
+	where a.br_type = b.br_type and tot = ntot;
