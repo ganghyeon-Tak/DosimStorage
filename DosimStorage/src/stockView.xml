@@ -9,7 +9,5 @@
 	</resultMap>		
 	<select id="select" resultType="string">
 		select br_type from stock_view
-	</select>	
+	</select>
 </mapper>
-
-
