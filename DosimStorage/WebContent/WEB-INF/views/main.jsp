@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-<a href="stockCheck.do">테스트중</a>
+
 <section>
 
 </section>

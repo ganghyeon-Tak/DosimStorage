@@ -17,14 +17,10 @@ public class StockCheck implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		Stock_viewDao svd = Stock_viewDao.getInstance();
 			
-		List<String> list = new ArrayList<String>();
+		List<String> soldout = new ArrayList<String>();
 		// 해당 타입의 창고가 모두 소진된 지점이 타입+지점코드 형태로 list에 저장됨
-		list = svd.select();		
-		int soldout_len = list.size();
-		System.out.println(soldout_len);
-		System.out.println(list);
-		request.setAttribute("soldout", list);
-		request.setAttribute("soldout_len", soldout_len);
+		soldout = svd.select();		
+		request.setAttribute("soldout", soldout);		
 		return "stockCheck";
 	}
 
