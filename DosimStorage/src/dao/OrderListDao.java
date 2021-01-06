@@ -32,7 +32,7 @@ public class OrderListDao {
 		}
 	}
 
-	public OrderList select(String m_id) {
-		return (OrderList)session.selectOne("orderListns.select", m_id);
+	public List<OrderList> list(String m_id) {
+		return (List<OrderList>) session.selectOne("orderListns.select", m_id);
 	}
 }
