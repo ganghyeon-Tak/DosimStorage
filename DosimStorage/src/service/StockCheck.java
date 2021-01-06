@@ -25,7 +25,7 @@ public class StockCheck implements CommandProcess {
 		System.out.println(list);
 		request.setAttribute("soldout", list);
 		request.setAttribute("soldout_len", soldout_len);
-		return "orderForm";
+		return "stockCheck";
 	}
 
 }
