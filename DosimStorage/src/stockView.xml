@@ -7,7 +7,7 @@
 		<result property="tot" column="tot"/>
 		<result property="ntot" column="ntot"/>				
 	</resultMap>		
-	<select id="select" resultType="string">
+	<select id="select" resultType="string" flushCache="true" useCache="false">
 		select br_type from stock_view
 	</select>
 </mapper>

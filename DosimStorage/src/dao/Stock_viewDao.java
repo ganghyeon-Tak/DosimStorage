@@ -34,6 +34,7 @@ public class Stock_viewDao {
 	@SuppressWarnings("unchecked")
 	public List<String> select() {		
 		return session.selectList("stock_viewns.select");
+		
 	}
 	
 }
