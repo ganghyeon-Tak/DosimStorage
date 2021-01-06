@@ -15,10 +15,10 @@
 
 
 <script type="text/javascript">
-	var xhr2;
+	var xhr, xhr1, xhr2;	// XMLHttpRequest 생성에 쓸 변수
 	window.onload = function() {
 		xhr2 = new XMLHttpRequest();
-		xhr2.open("get","stockCheck.do",true);
+		xhr2.open("get","stockCheck.do",true);	// 매진여부 체크
 		xhr2.onreadystatechange = function() {
 			if (xhr2.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
 				if (xhr2.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
@@ -29,9 +29,7 @@
 			}
 		}		
 		xhr2.send(null);
-	}
-	var xhr;
-	var xhr1;
+	}	
 	
 	function select_branch(b_code) {
 		switch(b_code) {
@@ -121,7 +119,7 @@
 		}		
 	}
 	// 은행 선택하면 db에서 계좌와 예금주 이름 조회해 표시하는 함수
-	function get_account(bank) {	// jQuery 사용하지않고 비동기 통신하는 js 코드 
+	function get_account(bank) {
 		xhr = new XMLHttpRequest();
 		xhr.open("post","bank.do",true);
 		xhr.onreadystatechange = function() {
