@@ -7,6 +7,7 @@
 	<typeAlias alias="member" type="model.Member" />
 	<typeAlias alias="account" type="model.Account" />
 	<typeAlias alias="orderList" type="model.OrderList"/>
+	<typeAlias alias="stock_view" type="model.Stock_view"/>
 </typeAliases>
 <environments default="development">
 	<environment id="development">
@@ -23,5 +24,6 @@
 	<mapper resource="member.xml" />
 	<mapper resource="account.xml" />
 	<mapper resource="orderList.xml" />
+	<mapper resource="stockView.xml" />
 </mappers>
 </configuration>
