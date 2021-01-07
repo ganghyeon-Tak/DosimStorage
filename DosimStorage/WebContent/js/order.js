@@ -191,6 +191,7 @@
 	}
 	function sel_reset() {	// 창고타입 선택을 바꾸면 가격표시 리셋하는 함수
 		document.getElementById('peri_novalue').selected = true;
+		document.getElementById('tot_comma').value = "";
 	}
 	function comma(num) {	// 토탈 금액 콤마 붙여 표시하는 함수
 		var rev_num = num.split("").reverse();	// 받은 데이터를 한 글자씩 배열에 담고 뒤집는다		
