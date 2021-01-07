@@ -1,0 +1,16 @@
+package service;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class OrderDo implements CommandProcess {
+
+	@Override
+	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
+		String branch = request.getParameter("branch");
+		String storage = request.getParameter("storage");
+		int period = Integer.parseInt(request.getParameter("period"));	
+		return null;
+	}
+
+}
