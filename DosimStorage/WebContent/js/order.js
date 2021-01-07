@@ -1,18 +1,18 @@
-	var xhr, xhr1, xhr2;	// XMLHttpRequest 생성에 쓸 변수
+	var xhr, xhr1;	// XMLHttpRequest 생성에 쓸 변수
 	
 	window.onload = function() {
-		xhr2 = new XMLHttpRequest();
-		xhr2.open("get","stockCheck.do",true);	// 매진여부 체크
-		xhr2.onreadystatechange = function() {
-			if (xhr2.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
-				if (xhr2.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
-					document.getElementById('soldout').value = xhr2.responseText;
+		xhr = new XMLHttpRequest();
+		xhr.open("get","stockCheck.do",true);	// 매진여부 체크
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
+				if (xhr.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
+					document.getElementById('soldout').value = xhr.responseText;
 				} else {
-					alert('요청오류: '+xhr2.status);
+					alert('요청오류: '+xhr.status);
 				}				
 			}
 		}		
-		xhr2.send(null);
+		xhr.send(null);
 	}	
 	
 	function select_branch(b_code) {
@@ -144,7 +144,7 @@
 	// 은행 선택하면 db에서 계좌와 예금주 이름 조회해 표시하는 함수
 	function get_account(bank) {
 		xhr = new XMLHttpRequest();
-		xhr.open("post","bank.do",true);
+		xhr.open("get","bank.do?bank=" + order_form.bank.value,true);
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
 				if (xhr.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
@@ -153,12 +153,11 @@
 					alert('요청오류: '+xhr.status);
 				}				
 			}
-		}
-		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		xhr.send("bank="+order_form.bank.value);
+		}		
+		xhr.send(null);
 		
 		xhr1 = new XMLHttpRequest();
-		xhr1.open("post","bank1.do",true);
+		xhr1.open("get","bank1.do?bank=" + order_form.bank.value,true);
 		xhr1.onreadystatechange = function() {
 			if (xhr1.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
 				if (xhr1.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
@@ -167,9 +166,8 @@
 					alert('요청오류: '+xhr1.status);
 				}				
 			}
-		}
-		xhr1.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		xhr1.send("bank="+order_form.bank.value);
+		}		
+		xhr1.send(null);
 	}
 	function total_price(period) {
 		
@@ -177,19 +175,19 @@
 			period = 0;
 		}		
 		var st = document.querySelector('input[name="storage"]:checked').value;
-		xhr2 = new XMLHttpRequest();
-		xhr2.open("get","priceCheck.do?storage=" + st + "&period=" + period, true);
-		xhr2.onreadystatechange = function() {
-			if (xhr2.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
-				if (xhr2.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
-					document.getElementById('tot_price').value = xhr2.responseText;
+		xhr = new XMLHttpRequest();
+		xhr.open("get","priceCheck.do?storage=" + st + "&period=" + period, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
+				if (xhr.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
+					document.getElementById('tot_price').value = xhr.responseText;
 					comma(document.getElementById('tot_price').value);
 				} else {
-					alert('요청오류: '+xhr2.status);
+					alert('요청오류: '+xhr.status);
 				}				
 			}
 		}
-		xhr2.send(null);		
+		xhr.send(null);		
 	}
 	function sel_reset() {	// 창고타입 선택을 바꾸면 가격표시 리셋하는 함수
 		document.getElementById('peri_novalue').selected = true;
