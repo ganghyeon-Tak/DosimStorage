@@ -347,9 +347,9 @@ insert into DS_BRANCH values('2', '신사점', '02-891-2345', '서울특별시 �
 insert into DS_BRANCH values('3', '판교점', '031-678-9123', '경기도 성남시 분당구 판교로 37');
 
 	-- 창고서비스
-insert into DS_SERVICE values('small', 30000);
-insert into DS_SERVICE values('medium', 50000);
-insert into DS_SERVICE values('large', 100000);
+insert into DS_SERVICE values('small', 68000);
+insert into DS_SERVICE values('medium', 98000);
+insert into DS_SERVICE values('large', 168000);
 
 	-- 창고목록. 아직 창고목록 insert가 만들어지지 않아서 수동으로 다 등록해야한다	
 		-- 광화문점 small 창고들

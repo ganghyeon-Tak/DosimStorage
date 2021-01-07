@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="servicens">
+	<resultMap type="service" id="resultMap">
+		<result property="s_kind" column="s_kind"/>
+		<result property="s_price" column="s_price"/>		
+	</resultMap>
+	<select id="sel_price" parameterType="string" resultType="int">
+		select s_price from ds_service where s_kind = #{storage}
+	</select>	
+</mapper>

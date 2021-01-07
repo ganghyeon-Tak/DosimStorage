@@ -8,6 +8,7 @@
 		<pattern>/idChk.do</pattern>		
 		<pattern>/bank.do</pattern>
 		<pattern>/bank1.do</pattern>
-		<pattern>/stockCheck.do</pattern>	
+		<pattern>/stockCheck.do</pattern>
+		<pattern>/priceCheck.*</pattern>
 	</excludes>
 </decorators>
