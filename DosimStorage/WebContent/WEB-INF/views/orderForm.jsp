@@ -195,20 +195,32 @@
 		}		
 		var st = document.querySelector('input[name="storage"]:checked').value;
 		xhr2 = new XMLHttpRequest();
-		xhr2.open("get","priceCheck.do?storage=" + st + "&period="+period, true);
+		xhr2.open("get","priceCheck.do?storage=" + st + "&period=" + period, true);
 		xhr2.onreadystatechange = function() {
 			if (xhr2.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
 				if (xhr2.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
 					document.getElementById('tot_price').value = xhr2.responseText;
+					comma(document.getElementById('tot_price').value);
 				} else {
 					alert('요청오류: '+xhr2.status);
 				}				
 			}
 		}
-		xhr2.send(null);
+		xhr2.send(null);		
 	}
-	function sel_reset() {
+	function sel_reset() {	// 창고타입 선택을 바꾸면 가격표시 리셋하는 함수
 		document.getElementById('peri_novalue').selected = true;
+	}
+	function comma(num) {	// 토탈 금액 콤마 붙여 표시하는 함수
+		var rev_num = num.split("").reverse();	// 받은 데이터를 한 글자씩 배열에 담고 뒤집는다		
+		var withCommas = [];	// 콤마 찍어 저장할 배열 선언
+		for (var i=1; i <= rev_num.length; i++) {	// 뒤집은 배열 앞에서부터 하나씩
+			withCommas.push(rev_num[i-1]);	// 저장할 배열에 담고
+			if (i%3==0 && i != rev_num.length) {	// 3개 저장할때마다, 그리고 마지막 숫자가 아닐 때 콤마를 찍는다
+				withCommas.push(',');
+			}
+		}	
+		document.getElementById('tot_comma').value = withCommas.reverse().join("")+"원";	// '원'을 붙여 값 입력
 	}
 </script>
 </head>
@@ -263,7 +275,8 @@
 			<option value="12">12 개월</option>
 		</select>
 		<h2>결제방법</h2>
-		<p>금액 <input type="text" id="tot_price" readonly="readonly" name="tot_price">
+		<p>금액 <input type="text" id="tot_price" readonly="readonly" name="tot_price" hidden="hidden">
+		<input type="text" id="tot_comma" readonly="readonly">
 		</p>
 		<p>무통장 입금:	<select onchange="get_account(this.value)" name="bank" required="required">
 							<option hidden="hidden"></option>
