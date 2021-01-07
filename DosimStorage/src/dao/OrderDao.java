@@ -34,4 +34,8 @@ public class OrderDao {
 	public String select_an(String bank) {
 		return (String)session.selectOne("accountns.select_an", bank);
 	}
+	public int sel_price(String storage) {		
+		return (int)session.selectOne("servicens.sel_price", storage);
+	}
+	
 }

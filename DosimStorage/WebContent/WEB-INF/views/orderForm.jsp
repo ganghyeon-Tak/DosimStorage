@@ -16,6 +16,7 @@
 
 <script type="text/javascript">
 	var xhr, xhr1, xhr2;	// XMLHttpRequest 생성에 쓸 변수
+	
 	window.onload = function() {
 		xhr2 = new XMLHttpRequest();
 		xhr2.open("get","stockCheck.do",true);	// 매진여부 체크
@@ -125,18 +126,21 @@
 			document.getElementById('select_small').checked = true;				// 라디오버튼 체크
 			}
 			period();
+			sel_reset();
 			break;
 		case 'medium':	// m창고 선택했을 때
 			if (document.getElementById('select_medium').disabled == false) {	// 해당 지점 m창고 매진아니면
 				document.getElementById('select_medium').checked = true;		// 라디오버튼 체크		
 				}
 			period();
+			sel_reset();
 			break;
 		case 'large':	// l창고 선택했을 때
 			if (document.getElementById('select_large').disabled == false) {	// 해당 지점 l창고 매진아니면
 				document.getElementById('select_large').checked = true;			// 라디오버튼 체크	
 				}
 			period();
+			sel_reset();
 		}		
 	}
 	function period() {	// 지점, 창고 둘 다 선택됐을 경우만 기간선택창 활성화시키는 함수
@@ -184,6 +188,28 @@
 		xhr1.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		xhr1.send("bank="+order_form.bank.value);
 	}
+	function total_price(period) {
+		
+		if (period == null) {
+			period = 0;
+		}		
+		var st = document.querySelector('input[name="storage"]:checked').value;
+		xhr2 = new XMLHttpRequest();
+		xhr2.open("get","priceCheck.do?storage=" + st + "&period="+period, true);
+		xhr2.onreadystatechange = function() {
+			if (xhr2.readyState == 4) {	// readyState : 0-XMLHttpRequest객채생성, 1-open메소드 실행, 2-요청 응답 도착 3-요청데이터 처리중 4-응답준비완료
+				if (xhr2.status == 200) {	// status : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status 참고
+					document.getElementById('tot_price').value = xhr2.responseText;
+				} else {
+					alert('요청오류: '+xhr2.status);
+				}				
+			}
+		}
+		xhr2.send(null);
+	}
+	function sel_reset() {
+		document.getElementById('peri_novalue').selected = true;
+	}
 </script>
 </head>
 <body>
@@ -221,7 +247,7 @@
 		<input type="radio" name="storage" value="medium" id="select_medium" required="required">
 		<input type="radio" name="storage" value="large" id="select_large" required="required">
 		<h2>이용기간 선택</h2>
-		<select name="period" required="required" disabled="disabled">
+		<select name="period" required="required" disabled="disabled" onchange="total_price(this.value)">
 			<option hidden="hidden" id="peri_novalue"></option>
 			<option value="1"> 1 개월</option>
 			<option value="2"> 2 개월</option>
@@ -237,6 +263,8 @@
 			<option value="12">12 개월</option>
 		</select>
 		<h2>결제방법</h2>
+		<p>금액 <input type="text" id="tot_price" readonly="readonly" name="tot_price">
+		</p>
 		<p>무통장 입금:	<select onchange="get_account(this.value)" name="bank" required="required">
 							<option hidden="hidden"></option>
 							<option>국민은행</option>
@@ -244,8 +272,8 @@
 							<option>카카오뱅크</option>
 						</select>
 		</p>
-		<p>계좌번호: <input type="text" readonly="readonly" id="account_no" name="account_no"></p>
-		<p>예금주: <input type="text" readonly="readonly" id="account_name" name="account_name"></p>
+		<p>계좌번호 <input type="text" readonly="readonly" id="account_no" name="account_no"></p>
+		<p>예금주 <input type="text" readonly="readonly" id="account_name" name="account_name"></p>
 		<p>실시간 계좌이체 및 카드결제는 준비중입니다</p>
 		<button>신청하기</button>
 	</form>
