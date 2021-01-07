@@ -178,7 +178,7 @@ ALTER TABLE ds_account
 CREATE TABLE ds_board1 (
 	num       NUMBER        NOT NULL, -- 게시글번호
 	m_id      VARCHAR2(12)  NOT NULL, -- 회원ID
-	order_no  NUMBER(10)    NULL,     -- 주문번호
+	order_no  NUMBER(12)    NULL,     -- 주문번호
 	m_email   VARCHAR2(20)  NULL,     -- 이메일
 	title     VARCHAR2(50)  NOT NULL, -- 제목
 	content   VARCHAR2(1000) NOT NULL, -- 내용
@@ -489,3 +489,11 @@ create or replace view v_orderList as
 	select o.order_no, o.m_id, o.order_date, o.expire_date, o.order_state, s.s_kind, b.b_title
  	from ds_order o, ds_storage_list s, ds_branch b
     	where o.st_code=s.st_code and s.b_code=b.b_code;
+
+    	
+-- 시퀀스 생성
+    	
+	-- 주문번호 시퀀스
+CREATE SEQUENCE order_no_seq
+MAXVALUE 9999
+CYCLE;

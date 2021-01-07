@@ -9,7 +9,10 @@ public class OrderDo implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		String branch = request.getParameter("branch");
 		String storage = request.getParameter("storage");
-		int period = Integer.parseInt(request.getParameter("period"));	
+		int period = Integer.parseInt(request.getParameter("period"));
+		int tot_price = Integer.parseInt(request.getParameter("tot_price"));
+		String bank = request.getParameter("bank");
+		
 		return null;
 	}
 
