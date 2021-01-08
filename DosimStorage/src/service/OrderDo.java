@@ -12,8 +12,9 @@ public class OrderDo implements CommandProcess {
 		int period = Integer.parseInt(request.getParameter("period"));
 		int tot_price = Integer.parseInt(request.getParameter("tot_price"));
 		String bank = request.getParameter("bank");
+		String account_no = request.getParameter("account_no");
 		
-		return null;
+		return "orderDo";
 	}
 
 }

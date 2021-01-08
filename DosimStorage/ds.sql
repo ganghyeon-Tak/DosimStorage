@@ -139,10 +139,13 @@ CREATE TABLE ds_order (
 	st_code          VARCHAR2(10) NOT NULL, -- 창고코드
 	order_totalPrice NUMBER(10)   NOT NULL, -- 주문총액
 	order_date       DATE         NOT NULL, -- 주문일
-	expire_date      DATE         NOT NULL, -- 이용만료일
+	hope_date	 	 DATE         not null, -- 이용개시희망일
+	use_period	 	 NUMBER(2)    not null, -- 이용개월수
+	start_date	 	 DATE,					-- 이용시작일
+	expire_date      DATE,					-- 이용만료일
 	account_no       VARCHAR2(20) NOT NULL, -- 계좌번호
 	depo_dueDate     DATE         NOT NULL, -- 입금기한
-	order_state      VARCHAR2(16) NOT NULL -- 주문상태
+	order_state      VARCHAR2(16) NOT NULL  -- 주문상태
 );
 
 	-- 주문(order)
