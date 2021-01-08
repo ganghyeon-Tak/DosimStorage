@@ -8,6 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import model.Order;
+import model.Storage_list;
+
 public class OrderDao {
 	// singleton
 	private static OrderDao instance = new OrderDao();
@@ -36,6 +39,12 @@ public class OrderDao {
 	}
 	public int sel_price(String storage) {		
 		return (int)session.selectOne("servicens.sel_price", storage);
+	}
+	public String sel_st(Storage_list sl) {		
+		return (String)session.selectOne("storage_listns.sel_st", sl);
+	}
+	public int insOrder(Order ord) {		
+		return session.insert("orderns.insOrder", ord);
 	}
 	
 }

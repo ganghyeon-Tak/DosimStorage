@@ -204,3 +204,15 @@
 		}	
 		document.getElementById('tot_comma').value = withCommas.reverse().join("")+"원";	// '원'을 붙여 값 입력
 	}
+	function date_chk(hope_date) {	// 일주일 이내 날짜인지 체크하는 함수
+		var today = new Date();
+		var h_date = new Date(hope_date.split('-')[0], hope_date.split('-')[1] - 1, hope_date.split('-')[2]);		
+		if (h_date < today.setDate(today.getDate()-1)) {
+			alert('오늘 이후 날짜를 선택해주세요');
+			document.getElementById('hope_date').value = "";
+		} else if (h_date > today.setDate(today.getDate()+7)) {
+			alert('일주일 이내 날짜를 선택해주세요');
+			document.getElementById('hope_date').value = "";
+		}
+	}
+	
