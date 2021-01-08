@@ -33,25 +33,25 @@ p {
 		<input type="hidden" name="m_num" value="1">
 		<input type="hidden" name="rec_menu" value="n">
 		<p></p>
-		<p>서비스관리</p>
+		<p>신규서비스등록</p>
 		<table>
 			<tr>
-				<th>창고서비스명</th>
+				<th>서비스이미지</th>
+				<td><input type="file" name="m_img"></td>
+			</tr>
+			<tr>
+				<th>서비스명</th>
 				<td><input type="text" name="m_name" required="required"></td>
 			</tr>
 			<tr>
-				<th>창고사이즈</th>
+				<th>사이즈</th>
 				<td><input type="text" name="m_size" required="required"></td>
 			</tr>
 			<tr>
-				<th>1개월 대여로</th>
+				<th>가격</th>
 				<td><input type="text" name="m_price" required="required"></td>
 			</tr>
-			<tr>
-				<th>창고서비스사진</th>
-				<td><input type="file" name="m_img"></td>
-			</tr>
-			<!-- 서비스가격이랑 이름만 넣으면 되는거였나;;;; -->
+		
 			<!-- <tr>
 				<th>관리자 암호</th>
 				<td><input type="password" name="masterPass" required="required"></td>
