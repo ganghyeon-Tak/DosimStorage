@@ -11,7 +11,7 @@
 </style>
 </head>
 <body>
-
+<a href="mypage.do">마이페이지 진입 임시링크</a>
 <section>
 
 </section>

@@ -210,7 +210,7 @@
 		if (h_date < today.setDate(today.getDate()-1)) {
 			alert('오늘 이후 날짜를 선택해주세요');
 			document.getElementById('hope_date').value = "";
-		} else if (h_date > today.setDate(today.getDate()+6)) {
+		} else if (h_date > today.setDate(today.getDate()+7)) {
 			alert('일주일 이내 날짜를 선택해주세요');
 			document.getElementById('hope_date').value = "";
 		}

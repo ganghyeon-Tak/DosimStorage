@@ -10,6 +10,7 @@
 	<typeAlias alias="stock_view" type="model.Stock_view"/>
 	<typeAlias alias="storage_list" type="model.Storage_list"/>
 	<typeAlias alias="service" type="model.Service"/>
+	<typeAlias alias="order" type="model.Order"/>
 </typeAliases>
 <environments default="development">
 	<environment id="development">
@@ -29,5 +30,6 @@
 	<mapper resource="stockView.xml" />
 	<mapper resource="storage_list.xml" />
 	<mapper resource="service.xml" />
+	<mapper resource="order.xml" />
 </mappers>
 </configuration>

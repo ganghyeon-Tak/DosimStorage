@@ -134,7 +134,7 @@ ALTER TABLE ds_storage_list
     
 	-- 주문(order)
 CREATE TABLE ds_order (
-	order_no         NUMBER(10)   NOT NULL, -- 주문번호
+	order_no         NUMBER(12)   NOT NULL, -- 주문번호
 	m_id             VARCHAR2(12) NOT NULL, -- 회원ID
 	st_code          VARCHAR2(10) NOT NULL, -- 창고코드
 	order_totalPrice NUMBER(10)   NOT NULL, -- 주문총액
