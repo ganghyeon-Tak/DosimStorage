@@ -500,3 +500,17 @@ create or replace view v_orderList as
 CREATE SEQUENCE order_no_seq
 MAXVALUE 9999
 CYCLE;
+
+
+-- 트리거 생성
+
+	-- 입금완료 처리시 창고목록 테이블 자동변경 트리거
+create or replace trigger service_starter
+    after update on ds_order
+    for each row
+begin    
+    if :old.order_state = '입금대기' and :new.order_state = '입금완료' then        
+        update ds_storage_list set usable = 'n', rented = 'y', borrower_id = :new.m_id where st_code = :new.st_code;
+    end if;
+end;
+/
