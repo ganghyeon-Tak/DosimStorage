@@ -50,6 +50,9 @@
 		<input type="radio"  name="storage" value="small" id="select_small" required="required">
 		<input type="radio" name="storage" value="medium" id="select_medium" required="required">
 		<input type="radio" name="storage" value="large" id="select_large" required="required">
+		<h2>이용시작일 선택</h2>
+		<p>서비스 이용시작일은 일주일 이내까지 선택가능합니다</p>
+		<input type="date" name="hope_date" id="hope_date" required="required" onchange="date_chk(this.value)">
 		<h2>이용기간 선택</h2>
 		<select name="period" required="required" disabled="disabled" onchange="total_price(this.value)">
 			<option hidden="hidden" id="peri_novalue"></option>
