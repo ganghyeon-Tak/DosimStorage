@@ -21,10 +21,15 @@
 	<form action="update.do" method="post" name="frm1"
 		onsubmit="return chk()">
 		<input type="hidden" name="id" value="${member.m_id }">
+		<input type="hidden" name="name" value="${member.m_name }">
 		<table>
 			<tr>
 				<th>아이디</th>
 				<td>${member.m_id }</td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td>${member.m_name }</td>
 			</tr>
 			<tr>
 				<th>암호</th>
@@ -34,11 +39,6 @@
 				<th>암호확인</th>
 				<td><input type="password" name="confirmPass"
 					required="required"></td>
-			</tr>
-			<tr>
-				<th>이름</th>
-				<td><input type="text" name="name" required="required"
-					value="${member.m_name }"></td>
 			</tr>
 			<tr>
 				<th>이메일</th>
