@@ -10,13 +10,13 @@
 <body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("주문 성공");
-		location.href="main.do"
+		alert("주문 완료");
+		location.href="orderList.do"
 	</script> 
 </c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("주문 실패");
+		alert("주문 과정에서 에러가 발생했습니다.\n오류가 계속될 경우 관리자에게 문의해주세요!");
 		history.go(-1);
 	</script> 
 </c:if>

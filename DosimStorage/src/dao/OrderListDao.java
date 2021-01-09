@@ -25,7 +25,7 @@ public class OrderListDao {
 	
 	static {
 		try {
-			Reader reader = Resources.getResourceAsReader("configulation.xml");
+			Reader reader = Resources.getResourceAsReader("configuration.xml");
 			SqlSessionFactory ssf = new SqlSessionFactoryBuilder().build(reader);
 			session = ssf.openSession(true);
 		} catch (IOException e) {
