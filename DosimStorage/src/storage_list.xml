@@ -12,7 +12,18 @@
 		<result property="usable"  column="usable"/>
 	</resultMap>
 
-	<select id="sel_st" parameterType="storage_list" resultType="string">
-		select st_code from DS_STORAGE_LIST where b_code = #{b_code} and s_kind = #{s_kind} and usable = 'y' and rownum = 1
-	</select>	
+	<select id="sel_st" parameterType="storage_list" resultType="string" flushCache="true" useCache="false">
+		select st_code from DS_STORAGE_LIST where b_code = #{b_code} and s_kind = #{s_kind} and usable = 'y' and borrower_id is null and rownum = 1
+	</select>
+	<!-- 거의 동시에 두개 주문이 들어왔을 때, 뒤의 주문에서 에러를 발생시키기 위한 쿼리 -->
+	<update id="update_st" parameterType="string">
+		update DS_STORAGE_LIST set borrower_id = 
+			case when borrower_id is null then '에러'
+				else '일부러에러를발생시키기위한값'
+			end
+		where st_code = #{st_code}
+	</update>
+	<update id="restore" parameterType="string">
+		update DS_STORAGE_LIST set borrower_id = null where st_code = {st_code}
+	</update>	
 </mapper>

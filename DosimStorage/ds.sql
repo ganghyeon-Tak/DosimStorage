@@ -338,6 +338,9 @@ insert into DS_MASTER values('master', '1234');	-- 관리자 아이디
 
 	-- Member - master : 관리자 아이디와 같은 아이디를 유저가 생성하지 못하게 하기 위한 데이터
 insert into DS_MEMBER values('master', 'asdcfhdae2', '마슷허', 'email@mail.com', '112', sysdate, 0, 'y');
+	-- 창고목록에 상태표시용으로 쓰는 키워드로 유저가 가입 못하게 막기 위한 데이터
+insert into DS_MEMBER values('입금대기', 'asdcfhdae2', '입금대기', 'email@mail.com', '112', sysdate, 0, 'y');
+insert into DS_MEMBER values('에러', 'asdcfhdae2', '에러', 'email@mail.com', '112', sysdate, 0, 'y');
 
 	-- 계좌
 insert into DS_ACCOUNT values('123-4567-890123', '국민은행', '도심창고');
@@ -466,9 +469,10 @@ insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l310', 3, 'large');
 
 
 		-- *** 매진 테스트용 쿼리 ***
-update ds_storage_list set usable = 'n' where b_code = 1 and s_kind = 'medium'; -- 광화문 미디움 매진
-update ds_storage_list set usable = 'n' where b_code = 2 and s_kind = 'small'; -- 신사 스몰 매진
-update ds_storage_list set usable = 'n' where b_code = 3 and s_kind = 'large'; -- 판교 라지 매진
+		-- 주문 기능이 사용가능하니 비권장
+-- update ds_storage_list set usable = 'n' where b_code = 1 and s_kind = 'medium'; -- 광화문 미디움 매진
+-- update ds_storage_list set usable = 'n' where b_code = 2 and s_kind = 'small'; -- 신사 스몰 매진
+-- update ds_storage_list set usable = 'n' where b_code = 3 and s_kind = 'large'; -- 판교 라지 매진
 
 -- 뷰 생성
 
@@ -493,7 +497,7 @@ create or replace view v_orderList as
  	from ds_order o, ds_storage_list s, ds_branch b
     	where o.st_code=s.st_code and s.b_code=b.b_code;
 
-    	
+
 -- 시퀀스 생성
     	
 	-- 주문번호 시퀀스
@@ -503,7 +507,17 @@ CYCLE;
 
 
 -- 트리거 생성
+-- ***	트리거 생성시 만약 에러가 난다면 오라클 SQL Developer에서
+--		도구 > 환경설정. 데이터베이스 > PL/SQL 컴파일러 > PLScope 식별자 none으로 변경후 생성 ***
 
+	-- 주문 정상 등록 시 해당 창고 중복주문 막고, 해당 창고 borrower_id에 입금대기표시
+create or replace trigger payment_wait
+    after insert on ds_order
+    for each row
+begin
+    update ds_storage_list set usable = 'n', borrower_id = '입금대기' where st_code = :new.st_code;
+end;
+/
 	-- 입금완료 처리시 창고목록 테이블 자동변경 트리거
 create or replace trigger service_starter
     after update on ds_order
