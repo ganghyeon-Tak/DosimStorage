@@ -29,9 +29,9 @@
 				<tr>
 					<td>${orderList.order_no }</td>
 					<td>${orderList.order_date }</td>
-					<td>${orderList.b_title }}</td>
-					<td>${orderList.s.kind}</td>
-					<td>${orderList.expire_date }}</td>
+					<td>${orderList.b_title }</td>
+					<td>${orderList.s_kind}</td>
+					<td>${orderList.expire_date }</td>
 					<td>${orderList.order_state }</td>
 				</tr>
 			</c:forEach>

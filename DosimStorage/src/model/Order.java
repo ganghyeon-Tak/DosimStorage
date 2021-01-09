@@ -3,7 +3,7 @@ package model;
 import java.sql.Date;
 
 public class Order {
-	private int order_no;			// 주문번호
+	private long order_no;			// 주문번호
 	private String m_id;			// 회원ID
 	private String st_code;			// 창고코드
 	private int order_totalPrice; 	// 주문총액
@@ -33,10 +33,10 @@ public class Order {
 	private String account_no;		// 계좌번호
 	private Date depo_dueDate;		// 입금기한
 	private String order_state; 	// 주문상태
-	public int getOrder_no() {
+	public long getOrder_no() {
 		return order_no;
 	}
-	public void setOrder_no(int order_no) {
+	public void setOrder_no(long order_no) {
 		this.order_no = order_no;
 	}
 	public String getM_id() {
