@@ -19,85 +19,94 @@
 		switch(b_code) {
 		case 1:	// 광화문점을 선택했을 때
 			document.getElementById('select_1').checked = true;							// 광화문점 라디오버튼 체크
+			document.getElementById('br_button1').src = "images/b1s.png";				// 광화문점 선택됨 버튼으로 그림변경
+			document.getElementById('br_button2').src = "images/b2.png";				// 신사점 일반버튼 표시
+			document.getElementById('br_button3').src = "images/b3.png";				// 판교점 일반버튼 표시
 			if (document.getElementById('soldout').value.includes("small"+b_code)) {// 광화문 s창고 매진이면
 				document.getElementById('select_small').disabled = true;				// s창고 라디오버튼 사용불가
 				document.getElementById('select_small').checked = false;				// s창고 라디오버튼 체크해제
 				document.getElementById('st_button1').src = "images/ss1.png";			// s창고 버튼 매진표시
-			} else {																// 광화문 s창고 매진아니면
+			} else if (document.getElementById('select_small').disabled == true) {	// 광화문 s창고 매진아닌데 매진표시 되어있으면
 				document.getElementById('select_small').disabled = false;				// s창고 라디오버튼 사용가능
-				document.getElementById('st_button1').src = "images/s1.png";			// s창고 정상버튼 표시
-			}
+				document.getElementById('st_button1').src = "images/s1.png";			// s창고 일반버튼 표시
+			} 
 			if (document.getElementById('soldout').value.includes("medium"+b_code)) {// 광화문 m창고 매진이면
 				document.getElementById('select_medium').disabled = true;				// m창고 라디오버튼 사용불가
 				document.getElementById('select_medium').checked = false;				// m창고 라디오버튼 체크해제
 				document.getElementById('st_button2').src = "images/ss2.png";			// m창고 버튼 매진표시
-			} else {																// 광화문 m창고 매진아니면
+			} else if (document.getElementById('select_medium').disabled == true) {	// 광화문 m창고 매진아닌데 매진표시 되어있으면
 				document.getElementById('select_medium').disabled = false;				// m창고 라디오버튼 사용가능		
-				document.getElementById('st_button2').src = "images/s2.png";			// m창고 정상버튼 표시
+				document.getElementById('st_button2').src = "images/s2.png";			// m창고 일반버튼 표시
 			}
 			if (document.getElementById('soldout').value.includes("large"+b_code)) {// 광화문 l창고 매진이면
 				document.getElementById('select_large').disabled = true;				// l창고 라디오버튼 사용불가
 				document.getElementById('select_large').checked = false;				// l창고 라디오버튼 체크해제
 				document.getElementById('st_button3').src = "images/ss3.png";			// l창고 버튼 매진표시
-			} else {																// 광화문 l창고 매진아니면
+			} else if (document.getElementById('select_large').disabled == true) {	// 광화문 l창고 매진아닌데 매진표시 되어있으면
 				document.getElementById('select_large').disabled = false;				// l창고 라디오버튼 사용가능
-				document.getElementById('st_button3').src = "images/s3.png";			// l창고 정상버튼 표시
+				document.getElementById('st_button3').src = "images/s3.png";			// l창고 일반버튼 표시
 			}
 			period();
 			break;
 		case 2:	// 신사점을 선택했을 때
 			document.getElementById('select_2').checked = true;							// 신사점 라디오버튼 체크
+			document.getElementById('br_button2').src = "images/b2s.png";				// 신사점 선택됨 버튼으로 그림변경
+			document.getElementById('br_button1').src = "images/b1.png";				// 광화문점 일반버튼 표시
+			document.getElementById('br_button3').src = "images/b3.png";				// 판교점 일반버튼 표시
 			if (document.getElementById('soldout').value.includes("small"+b_code)) {// 신사 s창고 매진이면
 				document.getElementById('select_small').disabled = true;				// s창고 라디오버튼 사용불가
 				document.getElementById('select_small').checked = false;				// s창고 라디오버튼 체크해제
 				document.getElementById('st_button1').src = "images/ss1.png";			// s창고 버튼 매진표시
-			} else {																// 신사 s창고 매진아니면
+			} else if (document.getElementById('select_small').disabled == true) {	// 신사 s창고 매진아닌데 매진표시 되어있으면
 				document.getElementById('select_small').disabled = false;				// s창고 라디오버튼 사용가능
-				document.getElementById('st_button1').src = "images/s1.png";			// s창고 정상버튼 표시
+				document.getElementById('st_button1').src = "images/s1.png";			// s창고 일반버튼 표시
 			}
 			if (document.getElementById('soldout').value.includes("medium"+b_code)) {// 신사 m창고 매진이면
 				document.getElementById('select_medium').disabled = true;				// m창고 라디오버튼 사용불가
 				document.getElementById('select_medium').checked = false;				// m창고 라디오버튼 체크해제
 				document.getElementById('st_button2').src = "images/ss2.png";			// m창고 버튼 매진표시
-			} else {																// 신사 m창고 매진아니면
+			} else if (document.getElementById('select_medium').disabled == true) {	// 신사 m창고 매진아닌데 매진표시 되어있으면
 				document.getElementById('select_medium').disabled = false;				// m창고 라디오버튼 사용가능		
-				document.getElementById('st_button2').src = "images/s2.png";			// m창고 정상버튼 표시
+				document.getElementById('st_button2').src = "images/s2.png";			// m창고 일반버튼 표시
 			}
 			if (document.getElementById('soldout').value.includes("large"+b_code)) {// 신사 l창고 매진이면
 				document.getElementById('select_large').disabled = true;				// l창고 라디오버튼 사용불가
 				document.getElementById('select_large').checked = false;				// l창고 라디오버튼 체크해제
 				document.getElementById('st_button3').src = "images/ss3.png";			// l창고 버튼 매진표시
-			} else {																// 신사 l창고 매진아니면
+			} else if (document.getElementById('select_large').disabled == true) {	// 신사 l창고 매진아닌데 매진표시 되어있으면
 				document.getElementById('select_large').disabled = false;				// l창고 라디오버튼 사용가능
-				document.getElementById('st_button3').src = "images/s3.png";			// l창고 정상버튼 표시
+				document.getElementById('st_button3').src = "images/s3.png";			// l창고 일반버튼 표시
 			}
 			period();
 			break;
 		case 3:	// 판교점을 선택했을 때
 			document.getElementById('select_3').checked = true;							// 판교점 라디오버튼 체크
+			document.getElementById('br_button3').src = "images/b3s.png";				// 판교점 선택됨 버튼으로 그림변경
+			document.getElementById('br_button2').src = "images/b2.png";				// 신사점 일반버튼 표시
+			document.getElementById('br_button1').src = "images/b1.png";				// 광화문점 일반버튼 표시
 			if (document.getElementById('soldout').value.includes("small"+b_code)) {// 판교 s창고 매진이면
 				document.getElementById('select_small').disabled = true;				// s창고 라디오버튼 사용불가
 				document.getElementById('select_small').checked = false;				// s창고 라디오버튼 체크해제
 				document.getElementById('st_button1').src = "images/ss1.png";			// s창고 버튼 매진표시
-			} else {																// 판교 s창고 매진아니면
+			} else if (document.getElementById('select_small').disabled == true) {	// 판교 s창고 매진아닌데 매진표시 되어있으면
 				document.getElementById('select_small').disabled = false;				// s창고 라디오버튼 사용가능
-				document.getElementById('st_button1').src = "images/s1.png";			// s창고 정상버튼 표시
+				document.getElementById('st_button1').src = "images/s1.png";			// s창고 일반버튼 표시
 			}
 			if (document.getElementById('soldout').value.includes("medium"+b_code)) {// 판교 m창고 매진이면
 				document.getElementById('select_medium').disabled = true;				// m창고 라디오버튼 사용불가
 				document.getElementById('select_medium').checked = false;				// m창고 라디오버튼 체크해제
 				document.getElementById('st_button2').src = "images/ss2.png";			// m창고 버튼 매진표시
-			} else {																// 판교 m창고 매진아니면
+			} else if (document.getElementById('select_medium').disabled == true) {	// 판교 m창고 매진아닌데 매진표시 되어있으면
 				document.getElementById('select_medium').disabled = false;				// m창고 라디오버튼 사용가능		
-				document.getElementById('st_button2').src = "images/s2.png";			// m창고 정상버튼 표시
+				document.getElementById('st_button2').src = "images/s2.png";			// m창고 일반버튼 표시
 			}
 			if (document.getElementById('soldout').value.includes("large"+b_code)) {// 판교 l창고 매진이면
 				document.getElementById('select_large').disabled = true;				// l창고 라디오버튼 사용불가
 				document.getElementById('select_large').checked = false;				// l창고 라디오버튼 체크해제
 				document.getElementById('st_button3').src = "images/ss3.png";			// l창고 버튼 매진표시
-			} else {																// 판교 l창고 매진아니면
+			} else if (document.getElementById('select_large').disabled == true) {	// 판교 l창고 매진아닌데 매진표시 되어있으면
 				document.getElementById('select_large').disabled = false;				// l창고 라디오버튼 사용가능
-				document.getElementById('st_button3').src = "images/s3.png";			// l창고 정상버튼 표시
+				document.getElementById('st_button3').src = "images/s3.png";			// l창고 일반버튼 표시
 			}
 			period();
 		}		
@@ -106,7 +115,14 @@
 		switch(s_kind) {
 		case 'small':	// s창고 선택했을 때
 			if (document.getElementById('select_small').disabled == false) {	// 해당 지점 s창고 매진아니면
-			document.getElementById('select_small').checked = true;				// 라디오버튼 체크
+				document.getElementById('select_small').checked = true;			// 라디오버튼 체크
+				document.getElementById('st_button1').src = "images/s1s.png";	// s창고 선택됨 버튼으로 그림변경
+				if (document.getElementById('select_medium').disabled == false) {	// m창고 매진아니면
+					document.getElementById('st_button2').src = "images/s2.png";	// m창고 일반버튼 표시
+				}
+				if (document.getElementById('select_large').disabled == false) {	// l창고 매진아니면
+					document.getElementById('st_button3').src = "images/s3.png";	// l창고 일반버튼 표시
+				}
 			}
 			period();
 			sel_reset();
@@ -114,6 +130,13 @@
 		case 'medium':	// m창고 선택했을 때
 			if (document.getElementById('select_medium').disabled == false) {	// 해당 지점 m창고 매진아니면
 				document.getElementById('select_medium').checked = true;		// 라디오버튼 체크		
+				document.getElementById('st_button2').src = "images/s2s.png";	// m창고 선택됨 버튼으로 그림변경
+				}
+				if (document.getElementById('select_small').disabled == false) {	// s창고 매진아니면
+					document.getElementById('st_button1').src = "images/s1.png";	// s창고 일반버튼 표시
+				}
+				if (document.getElementById('select_large').disabled == false) {	// l창고 매진아니면
+					document.getElementById('st_button3').src = "images/s3.png";	// l창고 일반버튼 표시
 				}
 			period();
 			sel_reset();
@@ -121,6 +144,13 @@
 		case 'large':	// l창고 선택했을 때
 			if (document.getElementById('select_large').disabled == false) {	// 해당 지점 l창고 매진아니면
 				document.getElementById('select_large').checked = true;			// 라디오버튼 체크	
+				document.getElementById('st_button3').src = "images/s3s.png";	// l창고 선택됨 버튼으로 그림변경
+				}
+				if (document.getElementById('select_medium').disabled == false) {	// m창고 매진아니면
+					document.getElementById('st_button2').src = "images/s2.png";	// m창고 일반버튼 표시
+				}
+				if (document.getElementById('select_small').disabled == false) {	// s창고 매진아니면
+					document.getElementById('st_button1').src = "images/s1.png";	// s창고 일반버튼 표시
 				}
 			period();
 			sel_reset();

@@ -23,13 +23,13 @@
 	<form action="order.do" method="post" name="order_form">
 		<h2>지점 선택</h2>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(1)" ondrag="select_branch(1)">
-			<img src="images/b1.png" height="236" width="300" >
+			<img id="br_button1" src="images/b1.png" height="236" width="300" >
 		</button>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(2)" ondrag="select_branch(2)">
-			<img src="images/b2.png" height="236" width="300">
+			<img id="br_button2" src="images/b2.png" height="236" width="300">
 		</button>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(3)" ondrag="select_branch(3)">
-			<img src="images/b3.png" height="236" width="300">
+			<img id="br_button3" src="images/b3.png" height="236" width="300">
 		</button>
 		<!-- 라디오버튼은 나중에 히든 처리 -->
 		<input type="radio" name="branch" value="1" id="select_1" required="required">
