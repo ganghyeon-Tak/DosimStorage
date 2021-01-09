@@ -3,7 +3,7 @@ package model;
 import java.sql.Date;
 
 public class OrderList {
-	int order_no;
+	long order_no;
 	String m_id;
 	Date order_date;
 	Date expire_date;
@@ -11,11 +11,11 @@ public class OrderList {
 	String s_kind;
 	String b_title;
 
-	public int getOrder_no() {
+	public long getOrder_no() {
 		return order_no;
 	}
 
-	public void setOrder_no(int order_no) {
+	public void setOrder_no(long order_no) {
 		this.order_no = order_no;
 	}
 

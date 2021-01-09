@@ -33,6 +33,7 @@ public class OrderListDao {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<OrderList> select(String m_id) {
 		return (List<OrderList>) session.selectList("orderListns.select", m_id);
 	}
