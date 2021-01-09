@@ -13,7 +13,8 @@ import model.Storage_list;
 public class OrderDo implements CommandProcess {
 
 	@Override
-	public String requestPro(HttpServletRequest request, HttpServletResponse response) {		
+	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("실행되긴 하나?");
 		HttpSession session = request.getSession();		
 		String m_id = (String)session.getAttribute("m_id");		
 		int branch = Integer.parseInt(request.getParameter("branch"));		
@@ -40,7 +41,8 @@ public class OrderDo implements CommandProcess {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return "orderErr";
-		} 
+		}
+		System.out.println("체크1");
 		Order ord = new Order();
 		ord.setM_id(m_id);
 		ord.setSt_code(st_code);

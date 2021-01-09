@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="sessionChk.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="sessionChk.jsp" %>
 <meta charset="UTF-8">
 <title>도심 창고</title>
 </head>
