@@ -45,6 +45,12 @@ public class OrderDao {
 	}
 	public int insOrder(Order ord) {		
 		return session.insert("orderns.insOrder", ord);
+	}	
+	public int update_st(String st_code) {		
+		return session.update("storage_listns.update_st", st_code);
+	}
+	public void restore(String st_code) {
+		session.update("storage_listns.restore", st_code);
 	}
 	
 }
