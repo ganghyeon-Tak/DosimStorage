@@ -14,5 +14,3 @@
 		select account_name from ds_account where bank=#{bank}		
 	</select>		
 </mapper>
-
-
