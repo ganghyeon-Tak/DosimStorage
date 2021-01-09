@@ -12,7 +12,7 @@
 		<result property="b_title"  column="b_title"/>
 	</resultMap>
 
-	<select id="select" parameterType="string" resultType="orderList">
+	<select id="select" parameterType="string" resultType="orderList" flushCache="true" useCache="false">
 		select * from v_orderList where m_id=#{m_id} order by order_date desc
 	</select>
 </mapper>
