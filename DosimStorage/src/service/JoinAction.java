@@ -3,7 +3,9 @@ package service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//import dao.MasterDao;
 import dao.MemberDao;
+//import model.Master;
 import model.Member;
 
 public class JoinAction implements CommandProcess {
@@ -25,7 +27,8 @@ public class JoinAction implements CommandProcess {
 			member.setM_email(m_email);
 			member.setM_tel(m_tel);
 			result = md.insert(member);
-		} else result = -1;
+		} 
+		else result = -1;
 		request.setAttribute("result", result);
 		return "join";
 	}

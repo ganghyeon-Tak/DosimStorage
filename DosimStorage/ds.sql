@@ -460,3 +460,9 @@ insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l307', 3, 'large');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l308', 3, 'large');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l309', 3, 'large');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l310', 3, 'large');
+
+-- 테스트용
+--select * from ds_member;
+--select * from ds_master;
+--delete from ds_member where m_id = 'k1';
+--delete from ds_member where m_id = 'master';

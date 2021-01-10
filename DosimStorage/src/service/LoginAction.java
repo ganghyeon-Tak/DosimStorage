@@ -19,6 +19,7 @@ public class LoginAction implements CommandProcess {
 		if (member == null || member.getM_del().equals("y")) result = -1;
 		else {
 			String dbPass = member.getM_pw();
+			String dbId = member.getM_id();
 			if (dbPass.equals(m_pw)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("m_id", m_id);
