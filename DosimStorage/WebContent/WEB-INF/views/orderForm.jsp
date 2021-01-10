@@ -18,9 +18,11 @@
 </head>
 <body>
 <!-- 매진된 창고-지점 표시. 나중에 히든처리 -->
-<input type="text" readonly="readonly" id="soldout">
-<div>	
+<input type="text" readonly="readonly" id="soldout" style="width: 70%">
+<div>
+	<!-- 매진테스트용으로 여러건 주문 한번에 할 경우 주석처리된 부분으로 교체 -->	
 	<form action="order.do" method="post" name="order_form">
+	<!-- <form action="soldoutTest.do" method="post" name="order_form"> -->
 		<h2>지점 선택</h2>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(1)" ondrag="select_branch(1)">
 			<img id="br_button1" src="images/b1.png" height="236" width="300">
@@ -83,7 +85,9 @@
 		<p>계좌번호 <input type="text" readonly="readonly" id="account_no" name="account_no"></p>
 		<p>예금주 <input type="text" readonly="readonly" id="account_name" name="account_name"></p>
 		<p>실시간 계좌이체 및 카드결제는 준비중입니다</p>
+		<!-- 매진테스트용으로 여러건 주문 한번에 할 경우 주석처리된 부분으로 교체 -->
 		<button>신청하기</button>
+		<!-- <button>매진테스트(10회주문)</button> -->
 	</form>
 </div>
 </body>

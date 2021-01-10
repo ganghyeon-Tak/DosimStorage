@@ -18,7 +18,7 @@
 	</resultMap>
 	<insert id="insOrder" parameterType="order">
 		insert into ds_order values
-		(to_number(to_char(sysdate, 'YYYYMMDD')) * 10000 + to_number(to_char(ORDER_NO_SEQ.nextval, '0000')),
+		(to_number(to_char(sysdate, 'YYYYMMDD')) * 10000 + ORDER_NO_SEQ.nextval,
 		#{m_id}, #{st_code}, #{order_totalPrice}, sysdate, #{hope_date}, #{use_period}, null, null, #{account_no},
 		sysdate + 4, '입금대기')
 	</insert>	

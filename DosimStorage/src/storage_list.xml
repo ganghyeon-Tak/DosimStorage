@@ -17,7 +17,7 @@
 	</select>
 	<!-- 거의 동시에 두개 주문이 들어왔을 때, 뒤의 주문에서 에러를 발생시키기 위한 쿼리 -->
 	<update id="update_st" parameterType="string">
-		update DS_STORAGE_LIST set borrower_id = 
+		update DS_STORAGE_LIST set usable = 'n', borrower_id = 
 			case when borrower_id is null then '에러'
 				else '일부러에러를발생시키기위한값'
 			end
