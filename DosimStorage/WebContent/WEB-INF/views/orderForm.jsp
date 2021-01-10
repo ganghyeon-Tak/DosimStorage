@@ -23,7 +23,7 @@
 	<form action="order.do" method="post" name="order_form">
 		<h2>지점 선택</h2>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(1)" ondrag="select_branch(1)">
-			<img id="br_button1" src="images/b1.png" height="236" width="300" >
+			<img id="br_button1" src="images/b1.png" height="236" width="300">
 		</button>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(2)" ondrag="select_branch(2)">
 			<img id="br_button2" src="images/b2.png" height="236" width="300">
@@ -38,7 +38,7 @@
 		
 		<h2>창고 종류 선택</h2>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('small')" ondrag="select_storage('small')">
-			<img id="st_button1" src="images/s1.png" width="270" >
+			<img id="st_button1" src="images/s1.png" width="270">
 		</button>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('medium')" ondrag="select_storage('medium')">
 			<img id="st_button2" src="images/s2.png" width="300">
@@ -73,8 +73,8 @@
 		<p>금액 <input type="text" id="tot_price" readonly="readonly" name="tot_price" hidden="hidden">
 		<input type="text" id="tot_comma" readonly="readonly">
 		</p>
-		<p>무통장 입금:	<select onchange="get_account(this.value)" name="bank" required="required">
-							<option hidden="hidden"></option>
+		<p>무통장 입금 <select onchange="get_account(this.value)" name="bank" required="required">
+							<option id="bank" hidden="hidden"></option>
 							<option>국민은행</option>
 							<option>신한은행</option>
 							<option>카카오뱅크</option>

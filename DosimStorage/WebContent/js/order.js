@@ -1,6 +1,7 @@
 	var xhr, xhr1;	// XMLHttpRequest 생성에 쓸 변수
 	
-	window.onload = function() {
+	window.onpageshow = function() {
+		reset_form();
 		xhr = new XMLHttpRequest();
 		xhr.open("get","stockCheck.do",true);	// 매진여부 체크
 		xhr.onreadystatechange = function() {
@@ -244,5 +245,8 @@
 			alert('일주일 이내 날짜를 선택해주세요');
 			document.getElementById('hope_date').value = "";
 		}
+	}
+	function reset_form() {
+		order_form.reset();
 	}
 	
