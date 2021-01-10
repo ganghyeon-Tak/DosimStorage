@@ -6,6 +6,9 @@
 <%@ include file="sessionChk.jsp" %>
 <meta charset="UTF-8">
 <title>도심 창고</title>
+<style type="text/css">
+	@import url("common.css");
+</style>
 </head>
 <body>
 <h2>마이 페이지</h2>

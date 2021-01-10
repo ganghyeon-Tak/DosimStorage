@@ -12,7 +12,7 @@
 </head>
 <body>
 <h2>로그인</h2>
-<form action="login.do">
+<form action="login.do" method="post">
 <table>
 	<tr>
 		<th>아이디</th>
@@ -25,11 +25,12 @@
 			required="required"></td>
 	</tr>
 	<tr>
-		<th colspan="2"><input type="submit" value="확인"></th>
+		<th colspan="2"><input type="submit" value="로그인"></th>
 	</tr>
 </table>
 </form>
 <a href="joinForm.do">회원가입</a>
 <a href="main.do">홈페이지</a>
+<a href="masterLoginForm.do">관리자로그인</a>
 </body>
 </html>
