@@ -19,7 +19,14 @@
 }
 .bg_white {background:#fff;}
 .map_wrap {position:relative;width:100%;height:400px;}
-li {padding: 10px}
+li {
+	padding: 10px; 0;
+	line-height: 60px;
+}
+ul {
+	list-style: none;
+	padding: 0;	
+}
 </style>
 <script type="text/javascript">
 	function setCenter() {
@@ -35,7 +42,7 @@ li {padding: 10px}
 	<div id="map" style="width:600px;height:400px;"></div>
 	<div id="menu_wrap" class="bg_white">
 		<ul id="placesList">
-			<li>광화문점</li>
+			<li>광화문점</li>			
 			<li>신사점</li>
 			<li>판교점</li>
 		</ul>
