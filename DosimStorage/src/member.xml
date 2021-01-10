@@ -10,7 +10,7 @@
 		<result property="m_tel"  column="m_tel"/>
 		<result property="m_regdate"  	column="m_regdate"/>
 		<result property="total_use"  	column="total_use"/>
-		<result property="m_del" column="joindate"/>
+		<result property="m_del" column="m_del"/>
 	</resultMap>
 
 	<select id="select" parameterType="string" resultType="member">
