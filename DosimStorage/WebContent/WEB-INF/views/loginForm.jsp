@@ -31,6 +31,5 @@
 </form>
 <a href="joinForm.do">회원가입</a>
 <a href="main.do">홈페이지</a>
-<a href="masterLoginForm.do">관리자로그인</a>
 </body>
 </html>

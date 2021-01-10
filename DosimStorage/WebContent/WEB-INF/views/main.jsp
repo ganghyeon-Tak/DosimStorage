@@ -14,7 +14,7 @@
 <a href="mypage.do">마이페이지 진입 임시링크</a>
 <a href="list.bo">1:1게시판 진입 임시링크</a>
 <section>
-자네는 신촌가서 먹게
+
 </section>
 
 </body>
