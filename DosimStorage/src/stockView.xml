@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="stock_viewns">
+	<resultMap type="stock_view" 	id="resultMap">
+		<result property="br_type" column="br_type"/>
+		<result property="tot" column="tot"/>
+		<result property="ntot" column="ntot"/>				
+	</resultMap>		
+	<select id="select" resultType="string" flushCache="true" useCache="false">
+		select br_type from stock_view
+	</select>
+</mapper>

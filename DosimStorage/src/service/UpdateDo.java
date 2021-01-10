@@ -9,11 +9,11 @@ import model.Member;
 public class UpdateDo implements CommandProcess {
 
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-		String m_id = request.getParameter("m_id");
-		String m_pw = request.getParameter("m_pw");
-		String m_name = request.getParameter("m_name");		
-		String m_email = request.getParameter("m_email");
-		String m_tel = request.getParameter("m_tel");
+		String m_id = request.getParameter("id");
+		String m_pw = request.getParameter("password");
+		String m_name = request.getParameter("name");		
+		String m_email = request.getParameter("email");
+		String m_tel = request.getParameter("tel");
 		
 		MemberDao md = MemberDao.getInstance();
 		Member member = new Member();

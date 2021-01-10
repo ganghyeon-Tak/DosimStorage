@@ -134,15 +134,18 @@ ALTER TABLE ds_storage_list
     
 	-- 주문(order)
 CREATE TABLE ds_order (
-	order_no         NUMBER(10)   NOT NULL, -- 주문번호
+	order_no         NUMBER(12)   NOT NULL, -- 주문번호
 	m_id             VARCHAR2(12) NOT NULL, -- 회원ID
 	st_code          VARCHAR2(10) NOT NULL, -- 창고코드
 	order_totalPrice NUMBER(10)   NOT NULL, -- 주문총액
 	order_date       DATE         NOT NULL, -- 주문일
-	expire_date      DATE         NOT NULL, -- 이용만료일
+	hope_date	 	 DATE         not null, -- 이용개시희망일
+	use_period	 	 NUMBER(2)    not null, -- 이용개월수
+	start_date	 	 DATE,					-- 이용시작일
+	expire_date      DATE,					-- 이용만료일
 	account_no       VARCHAR2(20) NOT NULL, -- 계좌번호
 	depo_dueDate     DATE         NOT NULL, -- 입금기한
-	order_state      VARCHAR2(16) NOT NULL -- 주문상태
+	order_state      VARCHAR2(16) NOT NULL  -- 주문상태
 );
 
 	-- 주문(order)
@@ -178,7 +181,7 @@ ALTER TABLE ds_account
 CREATE TABLE ds_board1 (
 	num       NUMBER        NOT NULL, -- 게시글번호
 	m_id      VARCHAR2(12)  NOT NULL, -- 회원ID
-	order_no  NUMBER(10)    NULL,     -- 주문번호
+	order_no  NUMBER(12)    NULL,     -- 주문번호
 	m_email   VARCHAR2(20)  NULL,     -- 이메일
 	title     VARCHAR2(50)  NOT NULL, -- 제목
 	content   VARCHAR2(1000) NOT NULL, -- 내용
@@ -335,6 +338,9 @@ insert into DS_MASTER values('master', '1234');	-- 관리자 아이디
 
 	-- Member - master : 관리자 아이디와 같은 아이디를 유저가 생성하지 못하게 하기 위한 데이터
 insert into DS_MEMBER values('master', 'asdcfhdae2', '마슷허', 'email@mail.com', '112', sysdate, 0, 'y');
+	-- 창고목록에 상태표시용으로 쓰는 키워드로 유저가 가입 못하게 막기 위한 데이터
+insert into DS_MEMBER values('입금대기', 'asdcfhdae2', '입금대기', 'email@mail.com', '112', sysdate, 0, 'y');
+insert into DS_MEMBER values('에러', 'asdcfhdae2', '에러', 'email@mail.com', '112', sysdate, 0, 'y');
 
 	-- 계좌
 insert into DS_ACCOUNT values('123-4567-890123', '국민은행', '도심창고');
@@ -347,9 +353,9 @@ insert into DS_BRANCH values('2', '신사점', '02-891-2345', '서울특별시 �
 insert into DS_BRANCH values('3', '판교점', '031-678-9123', '경기도 성남시 분당구 판교로 37');
 
 	-- 창고서비스
-insert into DS_SERVICE values('small', 30000);
-insert into DS_SERVICE values('middle', 50000);
-insert into DS_SERVICE values('large', 100000);
+insert into DS_SERVICE values('small', 68000);
+insert into DS_SERVICE values('medium', 98000);
+insert into DS_SERVICE values('large', 168000);
 
 	-- 창고목록. 아직 창고목록 insert가 만들어지지 않아서 수동으로 다 등록해야한다	
 		-- 광화문점 small 창고들
@@ -364,17 +370,17 @@ insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s108', 1, 'small');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s109', 1, 'small');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s110', 1, 'small');
 
-		-- 광화문점 middle 창고들
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m101', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m102', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m103', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m104', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m105', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m106', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m107', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m108', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m109', 1, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m110', 1, 'middle');
+		-- 광화문점 medium 창고들
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m101', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m102', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m103', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m104', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m105', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m106', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m107', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m108', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m109', 1, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m110', 1, 'medium');
 
 		-- 광화문점 large 창고들
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l101', 1, 'large');
@@ -401,17 +407,17 @@ insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s208', 2, 'small');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s209', 2, 'small');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s210', 2, 'small');
 
-		-- 신사점 middle 창고들
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m201', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m202', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m203', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m204', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m205', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m206', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m207', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m208', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m209', 2, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m210', 2, 'middle');
+		-- 신사점 medium 창고들
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m201', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m202', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m203', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m204', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m205', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m206', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m207', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m208', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m209', 2, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m210', 2, 'medium');
 
 		-- 신사점 large 창고들
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l201', 2, 'large');
@@ -437,17 +443,17 @@ insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s308', 3, 'small');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s309', 3, 'small');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('s310', 3, 'small');
 
-		-- 판교점 middle 창고들
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m301', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m302', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m303', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m304', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m305', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m306', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m307', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m308', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m309', 3, 'middle');
-insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m310', 3, 'middle');
+		-- 판교점 medium 창고들
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m301', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m302', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m303', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m304', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m305', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m306', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m307', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m308', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m309', 3, 'medium');
+insert into ds_storage_list(st_code, b_code, s_kind) VALUES('m310', 3, 'medium');
 
 		-- 판교점 large 창고들
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l301', 3, 'large');
@@ -461,8 +467,58 @@ insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l308', 3, 'large');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l309', 3, 'large');
 insert into ds_storage_list(st_code, b_code, s_kind) VALUES('l310', 3, 'large');
 
--- 테스트용
---select * from ds_member;
---select * from ds_master;
---delete from ds_member where m_id = 'k1';
---delete from ds_member where m_id = 'master';
+
+-- 뷰 생성
+
+	-- 지점*창고타입별 매진된 창고 표시하는 뷰
+	-- 뷰 생성 권한이 없는 경우 system 계정 접속해서 grant create view to 계정명(ex: scott)
+	-- 으로 권한 부여 후 생성할 것!
+create or replace view stock_view as
+	select a.br_type, tot, ntot from
+		(select s.s_kind||b.b_code br_type, count(s.st_code) tot
+		from ds_branch b, ds_service v, ds_storage_list s
+		where b.b_code=s.b_code and v.s_kind = s.s_kind
+		group by s.s_kind, b.b_code) a,
+		(select s.s_kind||b.b_code br_type, count(s.st_code) ntot
+		from ds_branch b, ds_service v, ds_storage_list s
+		where b.b_code=s.b_code and v.s_kind = s.s_kind and usable = 'n'
+		group by s.s_kind, b.b_code) b
+	where a.br_type = b.br_type and tot = ntot;
+
+	-- 마이페이지에 있는 주문조회에서 확인할 정보가 표시된 뷰
+create or replace view v_orderList as 
+	select o.order_no, o.m_id, o.order_date, o.expire_date, o.order_state, s.s_kind, b.b_title
+ 	from ds_order o, ds_storage_list s, ds_branch b
+    	where o.st_code=s.st_code and s.b_code=b.b_code;
+
+
+-- 시퀀스 생성
+    	
+	-- 주문번호 시퀀스
+CREATE SEQUENCE order_no_seq
+MAXVALUE 9999
+CYCLE;
+
+
+-- 트리거 생성
+-- ***	트리거 생성시 만약 에러가 난다면 오라클 SQL Developer에서
+--		도구 > 환경설정. 데이터베이스 > PL/SQL 컴파일러 > PLScope 식별자 none으로 변경후 생성 ***
+
+	-- 주문 정상 등록 시 해당 창고 중복주문 막고, 해당 창고 borrower_id에 입금대기표시
+create or replace trigger payment_wait
+    after insert on ds_order
+    for each row
+begin
+    update ds_storage_list set usable = 'n', borrower_id = '입금대기' where st_code = :new.st_code;
+end;
+/
+	-- 입금완료 처리시 창고목록 테이블 자동변경 트리거
+create or replace trigger service_starter
+    after update on ds_order
+    for each row
+begin    
+    if :old.order_state = '입금대기' and :new.order_state = '입금완료' then        
+        update ds_storage_list set usable = 'n', rented = 'y', borrower_id = :new.m_id where st_code = :new.st_code;
+    end if;
+end;
+/

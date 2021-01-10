@@ -3,10 +3,13 @@
 <decorators defaultdir="/WEB-INF/decorator">
 	<decorator name="main" page="main_decorator.jsp">		
 		<pattern>/*.do</pattern>
+		<pattern>/*.bo</pattern>
 	</decorator>	
 	<excludes>
 		<pattern>/idChk.do</pattern>		
-		<pattern>/bank.do</pattern>
-		<pattern>/bank1.do</pattern>	
+		<pattern>/bank.*</pattern>
+		<pattern>/bank1.*</pattern>
+		<pattern>/stockCheck.do</pattern>
+		<pattern>/priceCheck.*</pattern>
 	</excludes>
 </decorators>

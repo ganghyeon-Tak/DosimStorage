@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="orderns">
+	<resultMap type="order" 	id="resultMap">
+		<result property="order_no" column="order_no"/>
+		<result property="m_id" column="m_id"/>
+		<result property="st_code"  	column="st_code"/>
+		<result property="order_totalPrice" column="order_totalPrice"/>
+		<result property="order_date" column="order_date"/>
+		<result property="hope_date"  	column="hope_date"/>
+		<result property="use_period" column="use_period"/>
+		<result property="start_date" column="start_date"/>
+		<result property="expire_date"  	column="expire_date"/>
+		<result property="account_no" column="account_no"/>
+		<result property="depo_dueDate" column="depo_dueDate"/>
+		<result property="order_state"  	column="order_state"/>		
+	</resultMap>
+	<insert id="insOrder" parameterType="order">
+		insert into ds_order values
+		(to_number(to_char(sysdate, 'YYYYMMDD')) * 10000 + ORDER_NO_SEQ.nextval,
+		#{m_id}, #{st_code}, #{order_totalPrice}, sysdate, #{hope_date}, #{use_period}, null, null, #{account_no},
+		sysdate + 4, '입금대기')
+	</insert>	
+</mapper>
+
+

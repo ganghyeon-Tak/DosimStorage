@@ -8,6 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import model.Order;
+import model.Storage_list;
+
 public class OrderDao {
 	// singleton
 	private static OrderDao instance = new OrderDao();
@@ -19,7 +22,7 @@ public class OrderDao {
 	static {  // 클래스변수 초기화 블럭
 		try {  // myBatis를 이용해서 DB를 연동
 			Reader reader =
-				Resources.getResourceAsReader("configulation.xml");
+				Resources.getResourceAsReader("configuration.xml");
 			SqlSessionFactory ssf = 
 				new SqlSessionFactoryBuilder().build(reader);
 			session = ssf.openSession(true);
@@ -34,4 +37,20 @@ public class OrderDao {
 	public String select_an(String bank) {
 		return (String)session.selectOne("accountns.select_an", bank);
 	}
+	public int sel_price(String storage) {		
+		return (int)session.selectOne("servicens.sel_price", storage);
+	}
+	public String sel_st(Storage_list sl) {		
+		return (String)session.selectOne("storage_listns.sel_st", sl);
+	}
+	public int insOrder(Order ord) {		
+		return session.insert("orderns.insOrder", ord);
+	}	
+	public int update_st(String st_code) {		
+		return session.update("storage_listns.update_st", st_code);
+	}
+	public void restore(String st_code) {
+		session.update("storage_listns.restore", st_code);
+	}
+	
 }
