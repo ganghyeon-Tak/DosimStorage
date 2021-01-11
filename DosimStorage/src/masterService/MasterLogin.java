@@ -1,14 +1,14 @@
-package service;
+package masterService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class OrderList implements CommandProcess {
+public class MasterLogin implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return "orderList";
+		
+		return "m_login";
 	}
 
 }

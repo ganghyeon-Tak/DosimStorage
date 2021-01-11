@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-	location.href="m_main.action"
+	location.href="masterLoginForm.action";
 </script>
 </body>
 </html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="orderListns">
+	<resultMap type="orderList" id="resultMap">
+		<result property="order_no" column="order_no"/>
+		<result property="m_id" column="m_id"/>
+		<result property="order_date" column="order_date"/>
+		<result property="expire_date"  column="expire_date"/>
+		<result property="order_state"  column="order_state"/>
+		<result property="s_kind"  column="s_kind"/>
+		<result property="b_title"  column="b_title"/>
+	</resultMap>
+
+	<select id="select" parameterType="string" resultType="orderList" flushCache="true" useCache="false">
+		select * from v_orderList where m_id=#{m_id} order by order_date desc
+	</select>
+</mapper>

@@ -11,7 +11,7 @@
 <c:if test="${result > 0}">
 	<script type="text/javascript">
 		alert("로그인 성공");
-		location.href = "mainAfter.do"
+		location.href = "main.do"
 	</script>
 </c:if>
 <c:if test="${result == 0}">
