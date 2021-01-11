@@ -40,13 +40,13 @@
 		
 		<h2>창고 종류 선택</h2>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('small')" ondrag="select_storage('small')">
-			<img id="st_button1" src="images/s1.png" width="270">
+			<img id="st_button1" src="images/s1.png" width="300">
 		</button>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('medium')" ondrag="select_storage('medium')">
 			<img id="st_button2" src="images/s2.png" width="300">
 		</button>
 		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('large')" ondrag="select_storage('large')">
-			<img id="st_button3" src="images/s3.png" width="330">
+			<img id="st_button3" src="images/s3.png" width="300">
 		</button>
 		<!-- 라디오버튼은 나중에 히든 처리 -->
 		<input type="radio"  name="storage" value="small" id="select_small" required="required">
