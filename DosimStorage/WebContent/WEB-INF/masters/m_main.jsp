@@ -29,8 +29,8 @@ button {
 
 <p><button onclick="location.href='m_customerList.action'" style="WIDTH: 150pt; HEIGHT: 100pt">회원관리</button>
 
-<button onclick="location.href='m_shopList.action'" style="WIDTH: 150pt; HEIGHT: 100pt">지점관리</button>
-<button onclick="location.href='m_shopoOrder.action'" style="WIDTH: 150pt; HEIGHT: 100pt">주문관리</button>
+<button onclick="location.href='m_branchList.action'" style="WIDTH: 150pt; HEIGHT: 100pt">지점관리</button>
+<button onclick="location.href='m_orderedList.action'" style="WIDTH: 150pt; HEIGHT: 100pt">주문관리</button>
 <button onclick="location.href='m_service.action'" style="WIDTH: 150pt; HEIGHT: 100pt">서비스관리</button>
 <button onclick="location.href='m_boader.action'" style="WIDTH: 150pt; HEIGHT: 100pt">고객센터관리</button>
 <button onclick="location.href='main.do'" style="WIDTH: 150pt; HEIGHT: 100pt">도시창고 홈</button>
