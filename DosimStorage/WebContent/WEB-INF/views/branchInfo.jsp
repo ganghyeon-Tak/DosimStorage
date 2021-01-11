@@ -19,18 +19,19 @@
 }
 .bg_white {background:#fff;}
 .map_wrap {position:relative;width:100%;height:400px;}
-li {
-	padding: 10px; 0;
-	line-height: 60px;
-}
+
 ul {
 	list-style: none;
 	padding: 0;	
 }
+button {
+	background: rgba(255, 255, 255, 0);
+	border: none;	
+}
 </style>
 <script type="text/javascript">
-	function setCenter() {
-		var moveLatLon = new kakao.maps.LatLng(33.452613, 126.570888);
+	function setCenter(a, b) {
+		var moveLatLon = new kakao.maps.LatLng(a, b);
 	    
 	    // 지도 중심을 이동 시킵니다
 	    map.setCenter(moveLatLon);
@@ -42,9 +43,9 @@ ul {
 	<div id="map" style="width:600px;height:400px;"></div>
 	<div id="menu_wrap" class="bg_white">
 		<ul id="placesList">
-			<li>광화문점</li>			
-			<li>신사점</li>
-			<li>판교점</li>
+			<li><button type="button" onclick="setCenter(37.5581346, 126.9708856)">광화문점</button></li>			
+			<li><button type="button" onclick="setCenter(37.5199454, 127.0256598)">신사점</button></li>
+			<li><button type="button" onclick="setCenter(37.390331, 127.082675)">판교점</button></li>
 		</ul>
 	</div>
 </div>
