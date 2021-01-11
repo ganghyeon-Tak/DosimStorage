@@ -11,5 +11,6 @@
 		<pattern>/bank1.*</pattern>
 		<pattern>/stockCheck.do</pattern>
 		<pattern>/priceCheck.*</pattern>
+		<pattern>/branchDetail.*</pattern>
 	</excludes>
 </decorators>

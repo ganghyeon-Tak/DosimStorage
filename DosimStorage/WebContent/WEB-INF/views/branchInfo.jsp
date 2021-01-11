@@ -30,12 +30,26 @@ button {
 }
 </style>
 <script type="text/javascript">
-	function setCenter(a, b) {
+	function setCenter(a, b, num) {
 		var moveLatLon = new kakao.maps.LatLng(a, b);
 	    
 	    // 지도 중심을 이동 시킵니다
 	    map.setCenter(moveLatLon);
+	    branchDetail(num);
 	}
+	function branchDetail(num) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('get', 'branchDetail.do?br='+num, true);
+		xhr.onload = function() {
+			if (xhr.status >= 200 && xhr.status < 400) {	// https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+				var dispLisp = xhr.responseText;
+
+				document.getElementById('branch_info').innerHTML = dispLisp;
+			}
+		};
+		xhr.send();
+	}
+	window.onpageshow = branchDetail(1);
 </script>
 </head>
 <body>
@@ -43,9 +57,9 @@ button {
 	<div id="map" style="width:600px;height:400px;"></div>
 	<div id="menu_wrap" class="bg_white">
 		<ul id="placesList">
-			<li><button type="button" onclick="setCenter(37.5581346, 126.9708856)">광화문점</button></li>			
-			<li><button type="button" onclick="setCenter(37.5199454, 127.0256598)">신사점</button></li>
-			<li><button type="button" onclick="setCenter(37.390331, 127.082675)">판교점</button></li>
+			<li><button type="button" onclick="setCenter(37.5581346, 126.9708856, 1)">광화문점</button></li>			
+			<li><button type="button" onclick="setCenter(37.5199454, 127.0256598, 2)">신사점</button></li>
+			<li><button type="button" onclick="setCenter(37.390331, 127.082675, 3)">판교점</button></li>
 		</ul>
 	</div>
 </div>
