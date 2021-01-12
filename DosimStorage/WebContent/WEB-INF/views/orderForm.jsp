@@ -41,7 +41,7 @@
 				<img id="br_button1" src="images/b1.png" width="300">
 			</button>
 			<button type="button" style="background-color: #F2EFEB; padding: 0; border: none" onclick="select_branch(2)" ondrag="select_branch(2)">
-				<img id="br_button2" src="images/b2.png" width="300"">
+				<img id="br_button2" src="images/b2.png" width="300">
 			</button>
 			<button type="button" style="background-color: #F2EFEB; padding: 0; border: none" onclick="select_branch(3)" ondrag="select_branch(3)">
 				<img id="br_button3" src="images/b3.png" width="300">
