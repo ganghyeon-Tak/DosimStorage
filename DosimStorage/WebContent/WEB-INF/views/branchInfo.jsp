@@ -8,11 +8,13 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dcd1967942f030312f2789a036f32080"></script>
 <style type="text/css">
+@import url("common.css");
 #menu_wrap {
 	position: absolute;
 	top: 0; left: 0; bottom: 0;
 	width: 200px; margin: 10px 0 30px 10px; padding: 5px;
-	overflow-y: auto;
+	height: 260px;
+	overflow-y: hidden;
 	background: rgba(255, 255, 255, 0.8);
 	z-index: 1;
 	font-size: 16px;
@@ -21,7 +23,7 @@
 .bg_white {background:#fff;}
 .map_wrap {position:relative; width:100%; height:500px;}
 
-ul {	
+.container ul {	
 	margin: 20px 0
 }
 button {

@@ -41,6 +41,9 @@ a {
 li{
 	list-style: none
 }
+.main-image {
+	text-align: center;
+}
 
 .main-image {
 	text-align: center;
@@ -110,9 +113,13 @@ li{
 }
 
 #menu-first {
-	color: black;
+	color: black;	
 	height: 50px;
-	
+	background-color: black;	
+}
+
+#menu-first .main {
+	max-width: 1200px;
 }
 
 #menu-first ul {
