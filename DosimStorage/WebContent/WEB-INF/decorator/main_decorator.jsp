@@ -77,16 +77,10 @@
 <footer>
 <div>
 <ul>
-	<li>상호명 : </li>
-	<li>주소 : </li>
-	<li>전화번호 : </li>
-</ul>
-</div>
-<div>
-<ul>
-	<li><h4>고객센터</h4></li>
-	<li>월  ~ 금 : 10:00 ~ 18:30</li>
-	<li>점심시간 : 12:00 ~ 13:00</li>
+	<li>도심창고</li>
+	<li>사업자등록번호 212-86-04975</li>
+	<li>고객센터 1688-5000</li><p>
+	<l>2021 DOSIM All rights reserved</li>
 </ul>
 </div>
 </footer>
