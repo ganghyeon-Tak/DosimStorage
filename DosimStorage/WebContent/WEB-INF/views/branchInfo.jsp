@@ -50,6 +50,10 @@ button {
 	}
 </style>
 <script type="text/javascript">
+	const bx1 = 37.5581346, by1 = 126.9708856;	// 광화문점 x, y좌표
+	const bx2 = 37.5199454, by2 = 127.0256598;	// 신사점 x, y좌표
+	const bx3 = 37.390331, by3 = 127.082675;	// 판교점 x, y좌표
+	
 	function setCenter(a, b, num) {
 		var moveLatLon = new kakao.maps.LatLng(a, b);
 	    
@@ -73,21 +77,21 @@ button {
 <c:if test="${br == 1}">
 	<script type="text/javascript">		
 		window.onpageshow = function() {
-			setCenter(37.5581346, 126.9708856, 1);
+			setCenter(bx1, by1, 1);
 		}
 	</script>
 </c:if>
 <c:if test="${br == 2}">
 	<script type="text/javascript">
 		window.onpageshow = function() {
-			setCenter(37.5199454, 127.0256598, 2);
+			setCenter(bx2, by2, 2);
 		}
 	</script>
 </c:if>
 <c:if test="${br == 3}">
 	<script type="text/javascript">
 		window.onpageshow = function() {
-			setCenter(37.390331, 127.082675, 3);
+			setCenter(bx3, by3, 3);
 		}
 	</script>
 </c:if>
@@ -125,7 +129,7 @@ button {
 <script type="text/javascript">
 	var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 	var options = { //지도를 생성할 때 필요한 기본 옵션
-		center: new kakao.maps.LatLng(37.5581346, 126.9708856), //지도의 중심좌표.
+		center: new kakao.maps.LatLng(bx1, by1), //지도의 중심좌표.
 		level: 3 //지도의 레벨(확대, 축소 정도)
 	};
 	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
@@ -135,19 +139,19 @@ button {
 	var marker1 = new kakao.maps.Marker({
 	    map: map,
 	    title: "광화문점",
-	    position: new kakao.maps.LatLng(37.5581346, 126.9708856),
+	    position: new kakao.maps.LatLng(bx1, by1),
 		clickable: true
 	});
 	var marker2 = new kakao.maps.Marker({
 	    map: map,
 	    title: "신사점",
-	    position: new kakao.maps.LatLng(37.5199454, 127.0256598),
+	    position: new kakao.maps.LatLng(bx2, by2),
 		clickable: true
 	});
 	var marker3 = new kakao.maps.Marker({
 	    map: map,
 	    title: "판교점",
-	    position: new kakao.maps.LatLng(37.390331, 127.082675),
+	    position: new kakao.maps.LatLng(bx3, by3),
 		clickable: true
 	});
 	// 인포윈도우 생성
