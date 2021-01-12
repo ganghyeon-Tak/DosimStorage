@@ -64,7 +64,7 @@
 			<li><a href="board.do">고객센터</a>
 				<ul class="sub">
 					<li><a href="#">Q&A 게시판</a></li>
-					<li><a href="#">1:1 문의</a></li>
+					<li><a href="list.bo">1:1 문의</a></li>
 				</ul>
 			</li>
 		</ul>
