@@ -35,7 +35,7 @@
   text-align: center;
 }
 
-#submit:hover {
+#submit:hover, #chk:hover {
   background-color: #DF964A;
 }
 </style>
@@ -43,7 +43,7 @@
 <script type="text/javascript">
 	function chk() {
 		if (frm.m_pw.value != frm.m_pwConfirm.value) {
-			alert("비밀번호와 비밀번호 확인이 다릅니다");
+			alert("암호와 암호 확인이 다릅니다");
 			frm.m_pw.focus();
 			frm.m_pw.value = "";
 			frm.m_pwConfirm.value = "";
@@ -52,7 +52,7 @@
 	}
 	function idChk() {
 		if (!frm.m_id.value) {
-			alert("아이디 입력한 후에 체크하시오");
+			alert("아이디 입력한 후에 체크하세요");
 			frm.m_id.focus();
 			return false;
 			}
