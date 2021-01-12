@@ -10,7 +10,7 @@
 #menu_wrap {
 	position: absolute;
 	top: 0; left: 0; bottom: 0;
-	width: 250px; margin: 10px 0 30px 10px; padding: 5px;
+	width: 200px; margin: 10px 0 30px 10px; padding: 5px;
 	overflow-y: auto;
 	background: rgba(255, 255, 255, 0.7);
 	z-index: 1;
@@ -18,16 +18,31 @@
 	border-radius: 10px;
 }
 .bg_white {background:#fff;}
-.map_wrap {position:relative;width:100%;height:400px;}
+.map_wrap {position:relative;width:100%;height:500px;}
 
 ul {
 	list-style: none;
-	padding: 0;	
+	padding: 0;
+	margin: 20px 0	
 }
 button {
+	width: 200px;
 	background: rgba(255, 255, 255, 0);
-	border: none;	
+	border: none;
+	border-bottom: solid 1px black;	
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-color: #999;
+	padding: 0; 5px;	
+	text-align: left;	
 }
+.last_bt{ border: none}
+.b_bt_t {
+	font-size: 18px;
+	font-weight: bold;	
+}
+.b_bt_ad {color: #666}
+
 </style>
 <script type="text/javascript">
 	function setCenter(a, b, num) {
@@ -54,12 +69,26 @@ button {
 </head>
 <body>
 <div class="map_wrap">
-	<div id="map" style="width:600px;height:400px;"></div>
+	<div id="map" style="width: 80%; max-width: 960px; height: 500px;"></div>
 	<div id="menu_wrap" class="bg_white">
 		<ul id="placesList">
-			<li><button type="button" onclick="setCenter(37.5581346, 126.9708856, 1)">광화문점</button></li>			
-			<li><button type="button" onclick="setCenter(37.5199454, 127.0256598, 2)">신사점</button></li>
-			<li><button type="button" onclick="setCenter(37.390331, 127.082675, 3)">판교점</button></li>
+			<li><button type="button" onclick="setCenter(37.5581346, 126.9708856, 1)">
+					<p class="b_bt_t">도심창고 광화문점</p>
+					<p class="b_bt_ad">서울특별시 종로구 세종대로 11</p>					
+				</button>
+			</li>						
+			<li>
+				<button type="button" onclick="setCenter(37.5199454, 127.0256598, 2)">
+					<p class="b_bt_t">도심창고 신사점</p>
+					<p class="b_bt_ad">서울특별시 강남구 도산대로 25</p>
+				</button>
+			</li>
+			<li>
+				<button type="button" class="last_bt" onclick="setCenter(37.390331, 127.082675, 3)">
+					<p class="b_bt_t">도심창고 판교점</p>
+					<p class="b_bt_ad">경기도 성남시 분당구 판교로 37</p>
+				</button>
+			</li>
 		</ul>
 	</div>
 </div>
