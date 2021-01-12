@@ -18,7 +18,7 @@
 <div id="page-wrapper">
 <c:if test="${m_id == null && master_id == null}">
 	<header id="main-header" class="a">
-		<img class="main-image" alt="" src="images/logo.png" align="bottom">
+		<a href="main.do"><img class="main-image" alt="" src="images/logo.png" align="bottom"></a>
 			<div id="log">
 				<ul class="log">
 					<li><a href="loginForm.do">로그인</a></li>
@@ -51,7 +51,7 @@
 </c:if>
 <c:if test="${m_id != null && m_del == n && master_id == null}">
 	<header id="main-header" class="a">
-		<img class="main-image" alt="" src="images/logo.png">
+		<a href="main.do"><img class="main-image" alt="" src="images/logo.png" align="bottom"></a>
 			<div id="log">
 				<ul class="log">
 					<li><a href="logout.do">로그아웃</a></li>
