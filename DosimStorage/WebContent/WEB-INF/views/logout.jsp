@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>도심 창고</title>
+<style type="text/css">
+	@import url("common.css");
+</style>
 </head>
 <body>
 <script type="text/javascript">
