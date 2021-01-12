@@ -6,7 +6,9 @@ public class OrderList {
 	long order_no;
 	String m_id;
 	Date order_date;
-	Date expire_date;
+	int order_totalprice;
+	Date hope_date;
+	int use_period;
 	String order_state;
 	String s_kind;
 	String b_title;
@@ -35,12 +37,23 @@ public class OrderList {
 		this.order_date = order_date;
 	}
 
-	public Date getExpire_date() {
-		return expire_date;
+	public int getOrder_totalprice() {
+		return order_totalprice;
 	}
-
-	public void setExpire_date(Date expire_date) {
-		this.expire_date = expire_date;
+	public void setOrder_totalprice(int order_totalprice) {
+		this.order_totalprice = order_totalprice;
+	}
+	public Date getHope_date() {
+		return hope_date;
+	}
+	public void setHope_date(Date hope_date) {
+		this.hope_date = hope_date;
+	}
+	public int getUse_period() {
+		return use_period;
+	}
+	public void setUse_period(int use_period) {
+		this.use_period = use_period;
 	}
 
 	public String getOrder_state() {
