@@ -9,6 +9,13 @@
 <title>Insert title here</title>
 <style type="text/css">
 	@import url("common.css");
+	
+	.inner_container {
+		margin: 0 auto;
+		width: fit-content;		
+	}
+	h2 {margin: 10px; padding: 10px}
+	p {padding: 5px}
 </style>
 
 <title>신청하기</title>
@@ -17,41 +24,40 @@
 <script type="text/javascript" src="js/order.js"></script>
 </head>
 <body>
+<div class="container">
 <!-- 매진된 창고-지점 표시. 나중에 히든처리 -->
-<input type="text" readonly="readonly" id="soldout" style="width: 70%">
-<div>
+<input type="text" readonly="readonly" id="soldout" style="width: 70%" hidden="hidden">
 	<!-- 매진테스트용으로 여러건 주문 한번에 할 경우 주석처리된 부분으로 교체 -->	
 	<form action="order.do" method="post" name="order_form">
 	<!-- <form action="soldoutTest.do" method="post" name="order_form"> -->
-		<h2>지점 선택</h2>
-		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(1)" ondrag="select_branch(1)">
-			<img id="br_button1" src="images/b1.png" height="236" width="300">
+	<div class="inner_container">
+		<h2>지점 선택</h2>		
+		<button type="button" style="background-color: #F2EFEB; padding: 0; border: none" onclick="select_branch(1)" ondrag="select_branch(1)" >
+			<img id="br_button1" src="images/b1.png" width="300">
 		</button>
-		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(2)" ondrag="select_branch(2)">
-			<img id="br_button2" src="images/b2.png" height="236" width="300">
+		<button type="button" style="background-color: #F2EFEB; padding: 0; border: none" onclick="select_branch(2)" ondrag="select_branch(2)">
+			<img id="br_button2" src="images/b2.png" width="300"">
 		</button>
-		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_branch(3)" ondrag="select_branch(3)">
-			<img id="br_button3" src="images/b3.png" height="236" width="300">
+		<button type="button" style="background-color: #F2EFEB; padding: 0; border: none" onclick="select_branch(3)" ondrag="select_branch(3)">
+			<img id="br_button3" src="images/b3.png" width="300">
 		</button>
-		<!-- 라디오버튼은 나중에 히든 처리 -->
-		<input type="radio" name="branch" value="1" id="select_1" required="required">
-		<input type="radio" name="branch" value="2" id="select_2" required="required">
-		<input type="radio" name="branch" value="3" id="select_3" required="required">
-		
+		<input type="radio" name="branch" value="1" id="select_1" required="required" hidden="hidden">
+		<input type="radio" name="branch" value="2" id="select_2" required="required" hidden="hidden">
+		<input type="radio" name="branch" value="3" id="select_3" required="required" hidden="hidden">		
 		<h2>창고 종류 선택</h2>
-		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('small')" ondrag="select_storage('small')">
+		<button type="button" style="background-color: #F2EFEB; padding: 0; border: none;" onclick="select_storage('small')" ondrag="select_storage('small')">
 			<img id="st_button1" src="images/s1.png" width="300">
 		</button>
-		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('medium')" ondrag="select_storage('medium')">
+		<button type="button" style="background-color: #F2EFEB; padding: 0; border: none;" onclick="select_storage('medium')" ondrag="select_storage('medium')">
 			<img id="st_button2" src="images/s2.png" width="300">
 		</button>
-		<button type="button" style="background-color: #fff; padding: 0; border: none;" onclick="select_storage('large')" ondrag="select_storage('large')">
+		<button type="button" style="background-color: #F2EFEB; padding: 0; border: none;" onclick="select_storage('large')" ondrag="select_storage('large')">
 			<img id="st_button3" src="images/s3.png" width="300">
-		</button>
-		<!-- 라디오버튼은 나중에 히든 처리 -->
-		<input type="radio"  name="storage" value="small" id="select_small" required="required">
-		<input type="radio" name="storage" value="medium" id="select_medium" required="required">
-		<input type="radio" name="storage" value="large" id="select_large" required="required">
+		</button>		
+		<input type="radio"  name="storage" value="small" id="select_small" required="required" hidden="hidden">
+		<input type="radio" name="storage" value="medium" id="select_medium" required="required" hidden="hidden">
+		<input type="radio" name="storage" value="large" id="select_large" required="required" hidden="hidden">
+		
 		<h2>이용시작일 선택</h2>
 		<p>서비스 이용시작일은 일주일 이내까지 선택가능합니다</p>
 		<input type="date" name="hope_date" id="hope_date" required="required" onchange="date_chk(this.value)">
@@ -88,6 +94,7 @@
 		<!-- 매진테스트용으로 여러건 주문 한번에 할 경우 주석처리된 부분으로 교체 -->
 		<button>신청하기</button>
 		<!-- <button>매진테스트(10회주문)</button> -->
+		</div>
 	</form>
 </div>
 </body>

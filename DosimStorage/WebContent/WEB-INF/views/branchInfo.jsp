@@ -12,18 +12,16 @@
 	top: 0; left: 0; bottom: 0;
 	width: 200px; margin: 10px 0 30px 10px; padding: 5px;
 	overflow-y: auto;
-	background: rgba(255, 255, 255, 0.7);
+	background: rgba(255, 255, 255, 0.8);
 	z-index: 1;
 	font-size: 16px;
 	border-radius: 10px;
 }
 .bg_white {background:#fff;}
-.map_wrap {position:relative;width:100%;height:500px;}
+.map_wrap {position:relative; width:100%; height:500px;}
 
-ul {
-	list-style: none;
-	padding: 0;
-	margin: 20px 0	
+ul {	
+	margin: 20px 0
 }
 button {
 	width: 200px;
@@ -39,10 +37,14 @@ button {
 .last_bt{ border: none}
 .b_bt_t {
 	font-size: 18px;
-	font-weight: bold;	
+	font-weight: bold;
+	padding: 10px 0 5px 0	
 }
-.b_bt_ad {color: #666}
-
+.b_bt_ad {color: #555; padding: 5px 0 10px 0}
+.inner_container {
+		margin: 0 auto;
+		width: 960;		
+	}
 </style>
 <script type="text/javascript">
 	function setCenter(a, b, num) {
@@ -70,31 +72,35 @@ button {
 </script>
 </head>
 <body>
-<div class="map_wrap">
-	<div id="map" style="width: 80%; max-width: 960px; height: 500px;"></div>
-	<div id="menu_wrap" class="bg_white">
-		<ul id="placesList">
-			<li><button type="button" onclick="setCenter(37.5581346, 126.9708856, 1)">
-					<p class="b_bt_t" id="b_bt_1">도심창고 광화문점</p>
-					<p class="b_bt_ad">서울특별시 종로구 세종대로 11</p>					
-				</button>
-			</li>						
-			<li>
-				<button type="button" onclick="setCenter(37.5199454, 127.0256598, 2)">
-					<p class="b_bt_t">도심창고 신사점</p>
-					<p class="b_bt_ad">서울특별시 강남구 도산대로 25</p>
-				</button>
-			</li>
-			<li>
-				<button type="button" class="last_bt" onclick="setCenter(37.390331, 127.082675, 3)">
-					<p class="b_bt_t">도심창고 판교점</p>
-					<p class="b_bt_ad">경기도 성남시 분당구 판교로 37</p>
-				</button>
-			</li>
-		</ul>
+<div class="container">
+	<div class="inner_container">
+		<div class="map_wrap">
+			<div id="map" style="max-width: 1200px; height: 500px;"></div>
+			<div id="menu_wrap" class="bg_white">
+				<ul id="placesList">
+					<li><button type="button" onclick="setCenter(37.5581346, 126.9708856, 1)">
+							<p class="b_bt_t" id="b_bt_1">도심창고 광화문점</p>
+							<p class="b_bt_ad">서울특별시 종로구 세종대로 11</p>					
+					</button>
+					</li>						
+					<li>
+						<button type="button" onclick="setCenter(37.5199454, 127.0256598, 2)">
+							<p class="b_bt_t">도심창고 신사점</p>
+							<p class="b_bt_ad">서울특별시 강남구 도산대로 25</p>
+						</button>
+					</li>
+					<li>
+						<button type="button" class="last_bt" onclick="setCenter(37.390331, 127.082675, 3)">
+							<p class="b_bt_t">도심창고 판교점</p>
+							<p class="b_bt_ad">경기도 성남시 분당구 판교로 37</p>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="branch_info"></div>
 	</div>
 </div>
-<div id="branch_info"></div>
 <script type="text/javascript">
 	var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 	var options = { //지도를 생성할 때 필요한 기본 옵션
