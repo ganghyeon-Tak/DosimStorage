@@ -9,6 +9,12 @@
 <style type="text/css">
 @import url("common.css");
 
+.title {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+	
 #table_member_select {
   margin: auto;
   text-align: center;
