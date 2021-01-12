@@ -27,11 +27,11 @@
 			<li><a href="main.do">HOME</a></li>
 			<li><a href="dosimStorage.do">도심창고</a></li>
 			<li><a href="orderForm.do">신청하기</a></li>
-			<li><a href="branchInfo.do">지점안내</a>
+			<li><a href="branchInfo.do?br=1">지점안내</a>
 				<ul class="sub">
-					<li><a href="branchInfo.do">광화문점</a></li>
-					<li><a href="branchInfo.do">판교점</a></li>
-					<li><a href="branchInfo.do">신사점</a></li>
+					<li><a href="branchInfo.do?br=1">광화문점</a></li>
+					<li><a href="branchInfo.do?br=2">신사점</a></li>
+					<li><a href="branchInfo.do?br=3">판교점</a></li>
 				</ul>
 			</li>
 			<li><a href="board.do">고객센터</a>
@@ -54,11 +54,11 @@
 			<li><a href="main.do">HOME</a></li>
 			<li><a href="dosimStorage.do">도심창고</a></li>
 			<li><a href="orderForm.do">신청하기</a></li>
-			<li><a href="branchInfo.do">지점안내</a>
+			<li><a href="branchInfo.do?br=1">지점안내</a>
 				<ul class="sub">
-					<li><a href="branchInfo.do">광화문점</a></li>
-					<li><a href="branchInfo.do">판교점</a></li>
-					<li><a href="branchInfo.do">신사점</a></li>
+					<li><a href="branchInfo.do?br=1">광화문점</a></li>
+					<li><a href="branchInfo.do?br=2">신사점</a></li>
+					<li><a href="branchInfo.do?br=3">판교점</a></li>
 				</ul>
 			</li>
 			<li><a href="board.do">고객센터</a>

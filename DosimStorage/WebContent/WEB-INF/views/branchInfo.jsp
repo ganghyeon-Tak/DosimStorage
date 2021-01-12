@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,11 +66,29 @@ button {
 			}
 		};
 		xhr.send();
-	}
-	window.onpageshow = function() {
-		setCenter(37.5581346, 126.9708856, 1);
 	}	
 </script>
+<c:if test="${br == 1}">
+	<script type="text/javascript">		
+		window.onpageshow = function() {
+			setCenter(37.5581346, 126.9708856, 1);
+		}
+	</script>
+</c:if>
+<c:if test="${br == 2}">
+	<script type="text/javascript">
+		window.onpageshow = function() {
+			setCenter(37.5199454, 127.0256598, 2);
+		}
+	</script>
+</c:if>
+<c:if test="${br == 3}">
+	<script type="text/javascript">
+		window.onpageshow = function() {
+			setCenter(37.390331, 127.082675, 3);
+		}
+	</script>
+</c:if>
 </head>
 <body>
 <div class="container">

@@ -103,6 +103,7 @@ li{
 	left: 0;
 	width: 100%;
 	display: none;
+	z-index: 10
 }
 
 /* 메인 메뉴에 올렸을 때 나오는 서브메뉴 배경색과 글자색 */
