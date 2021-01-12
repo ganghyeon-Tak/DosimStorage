@@ -23,7 +23,7 @@
 .bg_white {background:#fff;}
 .map_wrap {position:relative; width:100%; height:500px;}
 
-container ul {	
+.container ul {	
 	margin: 20px 0
 }
 button {
