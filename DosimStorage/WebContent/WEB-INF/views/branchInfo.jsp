@@ -50,9 +50,9 @@ button {
 	}
 </style>
 <script type="text/javascript">
-	const bx1 = 37.5581346, by1 = 126.9708856;	// 광화문점 x, y좌표
-	const bx2 = 37.5199454, by2 = 127.0256598;	// 신사점 x, y좌표
-	const bx3 = 37.390331, by3 = 127.082675;	// 판교점 x, y좌표
+	const b1_lat = 37.5581346, b1_long = 126.9708856;	// 광화문점 위도, 경도
+	const b2_lat = 37.5199454, b2_long = 127.0256598;	// 신사점 위도, 경도
+	const b3_lat = 37.390331, b3_long = 127.082675;		// 판교점 위도, 경도
 	
 	function setCenter(a, b, num) {
 		var moveLatLon = new kakao.maps.LatLng(a, b);
@@ -77,21 +77,21 @@ button {
 <c:if test="${br == 1}">
 	<script type="text/javascript">		
 		window.onpageshow = function() {
-			setCenter(bx1, by1, 1);
+			setCenter(b1_lat, b1_long, 1);
 		}
 	</script>
 </c:if>
 <c:if test="${br == 2}">
 	<script type="text/javascript">
 		window.onpageshow = function() {
-			setCenter(bx2, by2, 2);
+			setCenter(b2_lat, b2_long, 2);
 		}
 	</script>
 </c:if>
 <c:if test="${br == 3}">
 	<script type="text/javascript">
 		window.onpageshow = function() {
-			setCenter(bx3, by3, 3);
+			setCenter(b3_lat, b3_long, 3);
 		}
 	</script>
 </c:if>
@@ -103,19 +103,19 @@ button {
 			<div id="map" style="max-width: 1200px; height: 500px;"></div>
 			<div id="menu_wrap" class="bg_white">
 				<ul id="placesList">
-					<li><button type="button" onclick="setCenter(37.5581346, 126.9708856, 1)">
+					<li><button type="button" onclick="setCenter(b1_lat, b1_long, 1)">
 							<p class="b_bt_t" id="b_bt_1">도심창고 광화문점</p>
 							<p class="b_bt_ad">서울특별시 종로구 세종대로 11</p>					
 					</button>
 					</li>						
 					<li>
-						<button type="button" onclick="setCenter(37.5199454, 127.0256598, 2)">
+						<button type="button" onclick="setCenter(b2_lat, b2_long, 2)">
 							<p class="b_bt_t">도심창고 신사점</p>
 							<p class="b_bt_ad">서울특별시 강남구 도산대로 25</p>
 						</button>
 					</li>
 					<li>
-						<button type="button" class="last_bt" onclick="setCenter(37.390331, 127.082675, 3)">
+						<button type="button" class="last_bt" onclick="setCenter(b3_lat, b3_long, 3)">
 							<p class="b_bt_t">도심창고 판교점</p>
 							<p class="b_bt_ad">경기도 성남시 분당구 판교로 37</p>
 						</button>
@@ -129,7 +129,7 @@ button {
 <script type="text/javascript">
 	var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 	var options = { //지도를 생성할 때 필요한 기본 옵션
-		center: new kakao.maps.LatLng(bx1, by1), //지도의 중심좌표.
+		center: new kakao.maps.LatLng(b1_lat, b1_long), //지도의 중심좌표.
 		level: 3 //지도의 레벨(확대, 축소 정도)
 	};
 	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
@@ -139,19 +139,19 @@ button {
 	var marker1 = new kakao.maps.Marker({
 	    map: map,
 	    title: "광화문점",
-	    position: new kakao.maps.LatLng(bx1, by1),
+	    position: new kakao.maps.LatLng(b1_lat, b1_long),
 		clickable: true
 	});
 	var marker2 = new kakao.maps.Marker({
 	    map: map,
 	    title: "신사점",
-	    position: new kakao.maps.LatLng(bx2, by2),
+	    position: new kakao.maps.LatLng(b2_lat, b2_long),
 		clickable: true
 	});
 	var marker3 = new kakao.maps.Marker({
 	    map: map,
 	    title: "판교점",
-	    position: new kakao.maps.LatLng(bx3, by3),
+	    position: new kakao.maps.LatLng(b3_lat, b3_long),
 		clickable: true
 	});
 	// 인포윈도우 생성
