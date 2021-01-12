@@ -12,7 +12,8 @@
 	position: absolute;
 	top: 0; left: 0; bottom: 0;
 	width: 200px; margin: 10px 0 30px 10px; padding: 5px;
-	overflow-y: auto;
+	height: 260px;
+	overflow-y: hidden;
 	background: rgba(255, 255, 255, 0.8);
 	z-index: 1;
 	font-size: 16px;
