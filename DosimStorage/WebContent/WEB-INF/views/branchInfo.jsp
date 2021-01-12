@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dcd1967942f030312f2789a036f32080"></script>
 <style type="text/css">
+@import url("common.css");
 #menu_wrap {
 	position: absolute;
 	top: 0; left: 0; bottom: 0;
