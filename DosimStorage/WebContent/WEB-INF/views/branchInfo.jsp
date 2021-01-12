@@ -64,7 +64,9 @@ button {
 		};
 		xhr.send();
 	}
-	window.onpageshow = branchDetail(1);
+	window.onpageshow = function() {
+		setCenter(37.5581346, 126.9708856, 1);
+	}	
 </script>
 </head>
 <body>
@@ -99,7 +101,6 @@ button {
 		center: new kakao.maps.LatLng(37.5581346, 126.9708856), //지도의 중심좌표.
 		level: 3 //지도의 레벨(확대, 축소 정도)
 	};
-
 	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 	
 	var infowindow = new kakao.maps.InfoWindow({zIndex:1});
@@ -107,17 +108,20 @@ button {
 	var marker1 = new kakao.maps.Marker({
 	    map: map,
 	    title: "광화문점",
-	    position: new kakao.maps.LatLng(37.5581346, 126.9708856)	
+	    position: new kakao.maps.LatLng(37.5581346, 126.9708856),
+		clickable: true
 	});
 	var marker2 = new kakao.maps.Marker({
 	    map: map,
 	    title: "신사점",
-	    position: new kakao.maps.LatLng(37.5199454, 127.0256598)
+	    position: new kakao.maps.LatLng(37.5199454, 127.0256598),
+		clickable: true
 	});
 	var marker3 = new kakao.maps.Marker({
 	    map: map,
 	    title: "판교점",
-	    position: new kakao.maps.LatLng(37.390331, 127.082675)
+	    position: new kakao.maps.LatLng(37.390331, 127.082675),
+		clickable: true
 	});
 	// 인포윈도우 생성
 	var infowindow1 = new kakao.maps.InfoWindow({
@@ -130,8 +134,19 @@ button {
 	infowindow2.open(map, marker2);
 	var infowindow3 = new kakao.maps.InfoWindow({
     	content: '<div style="width: 152px; text-align: center">도심창고 판교점</div>'
+	});	
+	infowindow3.open(map, marker3);	
+	
+	// 클릭이벤트
+	kakao.maps.event.addListener(marker1, 'click', function() {
+		branchDetail(1);
 	});
-	infowindow3.open(map, marker3);
+	kakao.maps.event.addListener(marker2, 'click', function() {
+		branchDetail(2);
+	});
+	kakao.maps.event.addListener(marker3, 'click', function() {
+		branchDetail(3);
+	});
 </script>
 </body>
 </html>
