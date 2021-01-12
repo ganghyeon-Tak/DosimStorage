@@ -7,7 +7,7 @@ body {
   cursor: default;
 }
 
-#main-header {
+.header__logo {
   text-align: center;
   margin: 30px;
 }
