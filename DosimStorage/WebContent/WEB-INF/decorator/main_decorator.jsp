@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	@import url("common.css");
+</style>
 <deco:head/>
 </head>
 <body>
