@@ -8,9 +8,19 @@
 <title>Insert title here</title>
 <style type="text/css">
 	@import url("common.css");
+#main_img {
+  text-align: center;
+  padding: 45px;
+}
+#img {;
+  width: 60%;  
+  heigt: 60%;
+}
 </style>
 </head>
 <body>
-<img alt="" src="images/b1.png">
+<div id="main_img">
+<img id="img" alt="" src="images/main1.png">
+</div>
 </body>
 </html>
