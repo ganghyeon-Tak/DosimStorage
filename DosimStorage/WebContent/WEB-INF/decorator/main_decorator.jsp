@@ -15,7 +15,7 @@
 <body>
 <div id="page-wrapper">
 	<header id="main-header">
-		<img class="main-image" alt="" src="images/medium.PNG" align="bottom">
+		<img class="main-image" class="logo" alt="logo" src="images/logo.PNG" align="bottom">
 <c:if test="${m_id == null && master_id == null}">
 		<div id="log"><a href="loginForm.do">로그인</a>
 			<a href="joinForm.do">회원가입</a></div>
@@ -76,7 +76,7 @@
 <hr>
 <footer>
 <div>
-<
+<p>
 <ul>
 	<li>도심창고</li>
 	<li>사업자등록번호 212-86-04975</li>
