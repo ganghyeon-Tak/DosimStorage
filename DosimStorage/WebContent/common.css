@@ -7,16 +7,6 @@ body {
   cursor: default;
 }
 
-.header__logo {
-  text-align: center;
-  margin: 30px;
-}
-
-.logo {
-  width: 40%;
-  height: 40%;
-}
-
 th {
 	padding: 20px 5px;
 	font-size: 17px;
@@ -52,17 +42,71 @@ li{
 	list-style: none
 }
 
-#log {
-	position: relative;
-	float: right;
-	top : 240px;
-	font-size: 16px;
+.main-image {
+	text-align: center;
 }
 
-#log > a {
+#log {
+	top: 0%;
+	right: 0%;
+	float: right;
+	font-size: 14px;
+	height: 30px;
+	width: 15%;
+	position: absolute;
+	z-index: 100;
+}
+
+#log ul {
+	width: 100%;
+}
+
+#log .log > li {
+	color: #726378;
+	float: left;
+	width: 50%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	position: relative;
+}
+
+#log .log > li:hover .mypage {
+	display: block;
+}
+
+#log .log > li a {
 	text-decoration: none;
+	color: gray;
+	display: block;
+	width: 100%;
+}
+
+#log .log > li a:hover {
+	background: gray;
+	color : black;
+	width: 100%;
+}
+
+#log .log .mypage {
+	position: absolute;
+	top: 30px;
+	left: 0;
+	width: 100%;
+	display: none;
+}
+/* 로그인 메뉴에 올렸을 때 나오는 서브 로그인메뉴 배경색과 글자색 */
+#log .log .mypage a{
+	background: white;
 	color: black;
-	font-weight: bold;
+	/* 투명도 0:투명, 1:불투명 */
+	opacity: 0.8;
+}
+
+/* 서브 로그인 메뉴에 올렸을 때 서브 로그인메뉴 배경색과 글자색 */
+#log .log .mypage li a:hover {
+	background: gray;
+	color: white;
 }
 
 #menu-first {
@@ -106,14 +150,12 @@ li{
 	color: black;
 }	
 
-
 #menu-first .main .sub {
 	position: absolute;
 	top: 50px;
 	left: 0;
 	width: 100%;
 	display: none;
-	z-index: 10
 }
 
 /* 메인 메뉴에 올렸을 때 나오는 서브메뉴 배경색과 글자색 */
@@ -128,10 +170,4 @@ li{
 #menu-first .main .sub li a:hover {
 	background: gray;
 	color: white;
-}
-
-/* 전체 컨텐츠 가로 사이즈 제한 및 가운데 배치 */ 
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
-}
+} 
