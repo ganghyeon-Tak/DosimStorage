@@ -50,9 +50,9 @@ button {
 	}
 </style>
 <script type="text/javascript">
-	const bx1 = 37.5581346, by1 = 126.9708856;	// 광화문점 x, y좌표
-	const bx2 = 37.5199454, by2 = 127.0256598;	// 신사점 x, y좌표
-	const bx3 = 37.390331, by3 = 127.082675;	// 판교점 x, y좌표
+	const b1_lat = 37.5581346, b1_long = 126.9708856;	// 광화문점 위도, 경도
+	const b2_lat = 37.5199454, b2_long = 127.0256598;	// 신사점 위도, 경도
+	const b3_lat = 37.390331, b3_long = 127.082675;		// 판교점 위도, 경도
 	
 	function setCenter(a, b, num) {
 		var moveLatLon = new kakao.maps.LatLng(a, b);
