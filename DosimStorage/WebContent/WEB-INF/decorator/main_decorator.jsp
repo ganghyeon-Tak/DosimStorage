@@ -14,8 +14,10 @@
 </head>
 <body>
 <div id="page-wrapper">
+	<div class="header__logo">
+		<a href="main.do"> <img src="images/logo.png" alt="logo" class="logo"></a>
+	</div>
 	<header id="main-header">
-		<img class="main-image" class="logo" alt="logo" src="images/logo.PNG" align="bottom">
 <c:if test="${m_id == null && master_id == null}">
 		<div id="log"><a href="loginForm.do">로그인</a>
 			<a href="joinForm.do">회원가입</a></div>
