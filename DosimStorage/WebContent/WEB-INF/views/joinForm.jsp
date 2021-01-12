@@ -66,7 +66,7 @@
 <h2 class="title">회원가입</h2>
 <form action="join.do" method="post" name="frm" 
 	onsubmit="return chk()">
-<table>
+<table id=table_member_join>
 	<tr>
 		<th>아이디</th>
 		<td><input type="text" name="m_id" 
