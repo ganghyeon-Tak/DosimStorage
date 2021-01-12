@@ -10,6 +10,7 @@
 <style type="text/css">
 	.a {text-align: center;}
 	#log{float: right;}
+	.footer__description {padding: 20px;}
 	@import url("common.css");
 </style>
 <deco:head/>
@@ -94,15 +95,12 @@
 <deco:body></deco:body>
 <hr>
 <footer>
-<div>
-<p>
-<ul>
+<ul class="footer__description">
 	<li>도심창고</li>
 	<li>사업자등록번호 212-86-04975</li>
 	<li>고객센터 1688-5000</li>
-	<li>2021 DOSIM All rights reserved</li>
+	<p><li>2021 DOSIM All rights reserved</li></p>
 </ul>
-</div>
 </footer>
 </div>
 </body>
