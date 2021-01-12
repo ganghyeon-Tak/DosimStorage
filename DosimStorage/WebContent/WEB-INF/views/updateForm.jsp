@@ -59,6 +59,10 @@
   font-family: 'Noto Serif KR', serif;
   text-align: center;
 }
+
+#submit:hover, #reset:hover {
+  background-color: #DF964A;
+}
 </style>
 <script type="text/javascript">
 	function chk() {
