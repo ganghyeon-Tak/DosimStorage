@@ -1,9 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap");
+
+body {
+  background-color: #F2EFEB;
+  margin: 0;
+  font-family: 'Noto Serif KR', serif;
+  cursor: default;
+}
+
 h2 { text-align: center; }
- body {	background-color: #F2EFEB; } 
-table { width : 90%; background-color:#800040}
-th { background-color: #99f7e1; padding: 10px}
-td { background-color: #80ffff; 
-		padding : 10px;}
+
+th {
+	padding: 20px 5px;
+	font-size: 17px;
+}
+
+td {
+	padding: 10px 0px;
+	text-align: center;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
 #err {color: red; font-weight: bold;}
+
 .btn { margin: 15px; }
+
 .active {background-color: violet; color: white;}
