@@ -45,25 +45,6 @@ li{
 	text-align: center;
 }
 
-button {
-  background-color: transparent;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  color: #1C2120;
-  font-size: 15px;
-  margin: 2px;
-  padding: 3px 8px;
-  border: 1px solid #1C2120;
-  border-radius: 5px;
-  font-family: 'Noto Serif KR', serif;
-  text-align: center;
-}
-
-button:hover {
-  background-color: #DF964A;
-}
-
 #log {
 	top: 0%;
 	right: 0%;
