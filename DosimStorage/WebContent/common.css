@@ -1,35 +1,97 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap");
-
-body {
-  background-color: #F2EFEB;
-  margin: 0;
-  font-family: 'Noto Serif KR', serif;
-  cursor: default;
-}
-
 h2 { text-align: center; }
-
-th {
-	padding: 20px 5px;
-	font-size: 17px;
-}
-
-td {
-	padding: 10px 0px;
-	text-align: center;
-}
-
-ul {
-  list-style: none;
-  text-align: center;
-}
-
-a {
-  text-decoration: none;
-}
-
+body {	background-color: #F2EFEB; } 
+table { width : 90%; background-color:#800040}
+th { background-color: #99f7e1; padding: 10px}
+td { background-color: #80ffff; 
+		padding : 10px;}
 #err {color: red; font-weight: bold;}
-
 .btn { margin: 15px; }
-
 .active {background-color: violet; color: white;}
+
+
+*{
+	margin: 0;
+	padding: 0;	
+}
+
+li{
+	list-style: none
+}
+
+#log {
+	position: relative;
+	float: right;
+	top : 240px;
+	font-size: 16px;
+}
+
+#log > a {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+
+#menu-first {
+	color: black;
+	height: 50px;
+	
+}
+
+#menu-first ul {
+	width: 100%;
+	margin: 0 auto;
+	/* overflow: hidden; */
+}
+
+/* 메인 메뉴 */
+#menu-first .main > li {
+	float: left;
+	width: 20%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: black;
+	position: relative;
+}
+
+#menu-first .main > li:hover .sub {
+	display: block;
+}
+
+/* 메인 메뉴 하이퍼링크 */
+#menu-first .main > li a{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	display: block;
+}	
+
+/* 메뉴에 커서 올릴 때 배경색, 글자색 변경 */
+#menu-first .main > li a:hover {
+	background: gray;
+	color: black;
+}	
+
+
+
+#menu-first .main .sub {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	width: 100%;
+	display: none;
+}
+
+/* 메인 메뉴에 올렸을 때 나오는 서브메뉴 배경색과 글자색 */
+#menu-first .main .sub a{
+	background: white;
+	color: black;
+	/* 투명도 0:투명, 1:불투명 */
+	opacity: 0.8;
+}
+
+/* 서브 메뉴에 올렸을 때 서브메뉴 배경색과 글자색 */
+#menu-first .main .sub li a:hover {
+	background: gray;
+	color: white;
+} 
