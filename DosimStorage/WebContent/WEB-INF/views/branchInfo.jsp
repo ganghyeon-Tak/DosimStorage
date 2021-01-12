@@ -64,7 +64,9 @@ button {
 		};
 		xhr.send();
 	}
-	window.onpageshow = branchDetail(1);
+	window.onpageshow = function() {
+		setCenter(37.5581346, 126.9708856, 1);
+	}
 </script>
 </head>
 <body>
@@ -99,7 +101,6 @@ button {
 		center: new kakao.maps.LatLng(37.5581346, 126.9708856), //지도의 중심좌표.
 		level: 3 //지도의 레벨(확대, 축소 정도)
 	};
-
 	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 	
 	var infowindow = new kakao.maps.InfoWindow({zIndex:1});
@@ -131,7 +132,7 @@ button {
 	var infowindow3 = new kakao.maps.InfoWindow({
     	content: '<div style="width: 152px; text-align: center">도심창고 판교점</div>'
 	});
-	infowindow3.open(map, marker3);
+	infowindow3.open(map, marker3);	
 </script>
 </body>
 </html>
