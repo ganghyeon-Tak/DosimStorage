@@ -56,7 +56,9 @@
 			<th>주문일</th>
 			<th>지점명</th>
 			<th>서비스종류</th>
-			<th>이용만료일</th>
+			<th>이용시작일</th>
+			<th>이용개월</th>
+			<th>주문총액</th>
 			<th>주문상태</th>
 		</tr>
 		<c:if test="${empty list }">
@@ -71,7 +73,9 @@
 					<td>${orderList.order_date }</td>
 					<td>${orderList.b_title }</td>
 					<td>${orderList.s_kind}</td>
-					<td>${orderList.expire_date }</td>
+					<td>${orderList.hope_date }</td>
+					<td>${orderList.use_period }</td>
+					<td>${orderList.order_totalprice }</td>
 					<td>${orderList.order_state }</td>
 				</tr>
 			</c:forEach>
