@@ -20,6 +20,20 @@
 		text-align: left;
 		margin: 0; padding: 5px
 	}
+	#submit {  
+		background-color: transparent;
+  		cursor: pointer;
+  		border: none;
+  		outline: none;
+  		color: #1C2120;
+  		font-size: 15px;
+  		margin: 5px;
+  		padding: 6px 8px;
+  		border: 1px solid #1C2120;
+  		border-radius: 5px;
+  		font-family: 'Noto Serif KR', serif;
+	}
+	#submit:hover {background-color: #DF964A;}
 </style>
 
 <title>신청하기</title>
@@ -123,8 +137,8 @@
 				</tr>
 				<tr>
 					<td colspan="2">						
-						<button>신청하기</button>
-						<input type="submit" value="매진테스트(9회주문)" onclick="javascript: form.action='soldoutTest.do'">
+						<button id="submit">신청하기</button>
+						<input type="submit" id="submit" value="매진테스트(9회주문)" onclick="javascript: form.action='soldoutTest.do'">
 					</td>				
 			</table>	
 		</div>
