@@ -6,7 +6,9 @@
 		<result property="order_no" column="order_no"/>
 		<result property="m_id" column="m_id"/>
 		<result property="order_date" column="order_date"/>
-		<result property="expire_date"  column="expire_date"/>
+		<result property="order_totalprice" column="order_totalprice"/>
+		<result property="hope_date" column="hope_date"/>
+		<result property="use_period" column="use_period"/>
 		<result property="order_state"  column="order_state"/>
 		<result property="s_kind"  column="s_kind"/>
 		<result property="b_title"  column="b_title"/>
