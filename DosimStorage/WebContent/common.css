@@ -45,6 +45,10 @@ li{
 	text-align: center;
 }
 
+.main-image {
+	text-align: center;
+}
+
 #log {
 	top: 0%;
 	right: 0%;
@@ -153,14 +157,12 @@ li{
 	color: black;
 }	
 
-
 #menu-first .main .sub {
 	position: absolute;
 	top: 50px;
 	left: 0;
 	width: 100%;
 	display: none;
-	z-index: 10
 }
 
 /* 메인 메뉴에 올렸을 때 나오는 서브메뉴 배경색과 글자색 */
@@ -175,10 +177,4 @@ li{
 #menu-first .main .sub li a:hover {
 	background: gray;
 	color: white;
-}
-
-/* 전체 컨텐츠 가로 사이즈 제한 및 가운데 배치 */ 
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
-}
+} 
