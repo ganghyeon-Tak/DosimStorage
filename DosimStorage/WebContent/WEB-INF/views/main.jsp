@@ -13,9 +13,6 @@
 <body>
 <a href="mypage.do">마이페이지 진입 임시링크</a>
 <a href="list.bo">1:1게시판 진입 임시링크</a>
-<section>
-
-</section>
-
+<img alt="" src="images/b1.png">
 </body>
 </html>
