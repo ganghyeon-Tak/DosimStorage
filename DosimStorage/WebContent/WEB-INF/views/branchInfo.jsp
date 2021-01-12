@@ -73,7 +73,7 @@ button {
 	<div id="menu_wrap" class="bg_white">
 		<ul id="placesList">
 			<li><button type="button" onclick="setCenter(37.5581346, 126.9708856, 1)">
-					<p class="b_bt_t">도심창고 광화문점</p>
+					<p class="b_bt_t" id="b_bt_1">도심창고 광화문점</p>
 					<p class="b_bt_ad">서울특별시 종로구 세종대로 11</p>					
 				</button>
 			</li>						
@@ -103,6 +103,7 @@ button {
 	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 	
 	var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+	// 마커 생성
 	var marker1 = new kakao.maps.Marker({
 	    map: map,
 	    title: "광화문점",
@@ -113,11 +114,24 @@ button {
 	    title: "신사점",
 	    position: new kakao.maps.LatLng(37.5199454, 127.0256598)
 	});
-	var marker2 = new kakao.maps.Marker({
+	var marker3 = new kakao.maps.Marker({
 	    map: map,
 	    title: "판교점",
 	    position: new kakao.maps.LatLng(37.390331, 127.082675)
-	});		
+	});
+	// 인포윈도우 생성
+	var infowindow1 = new kakao.maps.InfoWindow({
+    	content: '<div style="width: 152px; text-align: center">도심창고 광화문점</div>'
+	});
+	infowindow1.open(map, marker1);	
+	var infowindow2 = new kakao.maps.InfoWindow({
+    	content: '<div style="width: 152px; text-align: center">도심창고 신사점</div>'
+	});
+	infowindow2.open(map, marker2);
+	var infowindow3 = new kakao.maps.InfoWindow({
+    	content: '<div style="width: 152px; text-align: center">도심창고 판교점</div>'
+	});
+	infowindow3.open(map, marker3);
 </script>
 </body>
 </html>
