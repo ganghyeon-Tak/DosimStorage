@@ -33,7 +33,7 @@
 			<li><a href="main.do">HOME</a></li>
 			<li><a href="dosimStorage.do">도심창고</a></li>
 			<li><a href="orderForm.do">신청하기</a></li>
-			<li><a href="branchInfo.do?br=1">지점안내</a>
+			<li><a href="branchInfo.do?br=">지점안내</a>
 				<ul class="sub">
 					<li><a href="branchInfo.do?br=1">광화문점</a></li>
 					<li><a href="branchInfo.do?br=2">신사점</a></li>
@@ -42,7 +42,7 @@
 			</li>
 			<li><a href="board.do">고객센터</a>
 				<ul class="sub">
-					<li><a href="#">Q&A 게시판</a></li>
+					<li><a href="#">Q&amp;A 게시판</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -73,7 +73,7 @@
 			<li><a href="main.do">HOME</a></li>
 			<li><a href="dosimStorage.do">도심창고</a></li>
 			<li><a href="orderForm.do">신청하기</a></li>
-			<li><a href="branchInfo.do?br=1">지점안내</a>
+			<li><a href="branchInfo.do?br=">지점안내</a>
 				<ul class="sub">
 					<li><a href="branchInfo.do?br=1">광화문점</a></li>
 					<li><a href="branchInfo.do?br=2">신사점</a></li>
@@ -82,7 +82,7 @@
 			</li>
 			<li><a href="board.do">고객센터</a>
 				<ul class="sub">
-					<li><a href="#">Q&A 게시판</a></li>
+					<li><a href="#">Q&amp;A 게시판</a></li>
 					<li><a href="list.bo">1:1 문의</a></li>
 				</ul>
 			</li>
@@ -99,8 +99,8 @@
 <ul>
 	<li>도심창고</li>
 	<li>사업자등록번호 212-86-04975</li>
-	<li>고객센터 1688-5000</li><p>
-	<l>2021 DOSIM All rights reserved</li>
+	<li>고객센터 1688-5000</li>
+	<li>2021 DOSIM All rights reserved</li>
 </ul>
 </div>
 </footer>
