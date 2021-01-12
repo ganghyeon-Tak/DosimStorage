@@ -8,20 +8,24 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+	.a {text-align: center;}
+	#log{float: right;}
 	@import url("common.css");
 </style>
 <deco:head/>
 </head>
 <body>
 <div id="page-wrapper">
-	<div class="header__logo">
-		<a href="main.do"> <img src="images/logo.png" alt="logo" class="logo"></a>
-	</div>
-	<header id="main-header">
 <c:if test="${m_id == null && master_id == null}">
-		<div id="log"><a href="loginForm.do">로그인</a>
-			<a href="joinForm.do">회원가입</a></div>
-	</header>
+	<header id="main-header" class="a">
+		<img class="main-image" alt="" src="images/logo.png" align="bottom">
+			<div id="log">
+				<ul class="log">
+					<li><a href="loginForm.do">로그인</a></li>
+					<li><a href="joinForm.do">회원가입</a></li>
+				</ul>
+			</div>
+		</header>
 	<hr>
 	<nav>
 	<div id="menu-first">
@@ -46,9 +50,22 @@
 	</nav>
 </c:if>
 <c:if test="${m_id != null && m_del == n && master_id == null}">
-<div id="log"><a href="logout.do">로그아웃</a>
-	<a href="mypage.do">마이페이지</a></div>
-	</header>
+	<header id="main-header" class="a">
+		<img class="main-image" alt="" src="images/logo.png">
+			<div id="log">
+				<ul class="log">
+					<li><a href="logout.do">로그아웃</a></li>
+					<li><a href="mypage.do">마이페이지</a>
+						<ul class="mypage">
+							<li><a href="orderList.do">신청 서비스 조회</a></li>
+							<li><a href="select.do">회원 정보 조회</a></li>
+							<li><a href="updateForm.do">회원 정보 수정</a></li>
+							<li><a href="delete.do">회원 탈퇴</a></li>						
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</header>
 	<hr>
 	<nav>
 	<div id="menu-first">
