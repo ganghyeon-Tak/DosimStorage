@@ -7,16 +7,6 @@ body {
   cursor: default;
 }
 
-.header__logo {
-  text-align: center;
-  margin: 30px;
-}
-
-.logo {
-  width: 40%;
-  height: 40%;
-}
-
 th {
 	padding: 20px 5px;
 	font-size: 17px;
