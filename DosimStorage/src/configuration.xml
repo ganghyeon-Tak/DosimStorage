@@ -16,6 +16,7 @@
 	<typeAlias alias="storage_list" type="model.Storage_list"/>
 	<typeAlias alias="service" type="model.Service"/>
 	<typeAlias alias="order" type="model.Order"/>
+	<typeAlias alias="board1" type="model.Board1"/>
 </typeAliases>
 <environments default="development">
 	<environment id="development">
@@ -36,5 +37,6 @@
 	<mapper resource="storage_list.xml" />
 	<mapper resource="service.xml" />
 	<mapper resource="order.xml" />
+	<mapper resource="board1.xml" />
 </mappers>
 </configuration>

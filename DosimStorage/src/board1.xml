@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board1ns">
+	<resultMap type="board1" 	id="resultMap">
+		<result property="num" column="num"/>
+		<result property="m_id" column="m_id"/>
+		<result property="order_no"  	column="order_no"/>
+		<result property="m_email" column="m_email"/>
+		<result property="title" column="title"/>
+		<result property="content"  	column="content"/>
+		<result property="readcount" column="readcount"/>
+		<result property="ip" column="ip"/>
+		<result property="ref"  	column="ref"/>
+		<result property="ref_level" column="ref_level"/>
+		<result property="reg_date" column="reg_date"/>
+		<result property="reply"  	column="reply"/>	
+		<result property="del"  	column="del"/>
+</resultMap>
+	<select id="count" resultType="integer">
+		select count(*) from ds_board1
+	</select>
+	<select id="getBoardList" resultType="board1">
+		select * from ds_board1 order by num desc
+	</select>
+	<select id="getNextNum" resultType="integer">
+		select nvl(max(num),0) + 1 from ds_board1
+	</select>
+	<insert id="insert" parameterType="board1">
+		insert into ds_board1 (num,m_id,title,content,readcount,ip,ref,ref_level,reg_date,reply,del)
+			values (#{num}, #{m_id}, #{title}, #{content}, #{readcount}, #{ip},#{ref}, #{ref_level}, sysdate,'n','n')
+	</insert>
+	<select id="select" parameterType="integer" resultType="board1">
+		select * from ds_board1 where num=#{num}
+	</select>
+</mapper>

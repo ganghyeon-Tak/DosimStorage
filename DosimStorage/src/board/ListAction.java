@@ -11,13 +11,11 @@ import model.Board1;
 public class ListAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		Board1Dao dbd = Board1Dao.getInstance();
-		System.out.println("1");
 		int total = dbd.count();  // 게시글 겟수 저장
-		System.out.println("2");
-		ArrayList<Board1> list = dbd.getMemberList();
+		ArrayList<Board1> list = dbd.getBoardList();
 		request.setAttribute("total",total);
 		request.setAttribute("list", list);
-
+//		views밑에 board폴더 안에 있는 list
 		return "list";
 	}
 }
