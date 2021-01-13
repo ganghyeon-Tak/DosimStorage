@@ -13,7 +13,7 @@
 	position: absolute;
 	top: 0; left: 0; bottom: 0;
 	width: 220px; margin: 10px 0 30px 10px; padding: 5px;
-	height: 260px;
+	height: 270px;
 	overflow-y: hidden;
 	background: rgba(255, 255, 255, 0.8);
 	z-index: 1;
