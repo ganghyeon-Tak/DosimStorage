@@ -39,5 +39,7 @@
 	<update id="updateReadCount">
 		update ds_board1 set readcount=readcount+1 where num=#{num}
 	</update>
-	
+	<update id="update" parameterType="board1">
+		update ds_board1 set title=#{title}, content=#{content} where num=#{num}
+	</update>
 </mapper>
