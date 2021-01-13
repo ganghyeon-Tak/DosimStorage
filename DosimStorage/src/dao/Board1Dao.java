@@ -56,5 +56,10 @@ public class Board1Dao {
 	public int delete(int num) {
 			return session.update("board1ns.delete", num);
 	}
+
+	public void updateReadCount(int num) {
+		session.update("board1ns.updateReadCount", num);
+		
+	}
 	
 }

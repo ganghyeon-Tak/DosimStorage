@@ -36,4 +36,7 @@
 	<update id="delete">
 		update ds_board1 set del='y' where num=#{num}
 	</update>
+	<update id="updateReadCount">
+		update ds_board1 set readcount=readcount+1 where num=#{num}
+	</update>
 </mapper>

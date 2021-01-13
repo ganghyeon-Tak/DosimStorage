@@ -10,6 +10,7 @@ public class Content implements CommandProcess {
 		String pageNum = request.getParameter("pageNum");
 		int num = Integer.parseInt(request.getParameter("num"));
 		Board1Dao dbd = Board1Dao.getInstance();
+		dbd.updateReadCount(num);
 		Board1 board = dbd.select(num);
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("board", board);
