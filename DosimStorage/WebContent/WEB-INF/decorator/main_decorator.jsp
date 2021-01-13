@@ -94,8 +94,8 @@
 </c:if>
 <hr>
 <deco:body></deco:body>
-<hr>
 <footer>
+<hr>
 <ul class="footer__description">
 	<li>도심창고</li>
 	<li>사업자등록번호 212-86-04975</li>
