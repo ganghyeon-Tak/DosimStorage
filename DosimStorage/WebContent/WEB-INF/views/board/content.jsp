@@ -22,7 +22,7 @@
 	<tr><th>내용</th><td colspan="3"><pre>${board.content}</pre></td></tr>
 </table>
 <button onclick="location.href='updateForm.bo?num=${board.num}&pageNum=${pageNum}'">수정</button>
-<button onclick="location.href='deleteForm.bo?num=${board.num}&pageNum=${pageNum}'">삭제</button>
+<button onclick="location.href='delete.bo?num=${board.num}&pageNum=${pageNum}'">삭제</button>
 <button onclick="location.href='insertForm.bo?num=${board.num}&pageNum=${pageNum}'">답변</button>
 <button onclick="location.href='list.bo?pageNum=${pageNum}'">목록</button>
 <div id="dispLisp"></div>

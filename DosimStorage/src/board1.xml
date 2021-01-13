@@ -33,4 +33,7 @@
 	<select id="select" parameterType="integer" resultType="board1">
 		select * from ds_board1 where num=#{num}
 	</select>
+	<update id="delete">
+		update ds_board1 set del='y' where num=#{num}
+	</update>
 </mapper>

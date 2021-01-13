@@ -52,5 +52,9 @@ public class Board1Dao {
 	public Board1 select(int num) {
 		return (Board1) session.selectOne("board1ns.select", num);
 	}
+
+	public int delete(int num) {
+			return session.update("board1ns.delete", num);
+	}
 	
 }
