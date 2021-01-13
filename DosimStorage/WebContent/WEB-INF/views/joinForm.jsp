@@ -15,20 +15,25 @@
 }
 
 #table_member_join {
-  width: 22%;
-  margin: auto;
+  width: 800px;  
   text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translate(-25%, 0%);  
 }
-
-#submit, #chk {
+th {width: 90px}
+td {text-align: left;}
+#join_submit {margin-left: 148px}
+#chk {padding: 3px 8px}
+.submit, #chk {
   background-color: transparent;
   cursor: pointer;
   border: none;
   outline: none;
   color: #1C2120;
-  font-size: 15px;
-  margin: 2px;
   padding: 3px 8px;
+  font-size: 15px;
+  margin: 2px;  
   border: 1px solid #1C2120;
   border-radius: 5px;
   font-family: 'Noto Serif KR', serif;
@@ -69,10 +74,11 @@
 <table id=table_member_join>
 	<tr>
 		<th>아이디</th>
-		<td><input type="text" name="m_id" 
-		required="required" autofocus="autofocus"></td>
-		<td><input type="button" id="chk" value="중복확인" onclick="idChk()">
-		<div id="err"></div></td>
+		<td>
+			<input type="text" name="m_id" required="required" autofocus="autofocus">
+			<input type="button" id="chk" value="중복확인" onclick="idChk()">
+			<span id="err"></span>
+		</td>
 	</tr>
 	<tr>
 		<th>이름</th>
@@ -101,8 +107,9 @@
 		title="xxx-xxxx-xxxx형식입니다" placeholder="010-1234-5678"></td>
 	</tr>
 	<tr>
-		<th colspan="3"><input type="submit" id="submit" value="가입">
-		<button type="button" id="submit" onclick="location.href='main.do'">메인</button></th>
+		<td id="submit_row" colspan="2">
+			<input type="submit" class="submit" id="join_submit" value="가입"><button type="button" class="submit" onclick="location.href='main.do'">메인</button>
+		</td>			
 	</tr>
 </table>
 </form>
