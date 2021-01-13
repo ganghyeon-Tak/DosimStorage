@@ -33,7 +33,7 @@
 	<div id="menu-first">
 		<ul class="main">
 			<li><a href="main.do">HOME</a></li>
-			<li><a href="dosimStorage.do">도심창고</a></li>
+			<li><a href="#">도심창고</a></li>
 			<li><a href="orderForm.do">신청하기</a></li>
 			<li><a href="branchInfo.do?br=">지점안내</a>
 				<ul class="sub">
@@ -42,7 +42,7 @@
 					<li><a href="branchInfo.do?br=3">판교점</a></li>
 				</ul>
 			</li>
-			<li><a href="board.do">고객센터</a>
+			<li><a href="#">고객센터</a>
 				<ul class="sub">
 					<li><a href="#">Q&amp;A 게시판</a></li>
 				</ul>
@@ -82,7 +82,7 @@
 					<li><a href="branchInfo.do?br=3">판교점</a></li>
 				</ul>
 			</li>
-			<li><a href="board.do">고객센터</a>
+			<li><a href="#">고객센터</a>
 				<ul class="sub">
 					<li><a href="#">Q&amp;A 게시판</a></li>
 					<li><a href="list.bo">1:1 문의</a></li>

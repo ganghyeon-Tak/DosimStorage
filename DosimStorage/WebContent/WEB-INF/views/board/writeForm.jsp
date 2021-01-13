@@ -42,6 +42,9 @@ function writeCheck()
   form.submit();
   }
  </script>
+<style type="text/css">
+	@import url("common.css");
+</style>
  </head>
  <body>
 <form name="writeform" method="post" action="write.bo">
