@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">	
-	location.href="list.bo"
+	location.href="main.do"
 </script>
 </body>
 </html>
