@@ -43,7 +43,7 @@
 </head>
 <body>
 <div class="container">
-<!-- 매진된 창고-지점 표시(hidden -->
+<!-- 매진된 창고-지점 표시(hidden) -->
 <input type="text" readonly="readonly" id="soldout" style="width: 70%" hidden="hidden">
 	
 	<form action="order.do" method="post" name="order_form">	
@@ -138,7 +138,7 @@
 				<tr>
 					<td colspan="2">						
 						<button id="submit">신청하기</button>
-						<input type="submit" id="submit" value="매진테스트(9회주문)" onclick="javascript: form.action='soldoutTest.do'">
+						<!-- <input type="submit" id="submit" value="매진테스트(9회주문)" onclick="javascript: form.action='soldoutTest.do'"> -->
 					</td>				
 			</table>	
 		</div>
