@@ -7,7 +7,7 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
 	$(function() { // body를 보여줄 준비가 되어 있으면
-		$('#dispLisp').load("list.bo","pageNum=${pageNum}");
+		$('#dispLisp').load("list.bo","disp=true&pageNum=${pageNum}");
 	});	
 </script>
 </head><body>
