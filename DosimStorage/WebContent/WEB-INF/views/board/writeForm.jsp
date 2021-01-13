@@ -45,7 +45,8 @@ function writeCheck()
 </style>
  </head>
  <body>
-<form name="writeform" method="post" action="write.bo" onsubmit="return writeCheck()">
+<form name="form" method="post" action="write.bo" onsubmit="return writeCheck()">
+	<input type="hidden" name="pageNum" value="${pageNum }">
   <table>
   <tr>
    <td>
