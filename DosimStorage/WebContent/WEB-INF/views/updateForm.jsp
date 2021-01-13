@@ -111,7 +111,7 @@
 					placeholder="010-1234-5678" value="${member.m_tel }"></td>
 			</tr>
 			<tr>
-				<th colspan="2"><input type="submit" value="확인" id="submit">&nbsp<input type="reset" id="reset" value="취소"></th>			
+				<th colspan="2"><input type="submit" value="확인" id="submit">&nbsp;<input type="reset" id="reset" value="취소"></th>			
 			</tr>
 		</table>
 	</form>

@@ -20,6 +20,20 @@
 		text-align: left;
 		margin: 0; padding: 5px
 	}
+	#submit {  
+		background-color: transparent;
+  		cursor: pointer;
+  		border: none;
+  		outline: none;
+  		color: #1C2120;
+  		font-size: 15px;
+  		margin: 5px;
+  		padding: 6px 8px;
+  		border: 1px solid #1C2120;
+  		border-radius: 5px;
+  		font-family: 'Noto Serif KR', serif;
+	}
+	#submit:hover {background-color: #DF964A;}
 </style>
 
 <title>신청하기</title>
@@ -29,11 +43,10 @@
 </head>
 <body>
 <div class="container">
-<!-- 매진된 창고-지점 표시. 나중에 히든처리 -->
+<!-- 매진된 창고-지점 표시(hidden) -->
 <input type="text" readonly="readonly" id="soldout" style="width: 70%" hidden="hidden">
-	<!-- 매진테스트용으로 여러건 주문 한번에 할 경우 주석처리된 부분으로 교체 -->	
-	<form action="order.do" method="post" name="order_form">
-	<!-- <form action="soldoutTest.do" method="post" name="order_form"> -->
+	
+	<form action="order.do" method="post" name="order_form">	
 	<input type="text" id="tot_price" readonly="readonly" name="tot_price" hidden="hidden">
 		<div class="inner_container">
 			<h2>지점 선택</h2>		
@@ -123,10 +136,9 @@
 					<td colspan="2">실시간 계좌이체 및 카드결제는 준비중입니다</td>				
 				</tr>
 				<tr>
-					<td colspan="2">
-						<!-- 매진테스트용으로 여러건 주문 한번에 할 경우 주석처리된 부분으로 교체 -->
-						<button>신청하기</button>
-						<!-- <button>매진테스트(10회주문)</button> -->
+					<td colspan="2">						
+						<button id="submit">신청하기</button>
+						<!-- <input type="submit" id="submit" value="매진테스트(9회주문)" onclick="javascript: form.action='soldoutTest.do'"> -->
 					</td>				
 			</table>	
 		</div>

@@ -18,7 +18,7 @@
 #table_member_login {
   margin: auto;
   text-align: center;
-  width: 13%;
+  width: 18%;
 }
 
 .location__button__list {
