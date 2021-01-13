@@ -12,7 +12,7 @@
 #menu_wrap {
 	position: absolute;
 	top: 0; left: 0; bottom: 0;
-	width: 200px; margin: 10px 0 30px 10px; padding: 5px;
+	width: 220px; margin: 10px 0 30px 10px; padding: 5px;
 	height: 260px;
 	overflow-y: hidden;
 	background: rgba(255, 255, 255, 0.8);
