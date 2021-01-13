@@ -61,5 +61,9 @@ public class Board1Dao {
 		session.update("board1ns.updateReadCount", num);
 		
 	}
+
+	public int update(Board1 board) {
+		return session.update("board1ns.update", board);
+	}
 	
 }
