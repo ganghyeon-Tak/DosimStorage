@@ -47,7 +47,7 @@ function writeCheck()
  <body>
 <form name="form" method="post" action="update.bo" onsubmit="return writeCheck()">
 	<input type="hidden" name="pageNum" value="${pageNum }">
-	<input type="hidden" name="num" value="${num }">
+	<input type="hidden" name="num" value="${board.num }">
   <table>
   <tr>
    <td>
