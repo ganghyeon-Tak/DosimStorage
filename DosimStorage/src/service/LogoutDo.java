@@ -9,7 +9,6 @@ public class LogoutDo implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		return "logout";
+		return "nullPage";
 	}
-
 }
