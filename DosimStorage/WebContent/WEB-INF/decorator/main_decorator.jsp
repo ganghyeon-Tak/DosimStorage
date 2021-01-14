@@ -34,7 +34,7 @@
 </head>
 <body>
 <div id="page-wrapper">
-<c:if test="${m_id == null && master_id == null}">
+<c:if test="${m_id == null}">
 	<header id="main-header" class="a">
 		<a href="main.do"><img class="main-image" alt="" src="images/logo.png" align="bottom"></a>
 			<div id="log">
@@ -67,7 +67,7 @@
 	</div>
 	</nav>
 </c:if>
-<c:if test="${m_id != null && m_del == n && master_id == null}">
+<c:if test="${m_id != null && m_del == n}">
 	<header id="main-header" class="a">
 		<a href="main.do"><img class="main-image" alt="" src="images/logo.png" align="bottom"></a>
 			<div id="log">
