@@ -5,7 +5,10 @@ body {
   margin: 0;
   font-family: 'Noto Serif KR', serif;
   cursor: default;
+  -ms-overflow-style: none;
 }
+
+body::-webkit-scrollbar { display: none; }
 
 th {
 	padding: 20px 5px;
