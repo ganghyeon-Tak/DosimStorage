@@ -50,7 +50,7 @@ button {
 	}
 </style>
 <script type="text/javascript">
-	const b1_lat = 37.5581346, b1_long = 126.9708856;	// 광화문점 위도, 경도
+	const b1_lat = 37.56271532, b1_long = 126.9768764;	// 광화문점 위도, 경도
 	const b2_lat = 37.5199454, b2_long = 127.0256598;	// 신사점 위도, 경도
 	const b3_lat = 37.390331, b3_long = 127.082675;		// 판교점 위도, 경도
 	
