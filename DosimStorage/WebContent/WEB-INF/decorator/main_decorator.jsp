@@ -14,6 +14,22 @@
 	.l{padding: 20px;}
 	@import url("common.css");
 </style>
+<script type="text/javascript">
+	function logout() {
+		var xhr = new XMLHttpRequest();
+		xhr.open("get","logout.do",true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {	
+				if (xhr.status == 200) {	
+					location.reload();
+				} else {
+					alert('요청오류: '+xhr.status);
+				}				
+			}
+		}		
+		xhr.send(null);
+	}
+</script>
 <deco:head/>
 </head>
 <body>
@@ -56,7 +72,7 @@
 		<a href="main.do"><img class="main-image" alt="" src="images/logo.png" align="bottom"></a>
 			<div id="log">
 				<ul class="log">
-					<li><a href="logout.do">로그아웃</a></li>
+					<li><a href="javascript:logout();">로그아웃</a></li>
 					<li><a href="mypage.do">마이페이지</a>
 						<ul class="mypage">
 							<li><a href="orderList.do">신청 서비스 조회</a></li>
