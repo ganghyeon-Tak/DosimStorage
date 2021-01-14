@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:if test="${result >0 }">
+<c:if test="${result > 0 }">
 	<script type="text/javascript">
 	alert("로그인 되었습니다")
 	location.href="m_main.action";
@@ -16,7 +16,7 @@
 	</c:if>
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-	alert("암호가 다름")
+	alert("비밀번호가 다릅니다. 다시 입력해주세요")
 	history.go(-1);
 	</script>
 	</c:if>

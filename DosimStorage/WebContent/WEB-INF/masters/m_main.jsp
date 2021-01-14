@@ -33,7 +33,8 @@ button {
 <button onclick="location.href='m_orderedList.action'" style="WIDTH: 150pt; HEIGHT: 100pt">주문관리</button>
 <button onclick="location.href='m_service.action'" style="WIDTH: 150pt; HEIGHT: 100pt">서비스관리</button>
 <button onclick="location.href='m_boader.action'" style="WIDTH: 150pt; HEIGHT: 100pt">고객센터관리</button>
-<button onclick="location.href='main.do'" style="WIDTH: 150pt; HEIGHT: 100pt">도시창고 홈</button>
+<button onclick="location.href='main.do'" style="WIDTH: 150pt; HEIGHT: 100pt">도심창고 홈</button>
+<button onclick="location.href='m_logout.action'" style="WIDTH: 150pt; HEIGHT: 100pt">로그아웃</button>
 
 
 </p>

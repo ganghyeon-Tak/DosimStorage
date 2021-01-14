@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="masterns">
+	<resultMap type="master" id="resultMap">
+		<result property="master_id" column="master_id"/>
+		<result property="master_pw" column="master_pw"/>
+	</resultMap>
+
+	<select id="select" parameterType="string" resultType="master">
+		select * from ds_master where master_id=#{master_id}
+	</select>
+	<insert id="insert" parameterType="master">
+		insert into ds_master values(#{master_id},#{master_pw})
+	</insert>
+	<update id="update" parameterType="master">
+		update ds_master set master_pw=#{master_pw,jdbcType=VARCHAR} where master_id=#{master_id,jdbcType=VARCHAR}
+	</update>
+	<!--<update id="delete" parameterType="string">
+		update ds_member set m_del='y' where master_id=#{master_id}
+	</update>-->
+</mapper>

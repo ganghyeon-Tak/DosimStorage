@@ -4,25 +4,66 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Jura 관리자 로그인</title>
+<title>DosimStorage 관리자 로그인</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" type="text/css" href="assets/style.css" />
 <style type="text/css">
-table {
-	margin: 0 0 2em 0;
-	width: 50%;
-	margin: auto;
-	text-align: center;
+@import url("common.css");
+
+.title {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 50px;
 }
 
-p {
-	text-align: center;
-	font-size: 35px;
-	font-family: fantasy;
+#table_master_login {
+  margin: auto;
+  text-align: center;
+  width: 18%;
 }
-#btns { margin-left: 5px; margin-right: 5px; }
+
+.location__button__list {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: #1C2120;
+  font-size: 15px;
+  margin: 5px;
+  padding: 6px 8px;
+  border: 1px solid #1C2120;
+  border-radius: 5px;
+  font-family: 'Noto Serif KR', serif;
+  text-align: center;
+}
+
+.location__button {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.location__button__list:hover,
+#submit:hover, #reset:hover {
+  background-color: #DF964A;
+}
+
+#submit, #reset {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: #1C2120;
+  font-size: 15px;
+  margin: 2px;
+  padding: 3px 8px;
+  border: 1px solid #1C2120;
+  border-radius: 5px;
+  font-family: 'Noto Serif KR', serif;
+  text-align: center;
+}
 </style>
 <script type="text/javascript">
 	function chk() {
@@ -44,28 +85,27 @@ p {
 </script>
 </head>
 <body>
-	<form action="m_login.action" name="frm" onsubmit="return chk()">
-		<p></p>
-		<p>JURA 관리자</p>
-		<table>
-			<tr>
-				<td align="center" bgcolor="#f6f6f6"><font size=3 color="black">아이디</font></td>
-				<td bgcolor="#f6f6f6" ><input type="text" name="id" size="3"></td>
-			</tr>
-			<tr>
-				<td align="center" bgcolor="#f6f6f6"><font size=3 color="black">비밀번호</font></td>
-				<td bgcolor="#f6f6f6"><input type="password" name="pass" size="3"></td>
-			</tr>
-			<tr><td bgcolor="white"></td>
-			<tr><td bgcolor="white"></td>
-			<tr>
-				<td colspan="2" align="center" bgcolor="white">
-					<input type="submit" id="btns" value="로그인">
-					<input type="reset" id="btns" value="취소">
-					<input type="button" id="btns" value="홈으로" onclick="location.href='main.do'">
-				</td>
-			</tr>
-		</table>
-	</form>
+<h2 class="title">관리자 로그인</h2>
+<form action="m_login.action" method="post">
+<table id="table_master_login">
+	<tr>
+		<th>아이디</th>
+		<td><input type="text" name="master_id"
+			required="required" autofocus="autofocus"></td>
+	</tr>
+	<tr>
+		<th>암호</th>
+		<td><input type="password" name="master_pw"
+			required="required"></td>
+	</tr>
+	<tr>
+		<th colspan="2"><input type="submit" id="submit" value="로그인">
+						<input type="reset" id="reset" value="취소"></th>
+	</tr>
+</table>
+</form>
+<div class="location__button">
+	<button class="location__button__list" onclick="location.href='main.do'">메인</button>
+</div>
 </body>
 </html>

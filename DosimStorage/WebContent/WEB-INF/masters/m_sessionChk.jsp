@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:set var="id" value="${sessionScope.id}" />
-<c:if test="${empty id }">
+<c:set var="master_id" value="${sessionScope.master_id}" />
+<c:if test="${empty master_id }">
 	<script type="text/javascript">
 		location.href="m_loginForm.action";
 	</script>

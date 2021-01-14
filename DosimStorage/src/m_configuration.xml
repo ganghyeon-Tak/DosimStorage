@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<properties resource="db.properties"/>
+<!-- 캐시데이터를 불러와 최신정보로 갱신안되는 경우가 많아 넣어봤습니다 -->
+<!-- 문제 시 세팅 옵션 삭제하세요 -->
+<settings> 
+        <setting name="cacheEnabled" value="false" /> 
+</settings>
+<typeAliases>
+	<typeAlias alias="master" type="model.Master" />
+	<typeAlias alias="account" type="model.Account" />
+	<typeAlias alias="orderList" type="model.OrderList"/>
+	<typeAlias alias="stock_view" type="model.Stock_view"/>
+	<typeAlias alias="storage_list" type="model.Storage_list"/>
+	<typeAlias alias="service" type="model.Service"/>
+	<typeAlias alias="order" type="model.Order"/>
+	<typeAlias alias="board1" type="model.Board1"/>
+</typeAliases>
+<environments default="development">
+	<environment id="development">
+	<transactionManager type="JDBC" />
+		<dataSource type="POOLED">
+			<property name="driver" value="${driver}" />
+			<property name="url" value="${url}" />
+			<property name="username" value="${username}" />
+			<property name="password" value="${password}" />
+</dataSource>
+</environment>
+</environments>
+<mappers>
+	<mapper resource="master.xml" />
+	<mapper resource="account.xml" />
+	<mapper resource="orderList.xml" />
+	<mapper resource="stockView.xml" />
+	<mapper resource="storage_list.xml" />
+	<mapper resource="service.xml" />
+	<mapper resource="order.xml" />
+	<mapper resource="board1.xml" />
+</mappers>
+</configuration>
