@@ -21,7 +21,7 @@
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4) {	
 				if (xhr.status == 200) {	
-					location.reload();
+					location.href="main.do";
 				} else {
 					alert('요청오류: '+xhr.status);
 				}				
