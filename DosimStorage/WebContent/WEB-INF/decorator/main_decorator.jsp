@@ -49,7 +49,7 @@
 	<div id="menu-first">
 		<ul class="main">
 			<li><a href="main.do">HOME</a></li>
-			<li><a href="#">도심창고</a></li>
+			<li><a href="dosimDescription.do">도심창고</a></li>
 			<li><a href="orderForm.do">신청하기</a></li>
 			<li><a href="branchInfo.do?br=">지점안내</a>
 				<ul class="sub">
