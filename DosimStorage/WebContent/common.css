@@ -44,6 +44,8 @@ a {
 li{
 	list-style: none
 }
+
+/* 메인 페이지 메뉴 css */
 .main-image {
 	text-align: center;
 	padding: 30px;
@@ -265,3 +267,24 @@ img {vertical-align: middle;}
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
 }
+
+/* 고객센터 게시글 */
+
+#list {
+	padding: 20px;
+	margin: 0 auto;
+	width: 1200px;
+}
+
+.list_table {
+	width: 100%;
+}
+
+.list_table th {
+	background: darkgray;
+}
+
+.list_table td {
+	background: #d6c8a9;
+}
+

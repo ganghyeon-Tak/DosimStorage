@@ -10,9 +10,11 @@
 		$('#dispLisp').load("list.bo","disp=true&pageNum=${pageNum}");
 	});	
 </script>
-</head><body>
+</head>
+<body>
+<div id="list">
 <h2>게시글 상세 정보</h2>
-<table>
+<table class="list_table">
 	<tr><th>번호</th><td>${board.num}</td>
 		<th>제목</th><td>${board.title}</td></tr>
 	<tr><th>ID</th><td>${board.m_id}</td>
@@ -25,6 +27,7 @@
 <button onclick="location.href='delete.bo?num=${board.num}&pageNum=${pageNum}'">삭제</button>
 <button onclick="location.href='insertForm.bo?num=${board.num}&pageNum=${pageNum}'">답변</button>
 <button onclick="location.href='list.bo?pageNum=${pageNum}'">목록</button>
+</div>
 <div id="dispLisp"></div>
 </body>
 </html>
