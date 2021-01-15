@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="m_sessionChk.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="m_sessionChk.jsp" %>
 <meta charset="UTF-8">
 <title>관리자 화면</title>
 <style type="text/css">

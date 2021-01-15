@@ -9,7 +9,7 @@ public class MasterLogout implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.removeAttribute("master_id");
-		return "m_logout";
+		return "m_nullPage";
 	}
 
 }

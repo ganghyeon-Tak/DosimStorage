@@ -16,6 +16,6 @@
 		<pattern>/priceCheck.*</pattern>
 		<pattern>/branchDetail.*</pattern>
 		<pattern>/list.bo?disp=true*</pattern>
-		<pattern>/m_loginForm.action</pattern>
+		<pattern>/m_loginForm.action</pattern>		
 	</excludes>
 </decorators>
