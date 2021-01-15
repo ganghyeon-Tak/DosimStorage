@@ -1,11 +1,261 @@
-@charset "UTF-8";
-/* 	body { border-color: #ffd2e9; } */
-	table { width : 100%; margin: 20px; }
-	caption { font-size : 25px; font-weight: "bold"; font-color: "blue" line-height: 150%}
-/* 	th, td { padding: 15px; border: 1px solid;}
-	th :hover {
-		background-color: Black; color: white;
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap");
+
+body {
+  background-color: #F2EFEB;
+  margin: 0;
+  font-family: 'Noto Serif KR', serif;
+  cursor: default;
 }
-	tr :hover {
-		background-color: Black; color: white;
-} */
+
+th {
+	padding: 20px 5px;
+	font-size: 17px;
+}
+
+td {
+	padding: 10px 0px;
+	text-align: center;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn { margin: 15px; }
+
+.active {background-color: violet; color: white;}
+
+
+*{
+	margin: 0;
+	padding: 0;	
+}
+
+li{
+	list-style: none
+}
+.main-image {
+	text-align: center;
+	padding: 30px;
+}
+
+#log {
+	top: 0%;
+	right: 0%;
+	float: right;
+	font-size: 14px;
+	height: 50px;
+	width: 15%;
+	position: absolute;
+	z-index: 100;
+}
+
+#log ul {
+	width: 100%;
+}
+
+#log .log > li {
+	color: #726378;
+	float: left;
+	width: 50%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	position: relative;
+}
+
+#log .log > li:hover .mypage {
+	display: block;
+}
+
+#log .log > li a {
+	text-decoration: none;
+	color: gray;
+	display: block;
+	width: 100%;
+}
+
+#log .log > li a:hover {
+	background: gray;
+	color : black;
+	width: 100%;
+}
+
+#log .log .mypage {
+	position: absolute;
+	top: 30px;
+	left: 0;
+	width: 100%;
+	display: none;
+}
+/* 로그인 메뉴에 올렸을 때 나오는 서브 로그인메뉴 배경색과 글자색 */
+#log .log .mypage a{
+	background: white;
+	color: black;
+	/* 투명도 0:투명, 1:불투명 */
+	opacity: 0.8;
+}
+
+/* 서브 로그인 메뉴에 올렸을 때 서브 로그인메뉴 배경색과 글자색 */
+#log .log .mypage li a:hover {
+	background: gray;
+	color: white;
+}
+
+#menu-first {
+	color: black;	
+	height: 70px;
+	background-color: black;
+	font-size: 18px;
+	padding: 0 30px 0 30px;	
+}
+
+#menu-first .main {
+	max-width: 1200px;
+}
+
+#menu-first ul {
+	width: 100%;
+	margin: 0 auto;
+	/* overflow: hidden; */
+}
+
+/* 메인 메뉴 */
+#menu-first .main > li {
+	float: left;
+	width: 20%;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	background: black;
+	position: relative;
+}
+
+#menu-first .main > li:hover .sub {
+	display: block;
+}
+
+/* 메인 메뉴 하이퍼링크 */
+#menu-first .main > li a{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	display: block;
+}	
+
+/* 메뉴에 커서 올릴 때 배경색, 글자색 변경 */
+#menu-first .main > li a:hover {
+	background: gray;
+	color: black;
+}	
+
+#menu-first .main .sub {
+	position: absolute;
+	top: 70px;
+	left: 0;
+	width: 100%;
+	display: none;
+	z-index: 10;
+}
+
+/* 메인 메뉴에 올렸을 때 나오는 서브메뉴 배경색과 글자색 */
+#menu-first .main .sub a{
+	background: white;
+	color: black;
+	/* 투명도 0:투명, 1:불투명 */
+	opacity: 0.8;
+}
+
+/* 서브 메뉴에 올렸을 때 서브메뉴 배경색과 글자색 */
+#menu-first .main .sub li a:hover {
+	background: gray;
+	color: white;
+} 
+
+/* 컨테이너 가로 사이즈 제한 및 가운데 배치 */ 
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/* 이미지 슬라이드 css */
+
+* {box-sizing: border-box}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
