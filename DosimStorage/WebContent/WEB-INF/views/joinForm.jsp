@@ -46,8 +46,8 @@ td {text-align: left;}
 </style>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
-	function chk() {
-		if (frm.m_pw.value != frm.m_pwConfirm.value) {
+	function check() {
+		if (frm.m_pw.value !== frm.m_pwConfirm.value) {
 			alert("암호와 암호 확인이 다릅니다");
 			frm.m_pw.focus();
 			frm.m_pw.value = "";
@@ -70,7 +70,7 @@ td {text-align: left;}
 <body>
 <h2 class="title">회원가입</h2>
 <form action="join.do" method="post" name="frm" 
-	onsubmit="return chk()">
+	onsubmit="return check()">
 <table id=table_member_join>
 	<tr>
 		<th>아이디</th>

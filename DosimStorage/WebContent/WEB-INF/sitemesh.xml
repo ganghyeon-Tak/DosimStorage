@@ -3,7 +3,7 @@
 <sitemesh>
 	<property name="decorators-file" 
 		value="/WEB-INF/decorators.xml" />
-	<excludes file="${decorators-file}" />
+s	<excludes file="${decorators-file}" />
 	<page-parsers>
 		<parser content-type="text/html"
 			class="com.opensymphony.module.sitemesh.parser.HTMLPageParser" />
