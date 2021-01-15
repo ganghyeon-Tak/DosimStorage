@@ -34,44 +34,50 @@
   		font-family: 'Noto Serif KR', serif;
 	}
 	#submit:hover {background-color: #DF964A;}
+	.buttons {
+		background-color: transparent;
+		padding: 0;
+		border: 0;		
+	}
 </style>
 
 <title>신청하기</title>
-
-
-<script type="text/javascript" src="js/order.js"></script>
 </head>
 <body>
 <div class="container">
 <!-- 매진된 창고-지점 표시(hidden) -->
-<input type="text" readonly="readonly" id="soldout" style="width: 70%" hidden="hidden">
-	
-	<form action="order.do" method="post" name="order_form">	
+<input type="text" readonly="readonly" id="soldout" style="width: 70%" hidden="hidden">	
+	<form action="order.do" method="post" name="order_form">
+	<!-- 창고선택과 이용기간선택이 끝나면 총 금액 계산값 가져오는 곳(hidden) -->	
 	<input type="text" id="tot_price" readonly="readonly" name="tot_price" hidden="hidden">
 		<div class="inner_container">
-			<h2>지점 선택</h2>		
-			<button type="button" style="background-color: #F2EFEB; padding: 0; border: none" onclick="select_branch(1)" ondrag="select_branch(1)" >
+			<h2>지점 선택</h2>
+			<!-- 라디오버튼 조작하는 스위치버튼 -->		
+			<button type="button" class="buttons" onclick="select_branch(1)" ondrag="select_branch(1)" >
 				<img id="br_button1" src="images/b1.png" width="300">
 			</button>
-			<button type="button" style="background-color: #F2EFEB; padding: 0; border: none" onclick="select_branch(2)" ondrag="select_branch(2)">
+			<button type="button" class="buttons" onclick="select_branch(2)" ondrag="select_branch(2)">
 				<img id="br_button2" src="images/b2.png" width="300">
 			</button>
-			<button type="button" style="background-color: #F2EFEB; padding: 0; border: none" onclick="select_branch(3)" ondrag="select_branch(3)">
+			<button type="button" class="buttons" onclick="select_branch(3)" ondrag="select_branch(3)">
 				<img id="br_button3" src="images/b3.png" width="300">
 			</button>
+			<!-- 실제 데이터 전달하는 라디오버튼(hidden) -->
 			<input type="radio" name="branch" value="1" id="select_1" required="required" hidden="hidden">
 			<input type="radio" name="branch" value="2" id="select_2" required="required" hidden="hidden">
 			<input type="radio" name="branch" value="3" id="select_3" required="required" hidden="hidden">		
 			<h2>창고 종류 선택</h2>
-			<button type="button" style="background-color: #F2EFEB; padding: 0; border: none;" onclick="select_storage('small')" ondrag="select_storage('small')">
+			<!-- 라디오버튼 조작하는 스위치버튼 -->
+			<button type="button" class="buttons" onclick="select_storage('small')" ondrag="select_storage('small')">
 				<img id="st_button1" src="images/s1.png" width="300">
 			</button>
-			<button type="button" style="background-color: #F2EFEB; padding: 0; border: none;" onclick="select_storage('medium')" ondrag="select_storage('medium')">
+			<button type="button" class="buttons" onclick="select_storage('medium')" ondrag="select_storage('medium')">
 				<img id="st_button2" src="images/s2.png" width="300">
 			</button>
-			<button type="button" style="background-color: #F2EFEB; padding: 0; border: none;" onclick="select_storage('large')" ondrag="select_storage('large')">
+			<button type="button" class="buttons" onclick="select_storage('large')" ondrag="select_storage('large')">
 				<img id="st_button3" src="images/s3.png" width="300">
-			</button>		
+			</button>
+			<!-- 실제 데이터 전달하는 라디오버튼(hidden) -->		
 			<input type="radio"  name="storage" value="small" id="select_small" required="required" hidden="hidden">
 			<input type="radio" name="storage" value="medium" id="select_medium" required="required" hidden="hidden">
 			<input type="radio" name="storage" value="large" id="select_large" required="required" hidden="hidden">
@@ -91,7 +97,7 @@
 				<tr>
 					<td colspan="2">
 						<select name="period" required="required" disabled="disabled" onchange="total_price(this.value)">
-							<option hidden="hidden" id="peri_novalue"></option>
+							<option hidden="hidden" id="peri_novalue"></option>	<!-- 선택안했을시 required에 걸리게 만들기 위한 옵션 -->
 							<option value="1"> 1 개월</option>
 							<option value="2"> 2 개월</option>
 							<option value="3"> 3 개월</option>
@@ -112,12 +118,13 @@
 				</tr>
 				<tr>
 					<td>금액</td>
+					<!-- 총 금액에 콤마와 원 붙여 표시 -->
 					<td><input type="text" id="tot_comma" readonly="readonly"></td>
 				</tr>				
 				<tr>
 					<td>무통장 입금</td>
 					<td><select onchange="get_account(this.value)" name="bank" required="required">
-							<option id="bank" hidden="hidden"></option>
+							<option id="bank" hidden="hidden"></option> <!-- 선택안했을시 required에 걸리게 만들기 위한 옵션 -->
 							<option>국민은행</option>
 							<option>신한은행</option>
 							<option>카카오뱅크</option>
@@ -144,5 +151,7 @@
 		</div>
 	</form>
 </div>
+<!-- javascript -->
+<script type="text/javascript" src="js/order.js"></script>
 </body>
 </html>
