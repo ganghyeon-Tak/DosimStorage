@@ -63,6 +63,16 @@
 		update ds_order set order_state = '주문취소'
 		where order_no = #{order_no}
 	</update>
+	<update id="userCancel">
+		update ds_order set order_state = '주문취소'
+		where order_no in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<select id="wholeList" resultType="long">
+		select order_no from ds_order where order_state = '입금대기'
+	</select>	
 </mapper>
 
 
