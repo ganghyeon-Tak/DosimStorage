@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 		<a href="wait_deposit.action">미입금현황</a><br>
-		<a href="#">주문취소처리</a><br>
+		<a href="timeout.action">주문취소처리</a><br>
 		<a href="#">전체주문조회</a>
 	</div>
 </body>

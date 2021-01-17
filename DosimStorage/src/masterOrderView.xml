@@ -19,4 +19,7 @@
 	<select id="waitDeposit" resultType="masterOrderView">
 		select * from master_orderview where order_state = '입금대기'
 	</select>
+	<select id="timeoutList" resultType="masterOrderView">
+		select * from master_orderview where trunc(sysdate) > trunc(depo_duedate) and order_state = '입금대기'
+	</select>
 </mapper>
