@@ -62,7 +62,7 @@
 			<li><a href="masterOrderManage.action">주문관리</a>
 				<ul class="sub">
 					<li><a href="wait_deposit.action">미입금현황</a></li>
-					<li><a href="#.action">#</a></li>
+					<li><a href="timeout.action">기간초과주문</a></li>
 					<li><a href="#.action">#</a></li>
 				</ul>
 			</li>

@@ -66,5 +66,18 @@ public class MasterDao {
 	public int expireUpdateOne(long order_no) {		
 		return session.update("orderns.expireUpdateOne", order_no);
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> timeoutList() {		
+		return session.selectList("masterOrderViewns.timeoutList");
+	}
+
+	public int cancelAll(List<Long> list) {		
+		return session.update("orderns.cancelAll", list);
+	}
+
+	public int cancelOne(long order_no) {		
+		return session.update("orderns.cancelOne", order_no);	
+	}
 	
 }

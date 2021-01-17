@@ -52,6 +52,17 @@
 		update ds_order set expire_date = add_months(start_date, use_period)
 		where order_no = #{order_no}
 	</update>
+	<update id="cancelAll">
+		update ds_order set order_state = '주문취소'
+		where order_no in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<update id="cancelOne" parameterType="long">
+		update ds_order set order_state = '주문취소'
+		where order_no = #{order_no}
+	</update>
 </mapper>
 
 
