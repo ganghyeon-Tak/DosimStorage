@@ -79,5 +79,14 @@ public class MasterDao {
 	public int cancelOne(long order_no) {		
 		return session.update("orderns.cancelOne", order_no);	
 	}
+
+	public int userCancel(List<Long> list) {		
+		return session.update("orderns.userCancel", list);
+	}	
+
+	@SuppressWarnings("unchecked")
+	public List<Long> wholeList() {	
+		return session.selectList("orderns.wholeList");
+	}
 	
 }

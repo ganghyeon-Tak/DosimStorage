@@ -31,7 +31,7 @@
 				</tr>
 	<c:if test="${empty list }">
 				<tr>
-					<td colspan="6">해당 내역이 없습니다</td>
+					<td colspan="10">해당 내역이 없습니다</td>
 				</tr>
 	</c:if>
 	<c:if test="${not empty list }">

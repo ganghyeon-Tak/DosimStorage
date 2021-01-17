@@ -13,9 +13,12 @@
 <!-- 각각 메뉴에서 처리하는 기능에 대한 간략한 설명을 추가하자 -->
 <body>
 	<div class="container">
+	<!-- 입금대기중인 주문건 표시 -->
 		<a href="wait_deposit.action">미입금현황</a><br>
+	<!-- 입금대기중이고 입금기한 넘긴 주문건 표시 -->
 		<a href="timeout.action">주문취소처리</a><br>
-		<a href="#">전체주문조회</a>
+	<!-- 1:1문의로 취소요청한 주문건 취소기능 -->	
+		<a href="userCancelForm.action">요청주문취소</a>
 	</div>
 </body>
 </html>
