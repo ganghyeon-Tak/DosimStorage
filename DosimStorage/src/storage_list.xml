@@ -11,7 +11,7 @@
 		<result property="s_kind"  column="s_kind"/>
 		<result property="usable"  column="usable"/>
 	</resultMap>
-
+	<!-- 창고타입 지점코드를 입력받아서 사용가능한 창고 하나의 창고코드를 검색함 -->
 	<select id="sel_st" parameterType="storage_list" resultType="string" flushCache="true" useCache="false">
 		select st_code from DS_STORAGE_LIST where b_code = #{b_code} and s_kind = #{s_kind} and usable = 'y' and borrower_id is null and rownum = 1
 	</select>
@@ -24,6 +24,6 @@
 		where st_code = #{st_code}
 	</update>
 	<update id="restore" parameterType="string">
-		update DS_STORAGE_LIST set borrower_id = null where st_code = {st_code}
+		update DS_STORAGE_LIST set borrower_id = null, usable = 'y' where st_code = {st_code}
 	</update>	
 </mapper>
