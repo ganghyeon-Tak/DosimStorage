@@ -527,3 +527,29 @@ begin
     end if;
 end;
 /
+
+-- 프로시저 생성
+
+    -- 서비스 이용중인 유저 total_use +1 시키는 프로시저
+create or replace PROCEDURE total_use_proc
+is
+begin
+   update ds_member set total_use = total_use + 1 where m_id in (select distinct(m_id) from ds_member m, ds_storage_list s where m.m_id = s.borrower_id and m_id not in ('입금대기', '에러'));
+end;
+/
+
+-- job 생성
+
+    -- total_use_proc(사용일+1시키는 프로시저) 매일 자정에 실행시키는 job
+DECLARE
+    X NUMBER;
+BEGIN
+    SYS.DBMS_JOB.SUBMIT
+    ( JOB => X,
+    WHAT => 'total_use_proc;',
+    NEXT_DATE => TRUNC(SYSDATE),
+    INTERVAL => 'TRUNC(SYSDATE) + 1',
+    NO_PARSE => false );
+    commit;
+END;
+/
