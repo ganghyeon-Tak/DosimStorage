@@ -485,17 +485,17 @@ create or replace view stock_view as
 		group by s.s_kind, b.b_code) b
 	where a.br_type = b.br_type and tot = ntot;
 
-
--- 기존 뷰테이블 삭제 --
-drop view v_orderList; 
-
-
--- 마이페이지에 있는 신청서비스조회에서 확인할 정보가 표시된 뷰
+    -- 마이페이지에 있는 신청서비스조회에서 확인할 정보가 표시된 뷰
 create or replace view v_orderList as 
 	select o.order_no, o.m_id, o.order_date, o.order_totalprice, o.hope_date, o.use_period, o.order_state, s.s_kind, b.b_title
  	from ds_order o, ds_storage_list s, ds_branch b
     	where o.st_code=s.st_code and s.b_code=b.b_code;
 
+    -- 관리자가 주문관리에 필요한 데이터를 보기 위한 뷰
+create or replace view master_orderview as
+    select order_no, o.m_id, m.m_name, o.st_code, order_totalprice, hope_date, use_period, start_date, expire_date, account_no, depo_duedate, order_state
+    from ds_order o, ds_storage_list s, ds_member m
+    where o.st_code = s.st_code and o.m_id = m.m_id;
 
 -- 시퀀스 생성
     	
