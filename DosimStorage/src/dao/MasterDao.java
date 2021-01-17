@@ -47,43 +47,54 @@ public class MasterDao {
 		return session.update("masterns.delete", master_id);
 	}
 
+	// 입금대기중인 주문 리스트
 	@SuppressWarnings("unchecked")
 	public List<MasterOrderView> waitDeposit() {		
 		return session.selectList("masterOrderViewns.waitDeposit");
 	}
 
+	// 한건 입금완료처리
 	public int depositOne(long order_no) {		
 		return session.update("orderns.depositOne", order_no);
 	}
-
+	
+	// 여러건 입금완료처리
 	public int depositAll(List<Long> list) {		
 		return session.update("orderns.depositAll", list);
 	}
 
+	// 만기일 입력(여러건)
 	public int expireUpdateAll(List<Long> list) {		
 		return session.update("orderns.expireUpdateAll", list);
 	}
+	
+	// 만기일 입력(한건)
 	public int expireUpdateOne(long order_no) {		
 		return session.update("orderns.expireUpdateOne", order_no);
 	}
-
+	
+	// 입금기한을 넘겼으나 입금안된 주문건 리스트
 	@SuppressWarnings("unchecked")
 	public List<MasterOrderView> timeoutList() {		
 		return session.selectList("masterOrderViewns.timeoutList");
 	}
-
+	
+	// 전체선택해서 취소했을때
 	public int cancelAll(List<Long> list) {		
 		return session.update("orderns.cancelAll", list);
 	}
-
+	
+	// 한 건 취소시킴
 	public int cancelOne(long order_no) {		
 		return session.update("orderns.cancelOne", order_no);	
 	}
-
+	
+	// list에 들어있는 주문번호 주문건 취소시킴	
 	public int userCancel(List<Long> list) {		
 		return session.update("orderns.userCancel", list);
 	}	
-
+	
+	// 입금대기중인 주문번호만 담긴 리스트 반환
 	@SuppressWarnings("unchecked")
 	public List<Long> wholeList() {	
 		return session.selectList("orderns.wholeList");
