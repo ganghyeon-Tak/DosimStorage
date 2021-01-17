@@ -44,7 +44,7 @@
 							<li><a href="#.action">회원관리</a></li>
 							<li><a href="#.action">지점관리</a></li>
 							<li><a href="#.action">창고관리</a></li>
-							<li><a href="#.action">주문관리</a></li>
+							<li><a href="masterOrderManage.action">주문관리</a></li>
 							<li><a href="#.action">고객센터관리</a></li>
 							<li><a href="main.do">도심창고 홈</a></li>						
 						</ul>
@@ -59,9 +59,9 @@
 			<li><a href="#.action">회원관리</a></li>
 			<li><a href="#.action">지점관리</a></li>
 			<li><a href="#.action">창고관리</a></li>
-			<li><a href="#.action">주문관리</a>
+			<li><a href="masterOrderManage.action">주문관리</a>
 				<ul class="sub">
-					<li><a href="#.action">#</a></li>
+					<li><a href="wait_deposit.action">미입금현황</a></li>
 					<li><a href="#.action">#</a></li>
 					<li><a href="#.action">#</a></li>
 				</ul>

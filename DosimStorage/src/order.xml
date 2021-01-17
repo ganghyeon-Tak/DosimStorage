@@ -21,7 +21,37 @@
 		(to_number(to_char(sysdate, 'YYYYMMDD')) * 10000 + ORDER_NO_SEQ.nextval,
 		#{m_id}, #{st_code}, #{order_totalPrice}, sysdate, #{hope_date}, #{use_period}, null, null, #{account_no},
 		sysdate + 4, '입금대기')
-	</insert>	
+	</insert>
+	<update id="depositOne" parameterType="long">
+		update ds_order set order_state = '입금완료',
+			start_date = 
+				case when trunc(sysdate) >= trunc(hope_date) then sysdate
+					else hope_date
+				end			
+		where order_no = #{order_no}
+	</update>
+	<update id="depositAll">
+		update ds_order set order_state = '입금완료',
+			start_date = 
+				case when trunc(sysdate) >= trunc(hope_date) then sysdate
+					else hope_date
+				end			
+		where order_no in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<update id="expireUpdateAll">
+		update ds_order set expire_date = add_months(start_date, use_period)
+		where order_no in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<update id="expireUpdateOne" parameterType="long">
+		update ds_order set expire_date = add_months(start_date, use_period)
+		where order_no = #{order_no}
+	</update>
 </mapper>
 
 

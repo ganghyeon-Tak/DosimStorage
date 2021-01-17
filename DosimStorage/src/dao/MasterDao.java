@@ -2,12 +2,15 @@ package dao;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.List;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import model.Master;
+import model.MasterOrderView;
 
 public class MasterDao {
 
@@ -43,4 +46,25 @@ public class MasterDao {
 	public int delete(String master_id) {
 		return session.update("masterns.delete", master_id);
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> waitDeposit() {		
+		return session.selectList("masterOrderViewns.waitDeposit");
+	}
+
+	public int depositOne(long order_no) {		
+		return session.update("orderns.depositOne", order_no);
+	}
+
+	public int depositAll(List<Long> list) {		
+		return session.update("orderns.depositAll", list);
+	}
+
+	public int expireUpdateAll(List<Long> list) {		
+		return session.update("orderns.expireUpdateAll", list);
+	}
+	public int expireUpdateOne(long order_no) {		
+		return session.update("orderns.expireUpdateOne", order_no);
+	}
+	
 }
