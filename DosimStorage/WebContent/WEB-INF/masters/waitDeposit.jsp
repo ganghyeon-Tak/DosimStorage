@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 	@import url("m_common.css");
+	th, td {padding-left: 5px; padding-right: 5px}
 </style>
 </head>
 <body>
