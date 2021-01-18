@@ -148,5 +148,10 @@ public class MasterDao {
 	@SuppressWarnings("unchecked")
 	public List<MasterOrderView> selCancelList(List<Integer> startEnd) {		
 		return session.selectList("masterOrderViewns.selCancelList", startEnd);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> waitBrDeposit(String br) {		
+		return session.selectList("masterOrderViewns.waitBrDeposit", br);
 	}	
 }

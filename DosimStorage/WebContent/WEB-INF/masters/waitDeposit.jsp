@@ -12,9 +12,17 @@
 </style>
 </head>
 <body>
-	<div class="container">
+<input type="hidden" value="${br }" id="br">
+	<div class="container">	
 		<h2>미입금현황</h2>
 		<p>입금완료된 주문건을 선택해 입금확인 처리해주세요</p>
+		<p>지점선택</p>
+		<select onchange="sel_br(this.value)">
+			<option value="0" id="op1">전체</option>
+			<option value="1" id="op2">광화문점</option>
+			<option value="2" id="op3">신사점</option>
+			<option value="3" id="op4">판교점</option>
+		</select>
 		<form method="post" action="deposit.action">
 			<table>
 				<tr>
@@ -56,5 +64,25 @@
 			</table>
 		</form>
 	</div>
+	<script type="text/javascript">
+		window.onpageshow = function(){
+			switch(document.getElementById('br').value) {
+			case "0":
+				document.getElementById('op1').selected = true;
+				break;
+			case "1":
+				document.getElementById('op2').selected = true;
+				break;
+			case "2":
+				document.getElementById('op3').selected = true;
+				break;
+			case "3":
+				document.getElementById('op4').selected = true;
+			}
+		}
+		function sel_br(br) {
+			location.href="wait_deposit.action?br="+br;
+		}
+	</script>
 </body>
 </html>
