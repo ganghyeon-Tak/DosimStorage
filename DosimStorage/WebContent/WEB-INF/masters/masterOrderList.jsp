@@ -17,7 +17,7 @@
 	<div class="container">
 		<p>
 			조건선택
-			<select name="list_opt">			
+			<select id="sel_opt">			
 				<option id="o_op1" value="1">전체보기</option>
 				<option id="o_op2" value="2">입금대기</option>
 				<option id="o_op3" value="3">입금완료</option>
@@ -26,7 +26,7 @@
 		</p>
 		<p>
 			지점선택
-			<select name="sel_br">			
+			<select id="sel_br">			
 				<option id="b_op1" value="0">전체지점</option>
 				<option id="b_op2" value="1">광화문점</option>
 				<option id="b_op3" value="2">신사점</option>
@@ -115,8 +115,8 @@
 			}
 		}
 		function sel_opt_br() {
-			var o = document.getElementById('opt').value;
-			var b = document.getElementById('br').value
+			var o = document.getElementById('sel_opt').value;
+			var b = document.getElementById('sel_br').value;
 			location.href="masterOrderList.action?list_opt="+o+"&pageNum=1&br="+b;
 		}
 	</script>
