@@ -21,7 +21,58 @@
 		(to_number(to_char(sysdate, 'YYYYMMDD')) * 10000 + ORDER_NO_SEQ.nextval,
 		#{m_id}, #{st_code}, #{order_totalPrice}, sysdate, #{hope_date}, #{use_period}, null, null, #{account_no},
 		sysdate + 4, '입금대기')
-	</insert>	
+	</insert>
+	<update id="depositOne" parameterType="long">
+		update ds_order set order_state = '입금완료',
+			start_date = 
+				case when trunc(sysdate) >= trunc(hope_date) then sysdate
+					else hope_date
+				end			
+		where order_no = #{order_no}
+	</update>
+	<update id="depositAll">
+		update ds_order set order_state = '입금완료',
+			start_date = 
+				case when trunc(sysdate) >= trunc(hope_date) then sysdate
+					else hope_date
+				end			
+		where order_no in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<update id="expireUpdateAll">
+		update ds_order set expire_date = add_months(start_date, use_period)
+		where order_no in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<update id="expireUpdateOne" parameterType="long">
+		update ds_order set expire_date = add_months(start_date, use_period)
+		where order_no = #{order_no}
+	</update>
+	<update id="cancelAll">
+		update ds_order set order_state = '주문취소'
+		where order_no in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<update id="cancelOne" parameterType="long">
+		update ds_order set order_state = '주문취소'
+		where order_no = #{order_no}
+	</update>
+	<update id="userCancel">
+		update ds_order set order_state = '주문취소'
+		where order_no in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<select id="wholeList" resultType="long">
+		select order_no from ds_order where order_state in ('입금대기', '입금완료')
+	</select>	
 </mapper>
 
 

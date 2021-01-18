@@ -21,7 +21,7 @@
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4) {	
 				if (xhr.status == 200) {	
-					location.reload();
+					location.href="main.do";
 				} else {
 					alert('요청오류: '+xhr.status);
 				}				
@@ -49,7 +49,7 @@
 	<div id="menu-first">
 		<ul class="main">
 			<li><a href="main.do">HOME</a></li>
-			<li><a href="#">도심창고</a></li>
+			<li><a href="dosimDescription.do">도심창고</a></li>
 			<li><a href="orderForm.do">신청하기</a></li>
 			<li><a href="branchInfo.do?br=">지점안내</a>
 				<ul class="sub">
@@ -89,7 +89,7 @@
 	<div id="menu-first">
 		<ul class="main">
 			<li><a href="main.do">HOME</a></li>
-			<li><a href="#">도심창고</a></li>
+			<li><a href="dosimDescription.do">도심창고</a></li>
 			<li><a href="orderForm.do">신청하기</a></li>
 			<li><a href="branchInfo.do?br=">지점안내</a>
 				<ul class="sub">

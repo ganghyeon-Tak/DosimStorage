@@ -2,12 +2,16 @@ package dao;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import model.Master;
+import model.MasterOrderView;
 
 public class MasterDao {
 
@@ -43,4 +47,175 @@ public class MasterDao {
 	public int delete(String master_id) {
 		return session.update("masterns.delete", master_id);
 	}
+
+	// 입금대기중인 주문 리스트
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> waitDeposit() {		
+		return session.selectList("masterOrderViewns.waitDeposit");
+	}
+
+	// 한건 입금완료처리
+	public int depositOne(long order_no) {		
+		return session.update("orderns.depositOne", order_no);
+	}
+	
+	// 여러건 입금완료처리
+	public int depositAll(List<Long> list) {		
+		return session.update("orderns.depositAll", list);
+	}
+
+	// 만기일 입력(여러건)
+	public int expireUpdateAll(List<Long> list) {		
+		return session.update("orderns.expireUpdateAll", list);
+	}
+	
+	// 만기일 입력(한건)
+	public int expireUpdateOne(long order_no) {		
+		return session.update("orderns.expireUpdateOne", order_no);
+	}
+	
+	// 입금기한을 넘겼으나 입금안된 주문건 리스트
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> timeoutList() {		
+		return session.selectList("masterOrderViewns.timeoutList");
+	}
+	
+	// 전체선택해서 취소했을때
+	public int cancelAll(List<Long> list) {		
+		return session.update("orderns.cancelAll", list);
+	}
+	
+	// 한 건 취소시킴
+	public int cancelOne(long order_no) {		
+		return session.update("orderns.cancelOne", order_no);	
+	}
+	
+	// list에 들어있는 주문번호 주문건 취소시킴	
+	public int userCancel(List<Long> list) {		
+		return session.update("orderns.userCancel", list);
+	}	
+	
+	// 입금대기 & 입금완료 상태인 주문번호만 담긴 리스트 반환
+	@SuppressWarnings("unchecked")
+	public List<Long> wholeList() {	
+		return session.selectList("orderns.wholeList");
+	}
+	
+	// 전체주문조회
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> allList(Map<String, Integer> map) {		
+		return session.selectList("masterOrderViewns.allList", map);
+	}
+	
+	// 옵션에 맞는 주문 조회 // 수정해야함
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> selList(String opt) {		
+		return session.selectList("masterOrderViewns.selList", opt);
+	}
+	
+	// 전체 주문 수 카운트
+	public int totAllList() {		
+		return (int)session.selectOne("masterOrderViewns.totAllList");
+	}
+
+	// 입금대기 주문 수 카운트
+	public int totWaitList() {
+		return (int)session.selectOne("masterOrderViewns.totWaitList");
+	}
+	
+	// 입금대기 주문 조회
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> selWaitList(Map<String, Integer> map) {		
+		return session.selectList("masterOrderViewns.selWaitList", map);
+	}
+
+	// 입금완료 주문 수 카운트
+	public int totDepositList() {
+		return (int)session.selectOne("masterOrderViewns.totDepositList");
+	}
+		
+	// 입금완료 주문 조회
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> selDepositList(List<Integer> startEnd) {		
+		return session.selectList("masterOrderViewns.selDepositList", startEnd);
+	}
+	
+	// 취소된 주문 수 카운트
+	public int totCancelList() {
+		return (int)session.selectOne("masterOrderViewns.totCancelList");
+	}
+		
+	// 취소된 주문 조회
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> selCancelList(List<Integer> startEnd) {		
+		return session.selectList("masterOrderViewns.selCancelList", startEnd);
+	}
+	
+	// 지점코드 입력해 해당지점 입금대기 주문 반환
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> waitBrDeposit(String br) {		
+		return session.selectList("masterOrderViewns.waitBrDeposit", br);
+	}
+
+	// 지점코드 입력해 해당지점 입금기한초과 주문 반환
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> timeoutBrList(String br) {		
+		return session.selectList("masterOrderViewns.timeoutBrList", br);
+	}
+
+	// 지점코드 입력해 해당 주문건 수 반환
+	public int totBrAllList(String br) {		
+		return (int)session.selectOne("masterOrderViewns.totBrAllList", br);
+	}
+
+	// 지점코드, 시작row 끝row 해시맵으로 입력해 해당하는 모든 주문 반환
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> brAllList(Map<String, Integer> map) {		
+		return session.selectList("masterOrderViewns.brAllList", map);
+	}
+
+	// 지점코드 입력해 해당지점 입금대기 주문건 수 반환
+	public int totBrWaitList(String br) {		
+		return (int)session.selectOne("masterOrderViewns.totBrWaitList", br);
+	}
+	
+	// 지점코드, 시작row 끝row 해시맵으로 입력해 해당 입금대기 주문 반환
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> brWaitList(Map<String, Integer> map) {		
+		return session.selectList("masterOrderViewns.brWaitList", map);
+	}
+
+	// 시작row 끝row 해시맵으로 입력해 해당 입금완료 주문 반환
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> selDepositList(Map<String, Integer> map) {		
+		return session.selectList("masterOrderViewns.selDepositList", map);
+	}
+
+	// 지점코드 입력해 해당지점 입금완료 주문건 수 반환
+	public int totBrDepositList(String br) {		
+		return (int)session.selectOne("masterOrderViewns.totBrDepositList", br);
+	}
+
+	// 지점코드, 시작row 끝row 해시맵으로 입력해 해당 입금완료 주문 반환
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> brDepositList(Map<String, Integer> map) {		
+		return session.selectList("masterOrderViewns.brDepositList", map);
+	}
+
+	// 시작row 끝row 해시맵으로 입력해 해당 취소 주문 반환
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> selCancelList(Map<String, Integer> map) {		
+		return session.selectList("masterOrderViewns.selCancelList", map);
+	}
+
+	// 지점코드 입력해 해당지점 취소 주문건 수 반환
+	public int totBrCancelList(String br) {		
+		return (int)session.selectOne("masterOrderViewns.totBrCancelList", br);
+	}
+
+	// 지점코드, 시작row 끝row 해시맵으로 입력해 해당 취소 주문 반환
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> brCancelList(Map<String, Integer> map) {		
+		return session.selectList("masterOrderViewns.brCancelList", map);
+	}	
 }

@@ -485,17 +485,17 @@ create or replace view stock_view as
 		group by s.s_kind, b.b_code) b
 	where a.br_type = b.br_type and tot = ntot;
 
-
--- 기존 뷰테이블 삭제 --
-drop view v_orderList; 
-
-
--- 마이페이지에 있는 신청서비스조회에서 확인할 정보가 표시된 뷰
+    -- 마이페이지에 있는 신청서비스조회에서 확인할 정보가 표시된 뷰
 create or replace view v_orderList as 
 	select o.order_no, o.m_id, o.order_date, o.order_totalprice, o.hope_date, o.use_period, o.order_state, s.s_kind, b.b_title
  	from ds_order o, ds_storage_list s, ds_branch b
     	where o.st_code=s.st_code and s.b_code=b.b_code;
 
+    -- 관리자가 주문관리에 필요한 데이터를 보기 위한 뷰
+create or replace view master_orderview as
+    select order_no, o.m_id, m.m_name, o.st_code, order_totalprice, hope_date, use_period, start_date, expire_date, account_no, depo_duedate, order_state
+    from ds_order o, ds_storage_list s, ds_member m
+    where o.st_code = s.st_code and o.m_id = m.m_id;
 
 -- 시퀀스 생성
     	
@@ -527,3 +527,80 @@ begin
     end if;
 end;
 /
+
+    -- 주문취소시 창고목록 테이블 자동변경 트리거
+        -- 입금확인 전 취소
+create or replace trigger service_cancel
+    after update on ds_order
+    for each row
+begin    
+    if :old.order_state = '입금대기' and :new.order_state = '주문취소' then        
+        update ds_storage_list set usable = 'y', rented = 'n', borrower_id = null where st_code = :new.st_code;
+    end if;
+end;
+/
+        -- 입금확인되어 서비스 이용 개시 후 중도취소 
+create or replace trigger service_cancel2
+    after update on ds_order
+    for each row
+begin    
+    if :old.order_state = '입금완료' and :new.order_state = '주문취소' then        
+        update ds_storage_list set usable = 'n', rented = 'n', borrower_id = null where st_code = :new.st_code;
+    end if;
+end;
+/
+
+
+-- 프로시저 생성
+
+    -- 서비스 이용중인 유저 total_use +1 시키는 프로시저
+create or replace PROCEDURE total_use_proc
+is
+begin
+   update ds_member set total_use = total_use + 1 where m_id in (select distinct(m_id) from ds_member m, ds_storage_list s where m.m_id = s.borrower_id and m_id not in ('입금대기', '에러'));
+end;
+/
+
+    -- 이용 만료일이 지난 창고의 borrower_id를 비우는 프로시저
+create or replace procedure order_expire
+is
+begin
+    update ds_storage_list set borrower_id = null where st_code in (select st_code from ds_order where trunc(expire_date) < trunc(sysdate) and order_state = '입금완료');
+end;
+/
+
+-- job 생성
+
+    -- total_use_proc(사용일+1시키는 프로시저) 매일 자정에 실행시키는 job
+DECLARE
+    X NUMBER;
+BEGIN
+    SYS.DBMS_JOB.SUBMIT
+    ( JOB => X,
+    WHAT => 'total_use_proc;',
+    NEXT_DATE => SYSDATE,
+    INTERVAL => 'TRUNC(SYSDATE) + 1',
+    NO_PARSE => false );
+    commit;
+END;
+/
+
+    -- order_expire(만료일 지난 주문 처리 프로시저) 매일 자정에 실행시키는 job
+DECLARE
+    X NUMBER;
+BEGIN
+    SYS.DBMS_JOB.SUBMIT
+    ( JOB => X,
+    WHAT => 'order_expire;',
+    NEXT_DATE => SYSDATE,
+    INTERVAL => 'TRUNC(SYSDATE) + 1',
+    NO_PARSE => false );
+    commit;
+END;
+/
+
+    -- job 지우는 법
+    -- select * from user_jobs; << 이걸로 현재 만들어진 job 목록을 볼 수 있다
+    -- 지우려는 job 번호를
+    -- EXECUTE dbms_job.REMOVE(num); << 저 num 자리에 넣으면 지울 수 있다
+    -- 또는 오라클 sql 디벨로퍼에서 스케줄러>DBMS작업 에 들어가서 지울 수도 있다

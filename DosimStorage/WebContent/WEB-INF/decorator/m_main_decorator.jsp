@@ -44,7 +44,7 @@
 							<li><a href="#.action">회원관리</a></li>
 							<li><a href="#.action">지점관리</a></li>
 							<li><a href="#.action">창고관리</a></li>
-							<li><a href="#.action">주문관리</a></li>
+							<li><a href="masterOrderManage.action">주문관리</a></li>
 							<li><a href="#.action">고객센터관리</a></li>
 							<li><a href="main.do">도심창고 홈</a></li>						
 						</ul>
@@ -56,18 +56,15 @@
 	<nav>
 	<div id="menu-first">
 		<ul class="main">
-				<!-- 회원정보 수정 가능하게(예> 게시판에 이상한 내용을 작성하는 회원 탈퇴처리) -->
 			<li><a href="m_memberList.action">회원관리</a></li>
-				<!-- 지점주소, 전화번호 변경, 계좌관리 추가 -->
 			<li><a href="#.action">지점관리</a></li>
-				<!-- 에러난 창고 추가,삭제 -->
 			<li><a href="#.action">창고관리</a></li>
-			<li><a href="#.action">주문관리</a>
+			<li><a href="masterOrderManage.action">주문관리</a>
 				<ul class="sub">
-					<li><a href="#.action">미입급현황</a></li>
-					<li><a href="#.action">주문취소처리</a></li>
-						<!-- 전체주문조회(현재주문,완료주문 구분) -->
-					<li><a href="#.action">전체주문조회</a></li>
+					<li><a href="wait_deposit.action?br=0">미입금현황</a></li>
+					<li><a href="timeout.action?br=0">기간초과주문</a></li>
+					<li><a href="userCancelForm.action">요청주문취소</a></li>
+					<li><a href="masterOrderList.action?list_opt=1&pageNum=1&br=0">전체주문조회</a></li>					
 				</ul>
 			</li>
 			<li><a href="#.action">고객센터관리</a>
