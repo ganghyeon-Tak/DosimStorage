@@ -9,6 +9,7 @@
 <style type="text/css">
 	@import url("m_common.css");
 	button {padding: 5px}
+	th, td {padding-left: 5px; padding-right: 5px}
 </style>
 </head>
 <body>
@@ -42,12 +43,14 @@
 			<th>창고코드</th>
 			<th>주문액</th>
 			<th>입금기한</th>
+			<th>이용시작일</th>
+			<th>만료일</th>
 			<th>계좌번호</th>
 			<th>주문상태</th>			
 		</tr>
 <c:if test="${empty list }">
 		<tr>
-			<th colspan="8">주문내역이 존재하지 않습니다</th>
+			<th colspan="10">주문내역이 존재하지 않습니다</th>
 		</tr>
 </c:if>
 <c:if test="${not empty list }">
@@ -59,12 +62,14 @@
 			<td>${order.st_code }</td>
 			<td>${order.order_totalprice }</td>
 			<td>${order.depo_duedate }</td>
+			<td>${order.start_date }</td>
+			<td>${order.expire_date }</td>
 			<td>${order.account_no }</td>
 			<td>${order.order_state }</td>
 		</tr>
 	</c:forEach>
 		<tr>
-			<th colspan="8">
+			<th colspan="10">
 			<c:if test="${startPage > pagePerBlock }">
 				<button onclick="location.href='masterOrderList.action?list_opt=${list_opt }&pageNum=${startPage-1}&br=${br}'">&lt;</button>
 			</c:if>
