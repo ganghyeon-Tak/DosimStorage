@@ -528,6 +528,29 @@ begin
 end;
 /
 
+    -- 주문취소시 창고목록 테이블 자동변경 트리거
+        -- 입금확인 전 취소
+create or replace trigger service_cancel
+    after update on ds_order
+    for each row
+begin    
+    if :old.order_state = '입금대기' and :new.order_state = '주문취소' then        
+        update ds_storage_list set usable = 'y', rented = 'n', borrower_id = null where st_code = :new.st_code;
+    end if;
+end;
+/
+        -- 입금확인되어 서비스 이용 개시 후 중도취소 
+create or replace trigger service_cancel2
+    after update on ds_order
+    for each row
+begin    
+    if :old.order_state = '입금완료' and :new.order_state = '주문취소' then        
+        update ds_storage_list set usable = 'n', rented = 'n', borrower_id = null where st_code = :new.st_code;
+    end if;
+end;
+/
+
+
 -- 프로시저 생성
 
     -- 서비스 이용중인 유저 total_use +1 시키는 프로시저
