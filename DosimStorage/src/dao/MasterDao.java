@@ -102,14 +102,19 @@ public class MasterDao {
 	
 	// 전체주문조회
 	@SuppressWarnings("unchecked")
-	public List<MasterOrderView> allList() {		
-		return session.selectList("masterOrderViewns.allList");
+	public List<MasterOrderView> allList(List<Integer> startEnd) {		
+		return session.selectList("masterOrderViewns.allList", startEnd);
 	}
 	
 	// 옵션에 맞는 주문 조회
 	@SuppressWarnings("unchecked")
 	public List<MasterOrderView> selList(String opt) {		
 		return session.selectList("masterOrderViewns.selList", opt);
+	}
+	
+	// 전체 주문 수 카운트
+	public int totAllList() {		
+		return (int)session.selectOne("masterOrderViewns.totAllList");
 	}
 
 	
