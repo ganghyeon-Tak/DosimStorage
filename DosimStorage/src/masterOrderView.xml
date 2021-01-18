@@ -27,11 +27,35 @@
 		<foreach collection="list" item="item" index="index" separator=" and ">
 			#{item}
 		</foreach>
-	</select>
-	<select id="selList" parameterType="string" resultType="masterOrderView">
-		select * from master_orderview where order_state = #{opt} order by order_no desc
-	</select>
+	</select>	
 	<select id="totAllList" resultType="int">
 		select count(*) from master_orderview
+	</select>
+	<select id="totWaitList" resultType="int">
+		select count(*) from master_orderview where order_state = '입금대기' order by order_no desc
+	</select>
+	<select id="totDepositList" resultType="int">
+		select count(*) from master_orderview where order_state = '입금완료' order by order_no desc
+	</select>
+	<select id="totCancelList" resultType="int">
+		select count(*) from master_orderview where order_state = '주문취소' order by order_no desc
+	</select>
+	<select id="selWaitList" resultType="masterOrderView">
+		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '입금대기' order by order_no desc) a) where rn between
+		<foreach collection="list" item="item" index="index" separator=" and ">
+			#{item}
+		</foreach>
+	</select>
+	<select id="selDepositList" resultType="masterOrderView">
+		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '입금완료' order by order_no desc) a) where rn between
+		<foreach collection="list" item="item" index="index" separator=" and ">
+			#{item}
+		</foreach>
+	</select>
+	<select id="selCancelList" resultType="masterOrderView">
+		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '주문취소' order by order_no desc) a) where rn between
+		<foreach collection="list" item="item" index="index" separator=" and ">
+			#{item}
+		</foreach>
 	</select>
 </mapper>

@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="container">
-		<select name="list_opt" onchange="">			
+		<select name="list_opt" onchange="sel_opt(this.value)">			
 			<option value="1" id="sel_default">전체보기</option>
 			<option value="2">입금대기</option>
 			<option value="3">입금완료</option>
@@ -69,6 +69,10 @@
 </c:if>
 	</table>	
 	</div>
-	
+	<script type="text/javascript">
+		function sel_opt(num) {
+			location.href="masterOrderList.action?list_opt="+num+"&pageNum=1";
+		}
+	</script>
 </body>
 </html>
