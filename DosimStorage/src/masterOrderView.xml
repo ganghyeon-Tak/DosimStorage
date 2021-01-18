@@ -17,7 +17,7 @@
 		<result property="order_state" column="order_state"/>			
 	</resultMap>		
 	<select id="waitDeposit" resultType="masterOrderView">
-		select * from master_orderview where order_state = '입금대기' order by  order_no desc
+		select * from master_orderview where order_state = '입금대기' order by order_no desc
 	</select>
 	<select id="timeoutList" resultType="masterOrderView">
 		select * from master_orderview where trunc(sysdate) > trunc(depo_duedate) and order_state = '입금대기' order by order_no desc
@@ -57,5 +57,8 @@
 		<foreach collection="list" item="item" index="index" separator=" and ">
 			#{item}
 		</foreach>
+	</select>
+	<select id="waitBrDeposit" parameterType="string" resultType="masterOrderView">
+		select * from master_orderview where order_state = '입금대기' and substr(st_code, 2, 1) = #{br} order by order_no desc
 	</select>
 </mapper>
