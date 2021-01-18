@@ -14,7 +14,7 @@
 <c:if test="${result > 0}">
 	<script type="text/javascript">
 		alert("입금확인 처리 성공");
-		location.href = "wait_deposit.action"
+		location.href = "wait_deposit.action?br=0"
 	</script>
 </c:if>
 <c:if test="${result == 0}">

@@ -20,7 +20,7 @@
 	<!-- 1:1문의로 취소요청한 주문건 취소기능 -->	
 		<a href="userCancelForm.action">요청주문취소</a><br>
 	<!-- 전체주문조회. 주문상태에 따라 구분된 리스트 보여주는 것이 목표 -->
-		<a href="masterOrderList.action?list_opt=1&pageNum=1">전체주문조회</a>
+		<a href="masterOrderList.action?list_opt=1&pageNum=1&br=0">전체주문조회</a>
 	</div>
 </body>
 </html>

@@ -22,11 +22,8 @@
 	<select id="timeoutList" resultType="masterOrderView">
 		select * from master_orderview where trunc(sysdate) > trunc(depo_duedate) and order_state = '입금대기' order by order_no desc
 	</select>
-	<select id="allList" resultType="masterOrderView">
-		select * from (select rowNum rn, a.* from (select * from master_orderview order by order_no desc) a) where rn between
-		<foreach collection="list" item="item" index="index" separator=" and ">
-			#{item}
-		</foreach>
+	<select id="allList" parameterType="hashmap" resultType="masterOrderView">
+		select * from (select rowNum rn, a.* from (select * from master_orderview order by order_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>	
 	<select id="totAllList" resultType="int">
 		select count(*) from master_orderview
@@ -40,11 +37,8 @@
 	<select id="totCancelList" resultType="int">
 		select count(*) from master_orderview where order_state = '주문취소' order by order_no desc
 	</select>
-	<select id="selWaitList" resultType="masterOrderView">
-		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '입금대기' order by order_no desc) a) where rn between
-		<foreach collection="list" item="item" index="index" separator=" and ">
-			#{item}
-		</foreach>
+	<select id="selWaitList" parameterType="hashmap" resultType="masterOrderView">
+		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '입금대기' order by order_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>
 	<select id="selDepositList" resultType="masterOrderView">
 		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '입금완료' order by order_no desc) a) where rn between
@@ -63,5 +57,35 @@
 	</select>
 	<select id="timeoutBrList" parameterType="string" resultType="masterOrderView">
 		select * from master_orderview where trunc(sysdate) > trunc(depo_duedate) and order_state = '입금대기' and substr(st_code, 2, 1) = #{br} order by order_no desc
+	</select>
+	<select id="totBrAllList" parameterType="string" resultType="int">
+		select count(*) from master_orderview where substr(st_code, 2, 1) = #{br}
+	</select>
+	<select id="brAllList" parameterType="hashmap" resultType="masterOrderView">
+		select * from (select rowNum rn, a.* from (select * from master_orderview where substr(st_code, 2, 1) = #{br} order by order_no desc) a) where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="totBrWaitList" parameterType="string" resultType="int">
+		select count(*) from master_orderview where substr(st_code, 2, 1) = #{br} and order_state = '입금대기'
+	</select>
+	<select id="brWaitList" parameterType="hashmap" resultType="masterOrderView">
+		select * from (select rowNum rn, a.* from (select * from master_orderview where substr(st_code, 2, 1) = #{br} and order_state = '입금대기' order by order_no desc) a) where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="selDepositList" parameterType="hashmap" resultType="masterOrderView">
+		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '입금완료' order by order_no desc) a) where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="totBrDepositList" parameterType="string" resultType="int">
+		select count(*) from master_orderview where substr(st_code, 2, 1) = #{br} and order_state = '입금완료'
+	</select>
+	<select id="brDepositList" parameterType="hashmap" resultType="masterOrderView">
+		select * from (select rowNum rn, a.* from (select * from master_orderview where substr(st_code, 2, 1) = #{br} and order_state = '입금완료' order by order_no desc) a) where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="selCancelList" parameterType="hashmap" resultType="masterOrderView">
+		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '주문취소' order by order_no desc) a) where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="totBrCancelList" parameterType="string" resultType="int">
+		select count(*) from master_orderview where substr(st_code, 2, 1) = #{br} and order_state = '주문취소'
+	</select>
+	<select id="brCancelList" parameterType="hashmap" resultType="masterOrderView">
+		select * from (select rowNum rn, a.* from (select * from master_orderview where substr(st_code, 2, 1) = #{br} and order_state = '주문취소' order by order_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>
 </mapper>

@@ -13,13 +13,27 @@
 </head>
 <body>
 	<input type="hidden" value="${list_opt }" id="opt">
+	<input type="hidden" value="${br }" id="br">
 	<div class="container">
-		<select name="list_opt" onchange="sel_opt(this.value)">			
-			<option id="op1" value="1" id="sel_default">전체보기</option>
-			<option id="op2" value="2">입금대기</option>
-			<option id="op3" value="3">입금완료</option>
-			<option id="op4" value="4">주문취소</option>
-		</select>
+		<p>
+			조건선택
+			<select name="list_opt">			
+				<option id="o_op1" value="1">전체보기</option>
+				<option id="o_op2" value="2">입금대기</option>
+				<option id="o_op3" value="3">입금완료</option>
+				<option id="o_op4" value="4">주문취소</option>
+			</select>
+		</p>
+		<p>
+			지점선택
+			<select name="sel_br">			
+				<option id="b_op1" value="0">전체지점</option>
+				<option id="b_op2" value="1">광화문점</option>
+				<option id="b_op3" value="2">신사점</option>
+				<option id="b_op4" value="3">판교점</option>
+			</select>			
+		</p>
+		<button onclick="sel_opt_br()">조회하기</button>
 		<table>
 		<tr>			
 			<th>주문번호</th>
@@ -52,18 +66,18 @@
 		<tr>
 			<th colspan="8">
 			<c:if test="${startPage > pagePerBlock }">
-				<button onclick="location.href='masterOrderList.action?list_opt=${list_opt }&pageNum=${startPage-1}'">&lt;</button>
+				<button onclick="location.href='masterOrderList.action?list_opt=${list_opt }&pageNum=${startPage-1}&br=${br}'">&lt;</button>
 			</c:if>
 				<c:forEach var="i" begin="${startPage }" end="${endPage }">
 					<c:if test="${i != currentPage }">
-				<button onclick="location.href='masterOrderList.action?list_opt=${list_opt }&pageNum=${i}'">${i }</button>
+				<button onclick="location.href='masterOrderList.action?list_opt=${list_opt }&pageNum=${i}&br=${br}'">${i }</button>
 					</c:if>
 					<c:if test="${i == currentPage }">
-				<button onclick="location.href='masterOrderList.action?list_opt=${list_opt }&pageNum=${i }'" class="active">${i }</button>
+				<button onclick="location.href='masterOrderList.action?list_opt=${list_opt }&pageNum=${i }&br=${br}'" class="active">${i }</button>
 					</c:if>
 				</c:forEach>
 				<c:if test="${endPage < totalPage }">
-				<button onclick="location.href='masterOrderList.action?list_opt=${list_opt }&pageNum=${endPage+1}'">&gt;</button>
+				<button onclick="location.href='masterOrderList.action?list_opt=${list_opt }&pageNum=${endPage+1}&br=${br}	'">&gt;</button>
 				</c:if>													
 			</th>
 		</tr>		
@@ -71,23 +85,39 @@
 	</table>	
 	</div>
 	<script type="text/javascript">
+	// 조회되고 있는 항목에 맞게 select 조정
 		window.onpageshow = function(){
 			switch(document.getElementById('opt').value) {
 			case "1":
-				document.getElementById('op1').selected = true;
+				document.getElementById('o_op1').selected = true;
 				break;
 			case "2":
-				document.getElementById('op2').selected = true;
+				document.getElementById('o_op2').selected = true;
 				break;
 			case "3":
-				document.getElementById('op3').selected = true;
+				document.getElementById('o_op3').selected = true;
 				break;
 			case "4":
-				document.getElementById('op4').selected = true;
+				document.getElementById('o_op4').selected = true;
+			}
+			switch(document.getElementById('br').value) {
+			case "0":
+				document.getElementById('b_op1').selected = true;
+				break;
+			case "1":
+				document.getElementById('b_op2').selected = true;
+				break;
+			case "2":
+				document.getElementById('b_op3').selected = true;
+				break;
+			case "3":
+				document.getElementById('b_op4').selected = true;
 			}
 		}
-		function sel_opt(num) {
-			location.href="masterOrderList.action?list_opt="+num+"&pageNum=1";
+		function sel_opt_br() {
+			var o = document.getElementById('opt').value;
+			var b = document.getElementById('br').value
+			location.href="masterOrderList.action?list_opt="+o+"&pageNum=1&br="+b;
 		}
 	</script>
 </body>
