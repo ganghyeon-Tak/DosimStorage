@@ -17,6 +17,7 @@
 		<pattern>/branchDetail.*</pattern>
 		<pattern>/list.bo?disp=true*</pattern>
 		<pattern>/m_loginForm.action</pattern>
-		<pattern>/logout.do</pattern>		
+		<pattern>/logout.do</pattern>
+		<pattern>/masterSelectList.action</pattern>				
 	</excludes>
 </decorators>
