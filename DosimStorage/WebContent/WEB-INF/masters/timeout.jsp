@@ -11,9 +11,17 @@
 </style>
 </head>
 <body>
+<input type="hidden" value="${br }" id="br">
 	<div class="container">
 		<h2>입금기한 초과 주문건</h2>
 		<p>입금기한을 넘긴 주문을 취소시킬 수 있습니다</p>
+		<p>지점선택</p>
+		<select onchange="sel_br(this.value)">
+			<option value="0" id="op1">전체</option>
+			<option value="1" id="op2">광화문점</option>
+			<option value="2" id="op3">신사점</option>
+			<option value="3" id="op4">판교점</option>
+		</select>
 		<form method="post" action="orderCancel.action">
 			<table>
 				<tr>
@@ -56,6 +64,24 @@
 		</form>
 	</div>
 	<script type="text/javascript">
+		window.onpageshow = function(){
+			switch(document.getElementById('br').value) {
+			case "0":
+				document.getElementById('op1').selected = true;
+				break;
+			case "1":
+				document.getElementById('op2').selected = true;
+				break;
+			case "2":
+				document.getElementById('op3').selected = true;
+				break;
+			case "3":
+				document.getElementById('op4').selected = true;
+			}
+		}
+		function sel_br(br) {
+			location.href="timeout.action?br="+br;
+		}
 		function checking() {
 			if (document.getElementById('all_check').checked == true) {
 				var check_list = document.getElementsByName('timeout_list');
