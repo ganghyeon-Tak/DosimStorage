@@ -14,6 +14,8 @@
 	<div class="container">
 		<h2>요청주문취소</h2>
 		<p>유저가 1:1문의로 취소요청한 주문을 처리합니다</p>
+		<p>12자리 숫자 주문번호를 입력하시고</p>
+		<p>여러 건을 처리할 때는 입력창을 추가해 처리하세요</p>
 		<form action="userCancel.action" method="post">
 		<input type="text" pattern="\d{12}" name="order_no" required="required" maxlength="12" title="주문번호는 공백 없는 12자리 숫자입니다">
 		<div id="input_box"></div>		
