@@ -149,9 +149,16 @@ public class MasterDao {
 	public List<MasterOrderView> selCancelList(List<Integer> startEnd) {		
 		return session.selectList("masterOrderViewns.selCancelList", startEnd);
 	}
-
+	
+	// 지점코드 입력해 해당지점 입금대기 주문 반환
 	@SuppressWarnings("unchecked")
 	public List<MasterOrderView> waitBrDeposit(String br) {		
 		return session.selectList("masterOrderViewns.waitBrDeposit", br);
+	}
+
+	// 지점코드 입력해 해당지점 입금기한초과 주문 반환
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> timeoutBrList(String br) {		
+		return session.selectList("masterOrderViewns.timeoutBrList", br);
 	}	
 }

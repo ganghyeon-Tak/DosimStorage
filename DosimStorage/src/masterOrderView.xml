@@ -61,4 +61,7 @@
 	<select id="waitBrDeposit" parameterType="string" resultType="masterOrderView">
 		select * from master_orderview where order_state = '입금대기' and substr(st_code, 2, 1) = #{br} order by order_no desc
 	</select>
+	<select id="timeoutBrList" parameterType="string" resultType="masterOrderView">
+		select * from master_orderview where trunc(sysdate) > trunc(depo_duedate) and order_state = '입금대기' and substr(st_code, 2, 1) = #{br} order by order_no desc
+	</select>
 </mapper>

@@ -16,7 +16,7 @@
 	<!-- 입금대기중인 주문건 표시 -->
 		<a href="wait_deposit.action?br=0">미입금현황</a><br>
 	<!-- 입금대기중이고 입금기한 넘긴 주문건 표시 -->
-		<a href="timeout.action">주문취소처리</a><br>
+		<a href="timeout.action?br=0">주문취소처리</a><br>
 	<!-- 1:1문의로 취소요청한 주문건 취소기능 -->	
 		<a href="userCancelForm.action">요청주문취소</a><br>
 	<!-- 전체주문조회. 주문상태에 따라 구분된 리스트 보여주는 것이 목표 -->

@@ -14,7 +14,7 @@
 <c:if test="${result > 0}">
 	<script type="text/javascript">
 		alert("주문취소 처리 성공");
-		location.href = "timeout.action"
+		location.href = "timeout.action?br=0"
 	</script>
 </c:if>
 <c:if test="${result == 0}">
