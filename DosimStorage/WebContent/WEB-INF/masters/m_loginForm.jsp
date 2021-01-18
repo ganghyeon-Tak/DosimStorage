@@ -5,12 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>DosimStorage 관리자 로그인</title>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" type="text/css" href="assets/style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <style type="text/css">
-@import url("common.css");
+@import url("m_common.css");
 
 .title {
   text-align: center;
@@ -65,24 +62,6 @@
   text-align: center;
 }
 </style>
-<script type="text/javascript">
-	function chk() {
-		if (frm.id.value != "master") {
-			alert("관리자 아이디가 아닙니다")
-			frm.id.value = "";
-			frm.pass.value = "";
-			frm.id.focus();
-			return false;
-		} else if (frm.pass.value != "1234") {
-			alert("비밀번호가  틀렸습니다")
-			frm.id.value = "";
-			frm.pass.value = "";
-			frm.id.focus();
-			return false;
-		}
-		;
-	};
-</script>
 </head>
 <body>
 <h2 class="title">관리자 로그인</h2>

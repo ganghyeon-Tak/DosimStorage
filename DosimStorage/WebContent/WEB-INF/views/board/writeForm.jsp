@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
  <head>
  <title>게시판</title>
- <script language = "text/javascript">  // 자바 스크립트 시작
-
-function writeCheck()
-  {
+<script language = "text/javascript">  // 자바 스크립트 시작
+function writeCheck()  {
    var form = document.writeform;
    
    if( !form.name.value )   // form 에 있는 name 값이 없을 때
@@ -39,15 +36,15 @@ function writeCheck()
     retur falsen;
    }
   }
- </script>
+</script>
 <style type="text/css">
 	@import url("common.css");
 </style>
- </head>
- <body>
+</head>
+<body>
 <form name="form" method="post" action="write.bo" onsubmit="return writeCheck()">
-	<input type="hidden" name="pageNum" value="${pageNum }">
-  <table>
+<input type="hidden" name="pageNum" value="${pageNum }">
+  	<table>
   <tr>
    <td>
     <table width="100%" cellpadding="0" cellspacing="0" border="0">

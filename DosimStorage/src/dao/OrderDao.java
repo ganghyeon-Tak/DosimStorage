@@ -43,7 +43,8 @@ public class OrderDao {
 	public String sel_st(Storage_list sl) {		
 		return (String)session.selectOne("storage_listns.sel_st", sl);
 	}
-	public int insOrder(Order ord) {		
+	public int insOrder(Order ord) {
+		System.out.println("st_code="+ord.getSt_code());
 		return session.insert("orderns.insOrder", ord);
 	}	
 	public int update_st(String st_code) {		

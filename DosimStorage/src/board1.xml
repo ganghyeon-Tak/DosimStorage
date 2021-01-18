@@ -27,8 +27,8 @@
 		select nvl(max(num),0) + 1 from ds_board1
 	</select>
 	<insert id="insert" parameterType="board1">
-		insert into ds_board1 (num,m_id,title,content,readcount,ip,ref,ref_level,reg_date,reply,del)
-			values (#{num}, #{m_id}, #{title}, #{content}, #{readcount}, #{ip},#{ref}, #{ref_level}, sysdate,'n','n')
+		insert into ds_board1 (num,m_id,m_email,title,content,readcount,ip,ref,ref_level,reg_date,reply,del)
+			values (#{num}, #{m_id}, #{m_email}, #{title}, #{content}, #{readcount}, #{ip},#{ref}, #{ref_level}, sysdate,'n','n')
 	</insert>
 	<select id="select" parameterType="integer" resultType="board1">
 		select * from ds_board1 where num=#{num}

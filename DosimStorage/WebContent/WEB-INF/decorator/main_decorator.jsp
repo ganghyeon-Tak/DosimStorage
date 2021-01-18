@@ -100,7 +100,7 @@
 			</li>
 			<li><a href="#">고객센터</a>
 				<ul class="sub">
-					<li><a href="#">Q&amp;A 게시판</a></li>
+					<li><a href="list2.bo">Q&amp;A 게시판</a></li>
 					<li><a href="list.bo">1:1 문의</a></li>
 				</ul>
 			</li>

@@ -17,6 +17,7 @@
 	<typeAlias alias="service" type="model.Service"/>
 	<typeAlias alias="order" type="model.Order"/>
 	<typeAlias alias="board1" type="model.Board1"/>
+	<typeAlias alias="board2" type="model.Board2"/>
 </typeAliases>
 <environments default="development">
 	<environment id="development">
@@ -26,8 +27,8 @@
 			<property name="url" value="${url}" />
 			<property name="username" value="${username}" />
 			<property name="password" value="${password}" />
-</dataSource>
-</environment>
+		</dataSource>
+	</environment>
 </environments>
 <mappers>
 	<mapper resource="member.xml" />
@@ -38,5 +39,6 @@
 	<mapper resource="service.xml" />
 	<mapper resource="order.xml" />
 	<mapper resource="board1.xml" />
+	<mapper resource="board2.xml" />
 </mappers>
 </configuration>
