@@ -25,14 +25,14 @@
 			<c:forEach var="num" items="${list }">			
 		<p>잘못된 주문번호: ${num }</p>
 			</c:forEach>
-		<button onclick="location.href='wait_deposit.action'">미입금현황</button>
+		<button onclick="location.href='masterOrderList.action'">전체주문조회</button>
 		</c:if>
 	</c:if>
 	<c:if test="${result > 0 }">
 		<c:if test="${empty list }">
 		<script type="text/javascript">
 			alert("입력하신 모든 주문 취소에 성공했습니다");
-			location.href="wait_deposit.action";
+			location.href="masterOrderList.action";
 		</script>
 		</c:if>
 		<c:if test="${not empty list }">
@@ -41,7 +41,7 @@
 			<c:forEach var="num" items="${list }">			
 		<p>잘못된 주문번호: ${num }</p>
 			</c:forEach>
-		<button onclick="location.href='wait_deposit.action'">미입금현황</button>
+		<button onclick="location.href='masterOrderList.action'">전체주문조회</button>
 		</c:if>
 	</c:if>
 	</div>

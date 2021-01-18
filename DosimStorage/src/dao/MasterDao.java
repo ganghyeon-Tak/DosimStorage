@@ -100,4 +100,17 @@ public class MasterDao {
 		return session.selectList("orderns.wholeList");
 	}
 	
+	// 전체주문조회
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> allList() {		
+		return session.selectList("masterOrderViewns.allList");
+	}
+	
+	// 옵션에 맞는 주문 조회
+	@SuppressWarnings("unchecked")
+	public List<MasterOrderView> selList(String opt) {		
+		return session.selectList("masterOrderViewns.selList", opt);
+	}
+
+	
 }

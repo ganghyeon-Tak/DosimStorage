@@ -17,9 +17,15 @@
 		<result property="order_state" column="order_state"/>			
 	</resultMap>		
 	<select id="waitDeposit" resultType="masterOrderView">
-		select * from master_orderview where order_state = '입금대기'
+		select * from master_orderview where order_state = '입금대기' order by  order_no desc
 	</select>
 	<select id="timeoutList" resultType="masterOrderView">
-		select * from master_orderview where trunc(sysdate) > trunc(depo_duedate) and order_state = '입금대기'
+		select * from master_orderview where trunc(sysdate) > trunc(depo_duedate) and order_state = '입금대기' order by order_no desc
+	</select>
+	<select id="allList" resultType="masterOrderView">
+		select * from master_orderview order by order_no desc
+	</select>
+	<select id="selList" parameterType="string" resultType="masterOrderView">
+		select * from master_orderview where order_state = #{opt} order by order_no desc
 	</select>
 </mapper>
