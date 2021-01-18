@@ -64,7 +64,7 @@
 					<li><a href="wait_deposit.action">미입금현황</a></li>
 					<li><a href="timeout.action">기간초과주문</a></li>
 					<li><a href="userCancelForm.action">요청주문취소</a></li>
-					<li><a href="masterOrderList.action">전체주문조회</a></li>					
+					<li><a href="masterOrderList.action?list_opt=1&pageNum=1">전체주문조회</a></li>					
 				</ul>
 			</li>
 			<li><a href="#.action">고객센터관리</a>
