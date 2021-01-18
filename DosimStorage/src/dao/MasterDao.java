@@ -94,7 +94,7 @@ public class MasterDao {
 		return session.update("orderns.userCancel", list);
 	}	
 	
-	// 입금대기중인 주문번호만 담긴 리스트 반환
+	// 입금대기 & 입금완료 상태인 주문번호만 담긴 리스트 반환
 	@SuppressWarnings("unchecked")
 	public List<Long> wholeList() {	
 		return session.selectList("orderns.wholeList");

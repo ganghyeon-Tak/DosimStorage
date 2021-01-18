@@ -24,12 +24,10 @@ public class UserCancel implements CommandProcess {
 		wholeList = md.wholeList();
 		// 취소처리
 		int result = md.userCancel(list);
-		// list - wholeList : 잘못 입력된 주문번호들
-		// 입금완료돼서 이용중인 서비스 취소는 여기서 안됩니다		
+		// list - wholeList : 잘못 입력된 주문번호들				
 		list.removeAll(wholeList);
 		request.setAttribute("result", result);
 		request.setAttribute("list", list);
 		return "userCancel";
 	}
-
 }
