@@ -33,11 +33,17 @@ public class MasterOrderList implements CommandProcess {
 			tot = md.totAllList();
 			list = md.allList(startEnd);
 			break;
-		case "2":			
+		case "2":
+			tot = md.totWaitList();
+			list = md.selWaitList(startEnd);
 			break;
-		case "3":		
+		case "3":
+			tot = md.totDepositList();
+			list = md.selDepositList(startEnd);
 			break;
-		case "4":			
+		case "4":
+			tot = md.totCancelList();
+			list = md.selCancelList(startEnd);
 		}
 		int totalPage = (int)Math.ceil((double)tot / rowPerPage);
 		int startPage = currentPage - (currentPage - 1) % pagePerBlock;

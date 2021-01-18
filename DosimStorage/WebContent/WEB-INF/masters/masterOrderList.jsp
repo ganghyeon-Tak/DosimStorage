@@ -12,12 +12,13 @@
 </style>
 </head>
 <body>
+	<input type="hidden" value="${list_opt }" id="opt">
 	<div class="container">
-		<select name="list_opt" onchange="">			
-			<option value="1" id="sel_default">전체보기</option>
-			<option value="2">입금대기</option>
-			<option value="3">입금완료</option>
-			<option value="4">주문취소</option>
+		<select name="list_opt" onchange="sel_opt(this.value)">			
+			<option id="op1" value="1" id="sel_default">전체보기</option>
+			<option id="op2" value="2">입금대기</option>
+			<option id="op3" value="3">입금완료</option>
+			<option id="op4" value="4">주문취소</option>
 		</select>
 		<table>
 		<tr>			
@@ -69,6 +70,25 @@
 </c:if>
 	</table>	
 	</div>
-	
+	<script type="text/javascript">
+		window.onpageshow = function(){
+			switch(document.getElementById('opt').value) {
+			case "1":
+				document.getElementById('op1').selected = true;
+				break;
+			case "2":
+				document.getElementById('op2').selected = true;
+				break;
+			case "3":
+				document.getElementById('op3').selected = true;
+				break;
+			case "4":
+				document.getElementById('op4').selected = true;
+			}
+		}
+		function sel_opt(num) {
+			location.href="masterOrderList.action?list_opt="+num+"&pageNum=1";
+		}
+	</script>
 </body>
 </html>
