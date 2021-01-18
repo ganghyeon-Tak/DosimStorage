@@ -39,19 +39,7 @@
 	</select>
 	<select id="selWaitList" parameterType="hashmap" resultType="masterOrderView">
 		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '입금대기' order by order_no desc) a) where rn between #{startRow} and #{endRow}
-	</select>
-	<select id="selDepositList" resultType="masterOrderView">
-		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '입금완료' order by order_no desc) a) where rn between
-		<foreach collection="list" item="item" index="index" separator=" and ">
-			#{item}
-		</foreach>
-	</select>
-	<select id="selCancelList" resultType="masterOrderView">
-		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '주문취소' order by order_no desc) a) where rn between
-		<foreach collection="list" item="item" index="index" separator=" and ">
-			#{item}
-		</foreach>
-	</select>
+	</select>	
 	<select id="waitBrDeposit" parameterType="string" resultType="masterOrderView">
 		select * from master_orderview where order_state = '입금대기' and substr(st_code, 2, 1) = #{br} order by order_no desc
 	</select>
