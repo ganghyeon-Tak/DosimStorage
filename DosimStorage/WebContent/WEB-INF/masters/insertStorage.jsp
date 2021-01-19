@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +13,11 @@
 </head>
 <body>
 	<div class="container">
-		<h2>창고관리</h2>
-		<h3><a href="masterStorageList.action?br=0">창고목록</a></h3>
-		<h3><a href="insertStorageForm.action">창고추가</a></h3>
-		<h3><a href="#">창고삭제</a></h3>
-		<h3><a href="#">창고관리</a></h3>
-	</div>
+		<p>${result }개 창고를 생성했습니다<p>
+		<p>생성한 창고코드:</p>
+			<c:forEach var="st" items="${list }">
+			 <p>${st }</p>
+			</c:forEach>		
+	</div>	
 </body>
 </html>

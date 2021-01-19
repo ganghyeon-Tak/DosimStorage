@@ -223,5 +223,13 @@ public class MasterDao {
 	@SuppressWarnings("unchecked")
 	public List<Storage_list> stList(List<String> br_list) {		
 		return session.selectList("storage_listns.stList", br_list);
+	}
+
+	public int stCount(String code) {		
+		return (int)session.selectOne("storage_listns.stCount", code);
+	}
+
+	public int insSt(Map<String, String> code2) {		
+		return session.insert("storage_listns.insSt", code2);
 	}	
 }
