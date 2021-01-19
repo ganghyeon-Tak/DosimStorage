@@ -16,64 +16,64 @@
 		<result property="depo_duedate" column="depo_duedate"/>
 		<result property="order_state" column="order_state"/>			
 	</resultMap>		
-	<select id="waitDeposit" resultType="masterOrderView">
+	<select id="waitDeposit" resultType="masterOrderView" flushCache="true" useCache="false">
 		select * from master_orderview where order_state = '입금대기' order by order_no desc
 	</select>
-	<select id="timeoutList" resultType="masterOrderView">
+	<select id="timeoutList" resultType="masterOrderView" flushCache="true" useCache="false">
 		select * from master_orderview where trunc(sysdate) > trunc(depo_duedate) and order_state = '입금대기' order by order_no desc
 	</select>
-	<select id="allList" parameterType="hashmap" resultType="masterOrderView">
+	<select id="allList" parameterType="hashmap" resultType="masterOrderView" flushCache="true" useCache="false">
 		select * from (select rowNum rn, a.* from (select * from master_orderview order by order_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>	
-	<select id="totAllList" resultType="int">
+	<select id="totAllList" resultType="int" flushCache="true" useCache="false">
 		select count(*) from master_orderview
 	</select>
-	<select id="totWaitList" resultType="int">
+	<select id="totWaitList" resultType="int" flushCache="true" useCache="false">
 		select count(*) from master_orderview where order_state = '입금대기' order by order_no desc
 	</select>
-	<select id="totDepositList" resultType="int">
+	<select id="totDepositList" resultType="int" flushCache="true" useCache="false">
 		select count(*) from master_orderview where order_state = '입금완료' order by order_no desc
 	</select>
-	<select id="totCancelList" resultType="int">
+	<select id="totCancelList" resultType="int" flushCache="true" useCache="false">
 		select count(*) from master_orderview where order_state = '주문취소' order by order_no desc
 	</select>
-	<select id="selWaitList" parameterType="hashmap" resultType="masterOrderView">
+	<select id="selWaitList" parameterType="hashmap" resultType="masterOrderView" flushCache="true" useCache="false">
 		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '입금대기' order by order_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>	
-	<select id="waitBrDeposit" parameterType="string" resultType="masterOrderView">
+	<select id="waitBrDeposit" parameterType="string" resultType="masterOrderView" flushCache="true" useCache="false">
 		select * from master_orderview where order_state = '입금대기' and substr(st_code, 2, 1) = #{br} order by order_no desc
 	</select>
-	<select id="timeoutBrList" parameterType="string" resultType="masterOrderView">
+	<select id="timeoutBrList" parameterType="string" resultType="masterOrderView" flushCache="true" useCache="false">
 		select * from master_orderview where trunc(sysdate) > trunc(depo_duedate) and order_state = '입금대기' and substr(st_code, 2, 1) = #{br} order by order_no desc
 	</select>
-	<select id="totBrAllList" parameterType="string" resultType="int">
+	<select id="totBrAllList" parameterType="string" resultType="int" flushCache="true" useCache="false">
 		select count(*) from master_orderview where substr(st_code, 2, 1) = #{br}
 	</select>
-	<select id="brAllList" parameterType="hashmap" resultType="masterOrderView">
+	<select id="brAllList" parameterType="hashmap" resultType="masterOrderView" flushCache="true" useCache="false">
 		select * from (select rowNum rn, a.* from (select * from master_orderview where substr(st_code, 2, 1) = #{br} order by order_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>
-	<select id="totBrWaitList" parameterType="string" resultType="int">
+	<select id="totBrWaitList" parameterType="string" resultType="int" flushCache="true" useCache="false">
 		select count(*) from master_orderview where substr(st_code, 2, 1) = #{br} and order_state = '입금대기'
 	</select>
-	<select id="brWaitList" parameterType="hashmap" resultType="masterOrderView">
+	<select id="brWaitList" parameterType="hashmap" resultType="masterOrderView" flushCache="true" useCache="false">
 		select * from (select rowNum rn, a.* from (select * from master_orderview where substr(st_code, 2, 1) = #{br} and order_state = '입금대기' order by order_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>
-	<select id="selDepositList" parameterType="hashmap" resultType="masterOrderView">
+	<select id="selDepositList" parameterType="hashmap" resultType="masterOrderView" flushCache="true" useCache="false">
 		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '입금완료' order by order_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>
-	<select id="totBrDepositList" parameterType="string" resultType="int">
+	<select id="totBrDepositList" parameterType="string" resultType="int" flushCache="true" useCache="false">
 		select count(*) from master_orderview where substr(st_code, 2, 1) = #{br} and order_state = '입금완료'
 	</select>
-	<select id="brDepositList" parameterType="hashmap" resultType="masterOrderView">
+	<select id="brDepositList" parameterType="hashmap" resultType="masterOrderView" flushCache="true" useCache="false">
 		select * from (select rowNum rn, a.* from (select * from master_orderview where substr(st_code, 2, 1) = #{br} and order_state = '입금완료' order by order_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>
-	<select id="selCancelList" parameterType="hashmap" resultType="masterOrderView">
+	<select id="selCancelList" parameterType="hashmap" resultType="masterOrderView" flushCache="true" useCache="false">
 		select * from (select rowNum rn, a.* from (select * from master_orderview where order_state = '주문취소' order by order_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>
-	<select id="totBrCancelList" parameterType="string" resultType="int">
+	<select id="totBrCancelList" parameterType="string" resultType="int" flushCache="true" useCache="false">
 		select count(*) from master_orderview where substr(st_code, 2, 1) = #{br} and order_state = '주문취소'
 	</select>
-	<select id="brCancelList" parameterType="hashmap" resultType="masterOrderView">
+	<select id="brCancelList" parameterType="hashmap" resultType="masterOrderView" flushCache="true" useCache="false">
 		select * from (select rowNum rn, a.* from (select * from master_orderview where substr(st_code, 2, 1) = #{br} and order_state = '주문취소' order by order_no desc) a) where rn between #{startRow} and #{endRow}
 	</select>
 </mapper>

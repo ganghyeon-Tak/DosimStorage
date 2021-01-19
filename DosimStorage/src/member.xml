@@ -13,7 +13,7 @@
 		<result property="m_del" column="m_del"/>
 	</resultMap>
 
-	<select id="select" parameterType="string" resultType="member">
+	<select id="select" parameterType="string" resultType="member" flushCache="true" useCache="false">
 		select * from ds_member where m_id=#{m_id}
 	</select>
 	<insert id="insert" parameterType="member">

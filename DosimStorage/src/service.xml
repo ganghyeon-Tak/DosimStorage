@@ -6,7 +6,7 @@
 		<result property="s_kind" column="s_kind"/>
 		<result property="s_price" column="s_price"/>		
 	</resultMap>
-	<select id="sel_price" parameterType="string" resultType="int">
+	<select id="sel_price" parameterType="string" resultType="int" flushCache="true" useCache="false">
 		select s_price from ds_service where s_kind = #{storage}
 	</select>	
 </mapper>

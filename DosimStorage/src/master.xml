@@ -7,7 +7,7 @@
 		<result property="master_pw" column="master_pw"/>
 	</resultMap>
 
-	<select id="select" parameterType="string" resultType="master">
+	<select id="select" parameterType="string" resultType="master" flushCache="true" useCache="false">
 		select * from ds_master where master_id=#{master_id}
 	</select>
 	<insert id="insert" parameterType="master">

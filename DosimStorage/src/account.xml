@@ -7,10 +7,10 @@
 		<result property="bank" column="bank"/>
 		<result property="account_name"  	column="account_name"/>		
 	</resultMap>	
-	<select id="select_ac" parameterType="string" resultType="string">
+	<select id="select_ac" parameterType="string" resultType="string" flushCache="true" useCache="false">
 		select account_no from ds_account where bank=#{bank}		
 	</select>
-	<select id="select_an" parameterType="string" resultType="string">
+	<select id="select_an" parameterType="string" resultType="string" flushCache="true" useCache="false">
 		select account_name from ds_account where bank=#{bank}		
 	</select>		
 </mapper>
