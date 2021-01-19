@@ -31,5 +31,11 @@
 			#{item}
 		</foreach>
 		order by s_kind desc, st_code
-	</select>	
+	</select>
+	<select id="stCount" parameterType="string" resultType="int">
+		select count(*) from DS_STORAGE_LIST where substr(st_code, 1, 2) = #{code}
+	</select>
+	<insert id="insSt" parameterType="hashmap">
+		insert into DS_STORAGE_LIST(st_code, b_code, s_kind) values (#{st_code}, #{br}, #{s_kind})
+	</insert>	
 </mapper>
