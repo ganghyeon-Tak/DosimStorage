@@ -12,7 +12,7 @@
 	#log{float: right;}
 	.footer__description {padding: 30px;}
 	.l{padding: 20px;}
-	@import url("m_common.css");
+	@import url("m_common.css");	
 </style>
 <script type="text/javascript">
 	function logout() {
@@ -41,9 +41,8 @@
 					<li><a href="javascript:logout();">로그아웃</a></li>
 					<li><a href="masterPage.action">관리자페이지</a>
 						<ul class="mypage">
-							<li><a href="#.action">회원관리</a></li>
-							<li><a href="#.action">지점관리</a></li>
-							<li><a href="#.action">창고관리</a></li>
+							<li><a href="#.action">회원관리</a></li>							
+							<li><a href="storageManage.action">창고관리</a></li>
 							<li><a href="masterOrderManage.action">주문관리</a></li>
 							<li><a href="#.action">고객센터관리</a></li>
 							<li><a href="main.do">도심창고 홈</a></li>						
@@ -54,27 +53,33 @@
 		</header>
 	<hr>
 	<nav>
-	<div id="menu-first">
-		<ul class="main">
-			<li><a href="m_memberList.action">회원관리</a></li>
-			<li><a href="#.action">지점관리</a></li>
-			<li><a href="#.action">창고관리</a></li>
-			<li><a href="masterOrderManage.action">주문관리</a>
-				<ul class="sub">
-					<li><a href="wait_deposit.action?br=0">미입금현황</a></li>
-					<li><a href="timeout.action?br=0">기간초과주문</a></li>
-					<li><a href="userCancelForm.action">요청주문취소</a></li>
-					<li><a href="masterOrderList.action?list_opt=1&pageNum=1&br=0">전체주문조회</a></li>					
-				</ul>
-			</li>
-			<li><a href="#.action">고객센터관리</a>
-				<ul class="sub">
-					<li><a href="#">Q&amp;A 게시판</a></li>
-					<li><a href="#">1:1 문의</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
+		<div id="menu-first">
+			<ul class="main">
+				<li><a href="m_memberList.action">회원관리</a></li>			
+				<li><a href="storageManage.action">창고관리</a>
+					<ul class="sub">
+						<li><a href="#">창고목록</a></li>
+						<li><a href="#">창고추가</a></li>
+						<li><a href="#">창고삭제</a></li>
+						<li><a href="#">창고관리</a></li>					
+					</ul>
+				</li>
+				<li><a href="masterOrderManage.action">주문관리</a>
+					<ul class="sub">
+						<li><a href="wait_deposit.action?br=0">미입금현황</a></li>
+						<li><a href="timeout.action?br=0">기간초과주문</a></li>
+						<li><a href="userCancelForm.action">요청주문취소</a></li>
+						<li><a href="masterOrderList.action?list_opt=1&pageNum=1&br=0">전체주문조회</a></li>					
+					</ul>
+				</li>
+				<li><a href="#.action">고객센터관리</a>
+					<ul class="sub">
+						<li><a href="#">Q&amp;A 게시판</a></li>
+						<li><a href="#">1:1 문의</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
 	</nav>
 <hr>
 <deco:body></deco:body>
