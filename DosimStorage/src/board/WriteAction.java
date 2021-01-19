@@ -26,7 +26,7 @@ public class WriteAction implements CommandProcess {
 		String m_id = (String)session.getAttribute("m_id");
 		board.setM_id(m_id);
 		
-		System.out.println("m_id="+m_id);
+		
 		
 		int result = dbd.insert(board);
 		request.setAttribute("result", result);

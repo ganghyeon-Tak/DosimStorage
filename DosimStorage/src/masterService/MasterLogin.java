@@ -19,8 +19,7 @@ public class MasterLogin implements CommandProcess {
 		
 		if (master == null) result = -1;
 		else {
-			String dbPass = master.getMaster_pw();
-			String dbId = master.getMaster_id();
+			String dbPass = master.getMaster_pw();			
 			if (dbPass.equals(master_pw)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("master_id", master_id);

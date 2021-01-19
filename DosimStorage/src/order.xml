@@ -42,14 +42,14 @@
 		</foreach>
 	</update>
 	<update id="expireUpdateAll">
-		update ds_order set expire_date = add_months(start_date, use_period)
+		update ds_order set expire_date = add_months(start_date, use_period) -1
 		where order_no in
 		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
 			#{item}
 		</foreach>
 	</update>
 	<update id="expireUpdateOne" parameterType="long">
-		update ds_order set expire_date = add_months(start_date, use_period)
+		update ds_order set expire_date = add_months(start_date, use_period) -1
 		where order_no = #{order_no}
 	</update>
 	<update id="cancelAll">
