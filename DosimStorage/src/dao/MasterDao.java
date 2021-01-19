@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import model.Master;
 import model.MasterOrderView;
+import model.Storage_list;
 
 public class MasterDao {
 
@@ -217,5 +218,10 @@ public class MasterDao {
 	@SuppressWarnings("unchecked")
 	public List<MasterOrderView> brCancelList(Map<String, Integer> map) {		
 		return session.selectList("masterOrderViewns.brCancelList", map);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Storage_list> stList(List<String> br_list) {		
+		return session.selectList("storage_listns.stList", br_list);
 	}	
 }
