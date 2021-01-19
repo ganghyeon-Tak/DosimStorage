@@ -69,7 +69,7 @@ h3 {
 			<img class="g" src="images/phone.png" alt="">
 			<div class="b_desc">
 				<p class="title"><b>Contact</b></p>
-				<p>TEL 02-231-5674</p>				
+				<p>TEL 02-123-4567</p>				
 				<p>EMAIL gwang@dosim.kr</p>
 			</div>
 		</div>
