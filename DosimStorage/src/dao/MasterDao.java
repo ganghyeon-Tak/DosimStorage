@@ -231,5 +231,31 @@ public class MasterDao {
 
 	public int insSt(Map<String, String> code2) {		
 		return session.insert("storage_listns.insSt", code2);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Storage_list> clList() {		
+		return session.selectList("storage_listns.clList");
+	}
+
+	public int closuerSt(String st_code) {		
+		return session.update("storage_listns.closuerSt", st_code);
+	}
+
+	public int closuerStList(List<String> list) {		
+		return session.update("storage_listns.closuerStList", list);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Storage_list> opList() {		
+		return session.selectList("storage_listns.opList");
+	}
+
+	public int openSt(String st_code) {		
+		return session.update("storage_listns.openSt", st_code);
+	}
+
+	public int openStList(List<String> list) {
+		return session.update("storage_listns.openStList", list);
 	}	
 }

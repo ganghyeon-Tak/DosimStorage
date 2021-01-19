@@ -56,14 +56,14 @@
 			<th>주문일</th>
 			<th>지점명</th>
 			<th>서비스종류</th>
-			<th>이용시작일</th>
+			<th>이용희망일</th>
 			<th>이용개월</th>
 			<th>주문총액</th>
 			<th>주문상태</th>
 		</tr>
 		<c:if test="${empty list }">
 			<tr>
-				<td colspan="6">신청 내역이 없습니다</th>
+				<td colspan="6">신청 내역이 없습니다</td>
 			</tr>
 		</c:if>
 		<c:if test="${not empty list }">

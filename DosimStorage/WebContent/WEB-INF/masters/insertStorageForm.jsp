@@ -25,9 +25,9 @@
 			<p><label for="st2">medium</label><input id="st2" type="radio" name="st" value="m"></p>
 			<p><label for="st3">large</label><input id="st3" type="radio" name="st" value="l"></p>
 			<br>
-			<h3>수량</h3>
+			<h3>수량 입력</h3>
 			<p>한 번에 추가 가능한 수량은 99개 까지입니다</p>
-			<input type="number" max="99" min="1" name="num">
+			<input type="number" max="99" min="1" name="num" required="required">
 			<br><br>
 			<button>추가하기</button>
 		</form>

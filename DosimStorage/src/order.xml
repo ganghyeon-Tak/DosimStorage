@@ -70,7 +70,7 @@
 			#{item}
 		</foreach>
 	</update>
-	<select id="wholeList" resultType="long">
+	<select id="wholeList" resultType="long" flushCache="true" useCache="false">
 		select order_no from ds_order where order_state in ('입금대기', '입금완료')
 	</select>	
 </mapper>

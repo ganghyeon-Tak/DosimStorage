@@ -25,17 +25,41 @@
 	<update id="restore" parameterType="string">
 		update DS_STORAGE_LIST set borrower_id = null, usable = 'y' where st_code = {st_code}
 	</update>
-	<select id="stList" resultType="storage_list">
-		select * from DS_STORAGE_LIST where b_code in
+	<select id="stList" resultType="storage_list" flushCache="true" useCache="false">
+		select * from DS_STORAGE_LIST where (borrower_id != '폐쇄' or borrower_id is null) and b_code in
 		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
 			#{item}
 		</foreach>
 		order by s_kind desc, st_code
 	</select>
-	<select id="stCount" parameterType="string" resultType="int">
+	<select id="stCount" parameterType="string" resultType="int" flushCache="true" useCache="false">
 		select count(*) from DS_STORAGE_LIST where substr(st_code, 1, 2) = #{code}
 	</select>
 	<insert id="insSt" parameterType="hashmap">
 		insert into DS_STORAGE_LIST(st_code, b_code, s_kind) values (#{st_code}, #{br}, #{s_kind})
-	</insert>	
+	</insert>
+	<select id="clList" resultType="storage_list" flushCache="true" useCache="false">
+		select * from DS_STORAGE_LIST where rented = 'n' and (borrower_id not in ('입금대기', '폐쇄') or borrower_id is null)
+	</select>
+	<update id="closuerSt" parameterType="string">
+		update DS_STORAGE_LIST set borrower_id = '폐쇄', usable = 'n' where st_code = #{st_code}
+	</update>
+	<update id="closuerStList">
+		update DS_STORAGE_LIST set borrower_id = '폐쇄', usable = 'n' where st_code in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<select id="opList" resultType="storage_list" flushCache="true" useCache="false">
+		select * from DS_STORAGE_LIST where rented = 'n' and usable = 'n' and (borrower_id in ('에러', '폐쇄') or borrower_id is null)
+	</select>
+	<update id="openSt" parameterType="string">
+		update DS_STORAGE_LIST set borrower_id = null, usable = 'y' where st_code = #{st_code}
+	</update>
+	<update id="openStList">
+		update DS_STORAGE_LIST set borrower_id = null, usable = 'y' where st_code in
+		<foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>	
 </mapper>
