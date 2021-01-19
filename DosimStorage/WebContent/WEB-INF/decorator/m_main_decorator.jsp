@@ -58,7 +58,7 @@
 				<li><a href="m_memberList.action">회원관리</a></li>			
 				<li><a href="storageManage.action">창고관리</a>
 					<ul class="sub">
-						<li><a href="#">창고목록</a></li>
+						<li><a href="masterStorageList.action?br=0">창고목록</a></li>
 						<li><a href="#">창고추가</a></li>
 						<li><a href="#">창고삭제</a></li>
 						<li><a href="#">창고관리</a></li>					
