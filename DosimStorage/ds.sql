@@ -557,7 +557,7 @@ end;
 create or replace PROCEDURE total_use_proc
 is
 begin
-   update ds_member set total_use = total_use + 1 where m_id in (select distinct(m_id) from ds_member m, ds_storage_list s where m.m_id = s.borrower_id and m_id not in ('입금대기', '에러'));
+   update ds_member set total_use = total_use + 1 where m_id in (select distinct(m_id) from ds_member m, ds_storage_list s where m.m_id = s.borrower_id and m_id not in ('입금대기', '에러', '폐쇄'));
 end;
 /
 
@@ -565,7 +565,7 @@ end;
 create or replace procedure order_expire
 is
 begin
-    update ds_storage_list set borrower_id = null, rented = 'n' where st_code in (select st_code from ds_order where trunc(expire_date) = trunc(sysdate + 1));
+    update ds_storage_list set borrower_id = null, rented = 'n' where st_code in (select st_code from ds_order where trunc(expire_date) = trunc(sysdate - 1));
 end;
 /
 
