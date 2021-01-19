@@ -41,7 +41,7 @@ h3 {
 <h3>도심창고 판교점</h3>
 <div class="br_container">
 	<div class="img_box">
-		<img alt="" src="images/storage3.jpg">
+		<img alt="" src="images/st3.jpg">
 	</div>
 	<div class="branch">
 		<div class="b_detail">
