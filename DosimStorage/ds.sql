@@ -565,7 +565,7 @@ end;
 create or replace procedure order_expire
 is
 begin
-    update ds_storage_list set borrower_id = null where st_code in (select st_code from ds_order where trunc(expire_date) < trunc(sysdate) and order_state = '입금완료');
+    update ds_storage_list set borrower_id = null, rented = 'n' where st_code in (select st_code from ds_order where trunc(expire_date) = trunc(sysdate + 1));
 end;
 /
 
