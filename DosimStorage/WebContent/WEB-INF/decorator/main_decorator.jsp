@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DOSIM STORAGE</title>
 <style type="text/css">
 	.a {text-align: center;}
 	#log{float: right;}
