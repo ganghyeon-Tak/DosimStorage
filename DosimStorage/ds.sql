@@ -388,6 +388,11 @@ create or replace view master_orderview as
     from ds_order o, ds_storage_list s, ds_member m
     where o.st_code = s.st_code and o.m_id = m.m_id;
 
+
+
+-- 시퀀스 삭제
+drop SEQUENCE order_no_seq;
+
 -- 시퀀스 생성
     	
 	-- 주문번호 시퀀스
@@ -444,31 +449,24 @@ end;
 
 -- 프로시저 생성
 
-    -- 서비스 이용중인 유저 total_use +1 시키는 프로시저
-create or replace PROCEDURE total_use_proc
+    -- 서비스 이용중인 유저 total_use +1 시키고, 이용 만료일이 지난 창고의 borrower_id를 비우는 프로시저
+create or replace procedure totaluse_and_expire
 is
 begin
    update ds_member set total_use = total_use + 1 where m_id in (select distinct(m_id) from ds_member m, ds_storage_list s where m.m_id = s.borrower_id and m_id not in ('입금대기', '에러', '폐쇄'));
-end;
-/
-
-    -- 이용 만료일이 지난 창고의 borrower_id를 비우는 프로시저
-create or replace procedure order_expire
-is
-begin
-    update ds_storage_list set borrower_id = null, rented = 'n' where st_code in (select st_code from ds_order where trunc(expire_date) = trunc(sysdate - 1));
+   update ds_storage_list set borrower_id = null, rented = 'n' where st_code in (select st_code from ds_order where trunc(expire_date) = trunc(sysdate - 1));
 end;
 /
 
 -- job 생성
 
-    -- total_use_proc(사용일+1시키는 프로시저) 매일 자정에 실행시키는 job
+    -- totaluse_and_expire 매일 자정에 실행시키는 job
 DECLARE
     X NUMBER;
 BEGIN
     SYS.DBMS_JOB.SUBMIT
     ( JOB => X,
-    WHAT => 'total_use_proc;',
+    WHAT => 'totaluse_and_expire;',
     NEXT_DATE => SYSDATE,
     INTERVAL => 'TRUNC(SYSDATE) + 1',
     NO_PARSE => false );
@@ -476,19 +474,6 @@ BEGIN
 END;
 /
 
-    -- order_expire(만료일 지난 주문 처리 프로시저) 매일 자정에 실행시키는 job
-DECLARE
-    X NUMBER;
-BEGIN
-    SYS.DBMS_JOB.SUBMIT
-    ( JOB => X,
-    WHAT => 'order_expire;',
-    NEXT_DATE => SYSDATE,
-    INTERVAL => 'TRUNC(SYSDATE) + 1',
-    NO_PARSE => false );
-    commit;
-END;
-/
 
     -- job 지우는 법
     -- select * from user_jobs; << 이걸로 현재 만들어진 job 목록을 볼 수 있다
