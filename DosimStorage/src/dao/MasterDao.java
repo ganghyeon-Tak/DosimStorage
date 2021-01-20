@@ -263,5 +263,13 @@ public class MasterDao {
 	@SuppressWarnings("unchecked")
 	public List<Member> memberList() {		
 		return session.selectList("memberns.memberList");
+	}
+
+	public int chkOne(String st_code) {		
+		return (int)session.selectOne("storage_listns.chkOne", st_code);
+	}
+
+	public int chkList(List<String> list) {		
+		return (int)session.selectOne("storage_listns.chkList", list);
 	}	
 }

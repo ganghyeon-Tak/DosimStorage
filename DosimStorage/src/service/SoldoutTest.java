@@ -27,8 +27,9 @@ public class SoldoutTest implements CommandProcess {
 		Storage_list sl = new Storage_list();
 		sl.setB_code(branch);
 		sl.setS_kind(storage);
+		int num = od.countUsable(sl);
 		String st_code = "";
-		for(int i = 0; i<9; i++) {
+		for(int i = 0; i<num - 1; i++) {
 			st_code = od.sel_st(sl);
 			result1 += od.update_st(st_code);
 			Order ord = new Order();

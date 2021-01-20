@@ -20,7 +20,7 @@
 		text-align: left;
 		margin: 0; padding: 5px
 	}
-	#submit {  
+	.submit {  
 		background-color: transparent;
   		cursor: pointer;
   		border: none;
@@ -33,7 +33,7 @@
   		border-radius: 5px;
   		font-family: 'Noto Serif KR', serif;
 	}
-	#submit:hover {background-color: #DF964A;}
+	.submit:hover {background-color: #DF964A;}
 	.buttons {
 		background-color: transparent;
 		padding: 0;
@@ -44,14 +44,17 @@
 <title>신청하기</title>
 </head>
 <body>
+<!-- 시연용. 히든버튼 표시하는 체크박스 -->
+<input type="checkbox" id="test" onclick="toggle()">
 <div class="container">
 <!-- 매진된 창고-지점 표시(hidden) -->
-<input type="text" readonly="readonly" id="soldout" style="width: 70%" hidden="hidden">	
+<input type="text" readonly="readonly" id="soldout" style="width: 70%" hidden="hidden" class="hid">	
 	<form action="order.do" method="post" name="order_form">
 	<!-- 창고선택과 이용기간선택이 끝나면 총 금액 계산값 가져오는 곳(hidden) -->	
-	<input type="text" id="tot_price" readonly="readonly" name="tot_price" hidden="hidden">
+	<input type="text" id="tot_price" readonly="readonly" name="tot_price" hidden="hidden" class="hid">
 		<div class="inner_container">
 			<h2>지점 선택</h2>
+			
 			<!-- 라디오버튼 조작하는 스위치버튼 -->		
 			<button type="button" class="buttons" onclick="select_branch(1)" ondrag="select_branch(1)" >
 				<img id="br_button1" src="images/b1.png" width="300">
@@ -63,9 +66,9 @@
 				<img id="br_button3" src="images/b3.png" width="300">
 			</button>
 			<!-- 실제 데이터 전달하는 라디오버튼(hidden) -->
-			<input type="radio" name="branch" value="1" id="select_1" required="required" hidden="hidden">
-			<input type="radio" name="branch" value="2" id="select_2" required="required" hidden="hidden">
-			<input type="radio" name="branch" value="3" id="select_3" required="required" hidden="hidden">		
+			<input type="radio" name="branch" value="1" id="select_1" required="required" hidden="hidden" class="hid">
+			<input type="radio" name="branch" value="2" id="select_2" required="required" hidden="hidden" class="hid">
+			<input type="radio" name="branch" value="3" id="select_3" required="required" hidden="hidden" class="hid">		
 			<h2>창고 종류 선택</h2>
 			<!-- 라디오버튼 조작하는 스위치버튼 -->
 			<button type="button" class="buttons" onclick="select_storage('small')" ondrag="select_storage('small')">
@@ -78,9 +81,9 @@
 				<img id="st_button3" src="images/s3.png" width="300">
 			</button>
 			<!-- 실제 데이터 전달하는 라디오버튼(hidden) -->		
-			<input type="radio"  name="storage" value="small" id="select_small" required="required" hidden="hidden">
-			<input type="radio" name="storage" value="medium" id="select_medium" required="required" hidden="hidden">
-			<input type="radio" name="storage" value="large" id="select_large" required="required" hidden="hidden">
+			<input type="radio"  name="storage" value="small" id="select_small" required="required" hidden="hidden" class="hid">
+			<input type="radio" name="storage" value="medium" id="select_medium" required="required" hidden="hidden" class="hid">
+			<input type="radio" name="storage" value="large" id="select_large" required="required" hidden="hidden" class="hid">
 			<table>
 				<tr>
 					<td colspan="2"><h2>이용시작일 선택</h2></td>
@@ -144,8 +147,9 @@
 				</tr>
 				<tr>
 					<td colspan="2">						
-						<button id="submit">신청하기</button>
-						<!-- <input type="submit" id="submit" value="매진테스트(9회주문)" onclick="javascript: form.action='soldoutTest.do'"> -->
+						<button class="submit">신청하기</button>
+						<!-- 매진테스트용 -->
+						<input type="submit" class="submit hid" value="매진테스트(매진 직전까지 반복주문)" onclick="javascript: form.action='soldoutTest.do'" hidden="hidden">
 					</td>				
 			</table>	
 		</div>
@@ -153,5 +157,19 @@
 </div>
 <!-- javascript -->
 <script type="text/javascript" src="js/order.js"></script>
+<script type="text/javascript">
+	function toggle() {
+			var hid = document.getElementsByClassName('hid');
+		if (document.getElementById('test').checked == true) {			
+			for (var i in hid) {
+				hid[i].hidden = false;
+			}
+		} else {			
+			for (var i in hid) {
+				hid[i].hidden = true;
+			}
+		}
+	}
+</script>
 </body>
 </html>

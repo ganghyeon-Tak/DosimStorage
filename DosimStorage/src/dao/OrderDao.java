@@ -65,5 +65,7 @@ public class OrderDao {
 	public void restore(String st_code) {
 		session.update("storage_listns.restore", st_code);
 	}
-	
+	public int countUsable(Storage_list sl) {		
+		return (int)session.selectOne("storage_listns.countUsable", sl);
+	}	
 }
