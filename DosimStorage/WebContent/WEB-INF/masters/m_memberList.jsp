@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="m_sessionChk.jsp" %>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">

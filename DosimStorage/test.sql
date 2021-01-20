@@ -8,7 +8,7 @@ BEGIN
     SYS.DBMS_JOB.SUBMIT
     ( JOB => X,
     WHAT => 'totaluse_and_expire;',
-    NEXT_DATE => sysdate + 1/24/60/15,
+    NEXT_DATE => sysdate + 4/24/60,
     INTERVAL => null,
     NO_PARSE => false );
     commit;
