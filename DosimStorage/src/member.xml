@@ -26,4 +26,7 @@
 	<update id="delete" parameterType="string">
 		update ds_member set m_del='y' where m_id=#{m_id}
 	</update>
+	<select id="memberList" resultType="member" flushCache="true" useCache="false">
+		select * from ds_member where m_id not in ('master', '에러', '입금대기', '폐쇄')
+	</select>
 </mapper>

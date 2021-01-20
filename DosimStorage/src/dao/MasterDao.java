@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import model.Master;
 import model.MasterOrderView;
+import model.Member;
 import model.Storage_list;
 
 public class MasterDao {
@@ -257,5 +258,10 @@ public class MasterDao {
 
 	public int openStList(List<String> list) {
 		return session.update("storage_listns.openStList", list);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Member> memberList() {		
+		return session.selectList("memberns.memberList");
 	}	
 }

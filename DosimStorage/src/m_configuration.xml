@@ -17,7 +17,8 @@
 	<typeAlias alias="service" type="model.Service"/>
 	<typeAlias alias="order" type="model.Order"/>
 	<typeAlias alias="board1" type="model.Board1"/>
-	<typeAlias alias="masterOrderView" type="model.MasterOrderView"/>	
+	<typeAlias alias="masterOrderView" type="model.MasterOrderView"/>
+	<typeAlias alias="member" type="model.Member" />	
 </typeAliases>
 <environments default="development">
 	<environment id="development">
@@ -39,6 +40,7 @@
 	<mapper resource="service.xml" />
 	<mapper resource="order.xml" />
 	<mapper resource="board1.xml" />
-	<mapper resource="masterOrderView.xml" />	
+	<mapper resource="masterOrderView.xml" />
+	<mapper resource="member.xml" />	
 </mappers>
 </configuration>
